@@ -1,0 +1,373 @@
+\chapter{Jan.~14 --- Applications of Schur-Weyl Duality}
+
+\section{The Schur Functor}
+
+\begin{remark}
+  Let $V$ be the defining
+  representation for $\GL_n$. Then
+  \[
+    V^{\otimes N}
+    = \bigoplus_{\lambda : |\lambda| = N} L_\lambda \otimes \pi_\lambda.
+  \]
+  Recall that if
+  $\lambda = (\lambda_1, \dots, \lambda_n)$, then
+  we have
+  \[
+    \lambda_1 = m_1 + \dots + m_n,
+    \quad \lambda_2 = m_2 + \dots + m_n, \quad \dots, \quad
+    \lambda_n = m_n.
+  \]
+\end{remark}
+
+\begin{definition}
+  Suppose we are given the
+  partition $\lambda$ of $N$.
+  The \emph{Schur functor} $S^\lambda$
+  is given by
+  \[
+    S^\lambda V
+    = \Hom_{S_N}(\pi_\lambda, V^{\otimes N})
+  \]
+  for a vector space $V$.
+  Note that this language, we have
+  $V^{\otimes N} = \bigoplus_\lambda S^\lambda V \otimes \pi_\lambda$.
+\end{definition}
+
+\begin{example}
+  Consider the following:
+  \begin{enumerate}
+    \item $S^{(n)} V = S^n V$, where
+      $(n)$ is the partition
+      of $n$ with a single part.
+    \item $S^{(1^n)} V = \wedge^n V$, where
+      $(1^n)$ is the partition of $n$
+      with $n$ parts equal to $1$.
+    \item $V \otimes V = S^{(2)} V \otimes \C_+ \oplus S^{(1, 1)} V \otimes \C_-$,
+      where $\C_2$ acts trivially on
+      $\C_+$ and
+      by the sign on $\C_-$.
+    \item $V \otimes V \otimes V = S^{(3)} V \otimes \C_+ \oplus S^{(2, 1)} V \otimes \C^2 \oplus S^{(1, 1, 1)} V \otimes \C_-$,
+      where $S_3$ acts trivially
+      on $\C_+$ and by sign on
+      $\C_-$ as before, and
+      $\C^2 = \{(x, y, z) : x + y + z = 0\}$.
+
+      Note that $V \otimes V = S^2 V \oplus \wedge^2 V$, so
+      $S^2 V \otimes V = S^3 V \oplus S^{(2, 1)} V$ and
+      $\wedge^2 V \otimes V = \wedge^3 V \oplus S^{(2, 1)} V$.
+  \end{enumerate}
+\end{example}
+
+\begin{remark}
+  Let $\dim V = N$ and $\lambda$ have
+  $k$ parts.
+  Recall that by the Weyl dimension
+  formula,
+  \[
+    \dim L_\lambda
+    = \frac{\prod_{\alpha \in R_+} (\alpha, \lambda + \rho)}{\prod_{\alpha \in R_+} (\alpha, \rho)}.
+  \]
+  We have
+  $R_+ = \{\alpha_{i, j} = e_i - e_j : i < j\}$
+  and $\rho = \sum_{i = 1}^{N - 1} \omega_i = (N - 1, N - 2, \dots, 1, 0)$
+  (recall that $\omega_i$ is $i$
+  ones followed by zeros). Thus we
+  see that
+  \[
+    \dim S^\lambda V
+    = \prod_{1 \le i < j \le N} \frac{\lambda_i - \lambda_j + j - i}{j - i}
+    = \prod_{1 \le i < j \le k} \frac{\lambda_i - \lambda_j + j - i}{j - i}
+    \prod_{1 \le i < k < j \le N}
+    \frac{\lambda_i + j - i}{j - i}.
+  \]
+  We can rewrite the second product as
+  \[
+    \prod_{1 \le < k < j \le N}
+    \frac{\lambda_i + j - i}{j - i}
+    = \prod_{i = 1}^k
+    \frac{(N + 1 - i) \cdots (N + \lambda_i - i)}{(k + 1 - i) \cdots (k + \lambda_i - i)}.
+  \]
+\end{remark}
+
+\begin{prop}
+  We have $\dim S^\lambda V = P_\lambda(N)$,
+  where $P_\lambda$ is a polynomial
+  of degree $|\lambda|$ with rational
+  coefficients and integer roots.
+  The roots of $P_\lambda$ are all
+  integers from the interval
+  $[1 - \lambda_1, k - 1]$
+  (occurring with multiplicities).
+\end{prop}
+
+\begin{example}
+  Let $P_n(N)$ correspond to $S^n V$.
+  Then $\lambda_1 = n$ and $k = 1$, and
+  \[
+    P_n(N)
+    = \dim S^n V
+    = \binom{N + n - 1}{n}.
+  \]
+  Similarly, one can see that
+  \[
+    P_{1^n}(N)
+    = \dim \wedge^n V = \binom{N}{n}.
+  \]
+  One can also consider
+  $P_{(a, b)}(N)$ corresponding
+  to partitions with
+  two parts.
+  The values $P_{(a, n)}(N)$
+  are called the
+  Narayana numbers, which are of use
+  in combinatorics.
+\end{example}
+
+\section{Invariant Theory}
+
+\begin{remark}
+  Let $V$ be a finite-dimensional
+  vector space and
+  $\{T_i\} \in (V^*)^{\otimes m_i} \otimes V^{\otimes n_i}$
+  for $i = 1, \dots, k$. One would
+  like to characterize \emph{invariants}
+  of such collections, i.e.
+  polynomial functions
+  $F(T_1, \dots, T_k)$ which are
+  invariant under the action of
+  $\GL(V)$.
+
+  One can think of such a tensor
+  in $(V^*)^{\otimes m_i} \otimes V^{\otimes n_i}$
+  as a vertex with $m_i$ incoming
+  edges and $n_i$ outgoing edges.
+  Then constructing invariants
+  $\{T_i\}$ reduces to studying
+  graphs where $T_i$ corresponds to
+  a vertex $v_i$ of the graph $\Gamma$.
+  This allows us to assign to a given
+  graph an invariant function
+  $F_{\Gamma}$.
+\end{remark}
+
+\begin{theorem}
+  The functions $F_\Gamma$
+  for various $\Gamma$ span the
+  space of invariant functions.
+\end{theorem}
+
+\begin{proof}
+  We can view an invariant as an
+  invariant element of the space
+  $\bigotimes_{i = 1}^k ((V^*)^{\otimes m_i} \otimes  V^{\otimes n_i})$,
+  which we can view as
+  $\End_{\GL(n)}(V^{\otimes M}, V^{\otimes N})$,
+  where $M = \sum d_i m_i$ (the number
+  of incoming edges) and
+  $N = \sum d_i n_i$ (the number of
+  outgoing edges).
+  Note that this space is empty
+  when $M \ne N$, and the
+  statement follows by Schur-Weyl
+  duality when $M = N$.
+\end{proof}
+
+\begin{example}
+  Let $m_i = n_i = 1$. Then
+  $T_1, \dots, T_k$ are matrices.
+  Then the graph $\Gamma$ must look
+  like a cycle, hence the invariants
+  are all of the form
+  \[
+    F_{j_1, \dots, j_r}
+    (T_1, \dots, T_k)
+    = \tr(T_{j_1} \cdots T_{j_r}).
+  \]
+  Note that these invariants
+  are asymptotically algebraically
+  independent (when $V$ is large enough).
+  In particular,
+  if $P(T_1, \dots, T_k) = 0$ in
+  all dimensions, then
+  $\tr(P(T_1, \dots, T_k) T_{k + 1}) = 0$,
+  which cannot be true as the trace
+  decomposes in terms of
+  the $F_{j_1, \dots, j_r}$.
+  (However, note that
+  $[X, Y] = 0$ for $1 \times 1$
+  matrices and
+  $[Z, [X, Y]^2] = 0$ for
+  $2 \times 2$ matrices.)
+  This also implies the uniqueness
+  of the $\mu_n$ in the BCH formula:
+  \[
+    \log (\exp(x) \exp(y))
+    = \sum_{n \ge 1} \frac{\mu_n(x, y)}{n!}.
+  \]
+\end{example}
+
+\section{Weyl Character Formula for \texorpdfstring{$\GL_n$}{GLn}}
+
+\begin{remark}[Weyl character formula for $\GL_n$]
+  Recall that Weyl's character formula
+  gives
+  \[
+    \chi_{\lambda}
+    = \frac{\sum_{w \in W} (-1)^{\ell(w)} e^{w(\lambda + \rho)}}
+    {\sum_{\alpha \in R_+} (e^{\alpha / 2} - e^{-\alpha / 2})}, \tag{$*$}
+  \]
+  where the denominator
+  is $\Delta = \prod_{\alpha \in R_+} (e^{\alpha / 2} - e^{-\alpha / 2}) = \prod_{w \in W} (-1)^{\ell(w)} e^{w(\rho)}$.
+  Letting $\rho = \frac{1}{2} \sum_{\alpha \in R_+} \alpha$,
+  \[
+    \Delta = e^\rho \prod_{\alpha \in R_+} (1 - e^{-\alpha})
+    = x_1^{n - 1} x_2^{n - 2} \cdots x_n^0
+    \prod_{i < j} (1 - x_j / x_i),
+  \]
+  where $\rho = (n - 1, n - 2, \dots, 1, 0)$
+  and $x_i = e^{e_i}$ (e.g.
+  $x_1 = e^{(1, 0, \dots, 0)}$).
+  After multiplying we get that
+  \[
+    \Delta = \prod_{i < j} (x_i - x_j).
+  \]
+  On the other hand, using
+  $\Delta = \prod_{w \in W} (-1)^{\ell(w)} e^{w(\rho)}$,
+  we have
+  \[
+    \Delta = \sum_{w \in W} (-1)^{\ell(w)} e^{w(\rho)}
+    = \sum_{s \in S_n} \sign(s) x^{n - 1}_{s(1)} \cdots x^0_{s(n)}.
+  \]
+  Comparing these two formulas,
+  we recover the formula for the
+  Vandermonde determinant:
+  \[
+    \det(\{x_j^{n - i}\}_{1 \le i, j \le n})
+    = \sum_{s \in S_n} \sign(s) x^{n - 1}_{s(1)} \cdots x^0_{s(n)}
+    = \prod_{i < j} (x_i - x_j).
+  \]
+  Now applying this to the numerator of
+  $(*)$, we have
+  \[
+    \sum_{w \in W} (-1)^{\ell(w)} e^{w(\lambda + \rho)}
+    = \sum_{s \in S_n} \sign(s) x^{\lambda_1 + n - 1}_{s(1)} \cdots x^{\lambda_n + 0}_{s(n)}.
+  \]
+  Thus in total, the
+  character $\chi_{\lambda}$ is given by
+  \[
+    \chi_{\lambda}
+    = \frac{\sum_{s \in S_n} \sign(s) x^{\lambda_1 + n - 1}_{s(1)} \cdots x^{\lambda_n + 0}_{s(n)}}
+    {\prod_{i < j} (x_i - x_j)}
+    = \frac{\det(\{x_i^{\lambda_j + n - i}\})}{\prod_{i < j} (x_i - x_j)}.
+  \]
+  These functions are known as the
+  \emph{Schur polynomials}
+  $s_\lambda(x_1, \dots, x_n)$.
+\end{remark}
+
+\begin{example}[Character of $S^{(n)} V$]
+  Using the above formula, we get the identity
+  \[
+    s_{(m)}(x_1, \dots, x_n)
+    = \sum_{1 \le j_1 \le \cdots \le j_m \le n} x_{j_1} \cdots x_{j_m}
+    = h_m(x_1, \dots, x_m),
+  \]
+  the $m$th complete symmetric function.
+\end{example}
+
+\begin{example}[Character of $\lambda^n V$]
+  Similarly, one gets the identity
+  \[
+    s_{(1^m)}(x_1, \dots, x_n)
+    = \sum_{1 \le j_1 < \cdots < j_m \le n} x_{j_1} \cdots x_{j_m}
+    = e_m(x_1, \dots, x_m),
+  \]
+  the $m$th elementary symmetric function.
+\end{example}
+
+\begin{example}[Trace in $V^{\otimes N}$]
+  Consider $x \otimes \sigma$, where
+  $x = \diag(x_1, \dots, x_n)$ and
+  $\sigma$ has $m_i$ cycles of
+  length $i$. Then we have
+  \[
+    \tr_{V^{\otimes N}}(x \otimes \sigma)
+    = \prod_i (x_1^i + \dots + x_n^i)^{m_i}.
+  \]
+  By Schur-Weyl duality, we have that
+  \[
+    \tr_{V^{\otimes N}}(x \otimes \sigma)
+    = \sum_{\lambda} \chi_{\lambda}(\sigma) s_\lambda(x)
+    = \prod_i (x_1^i + \dots + x_n^i)^{m_i}.
+  \]
+  Using the formula for the Schur
+  polynomial, we get the identity
+  \[
+    \sum_{\lambda} \chi_\lambda(\sigma)
+    \det(\{x_i^{\lambda_j + N - j}\})
+    = \prod_{i < j} (x_i - x_j)
+    \prod_i (x_1^i + \dots + x_n^i)^{m_i}.
+  \]
+\end{example}
+
+\begin{theorem}[Frobenius character formula]
+  $\chi_\lambda(\sigma)$ is the
+  coefficient of $x_1^{\lambda_1 + N - 1} \cdots x_N^{\lambda_N}$
+  in the polynomial
+  \[\prod_{i < j} (x_i - x_j) \prod_i (x_1^i + \dots + x_n^i)^{m_i}.\]
+\end{theorem}
+
+\section{Howe Duality}
+
+\begin{remark}
+  Fix $V, W$ and consider
+  $S^n(V \otimes W)$, which
+  is a representation of
+  $\GL(V) \otimes \GL(W)$.
+\end{remark}
+
+\begin{theorem}[Howe duality]
+  We have a decomposition
+  \[
+    S^n(V \otimes W)
+    = \bigoplus_{\lambda : |\lambda| = n} S^\lambda V \otimes S^\lambda W.
+  \]
+\end{theorem}
+
+\begin{proof}
+  We can write
+  \[
+    S^n(V \otimes W)
+    = ((V \otimes W)^{\otimes n})^{S_n}
+    = (V^{\otimes n} \otimes W^{\otimes n})^{S_n}.
+  \]
+  Using Schur-Weyl duality for each
+  part, we get that
+  \begin{align*}
+    S^n(V \otimes W)
+    &= \Bigg(\Big(\bigoplus_{\lambda : |\lambda| = n} S^\lambda V \otimes \pi_\lambda\Big)
+    \otimes 
+    \Big(
+      \bigoplus_{\mu : |\mu| = n}
+      S^\mu W \otimes \pi_{\mu}
+    \Big)\Bigg)^{S_n} \\
+    &= \bigoplus_{\lambda, \mu : |\lambda| = |\mu| = n}
+    S^{\lambda} V \otimes
+    S^{\mu} W \otimes (\pi_\lambda \otimes \pi_\mu)^{S_n}.
+  \end{align*}
+  Since $\pi_\lambda = \pi_{\lambda}^*$,
+  by Schur's lemma we have
+  $(\pi_\lambda \otimes \pi_\mu)^{S_n} = \C^{\delta_{\lambda, \mu}}$.
+\end{proof}
+
+\begin{corollary}[Cauchy identity]
+  Let $x = (x_1, \dots, x_r)$ and
+  $y = (y_1, \dots, y_s)$. Then
+  \[
+    \sum_\lambda
+    s_\lambda(x) s_\lambda(y)
+    z^{|\lambda|}
+    = \prod_{i = 1}^r \prod_{j = 1}^s
+    \frac{1}{1 - z x_i y_i}.
+  \]
+\end{corollary}

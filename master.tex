@@ -1,0 +1,135 @@
+\documentclass[12pt, letterpaper, oneside]{book}
+\usepackage[margin={0.6in, 0.75in}]{geometry}
+\usepackage{microtype}
+% \usepackage{kpfonts}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{parskip}
+\usepackage[many]{tcolorbox}
+\usepackage{footnote}
+\usepackage{cancel}
+\usepackage{titlesec}
+\usepackage{pgffor}
+\usepackage[shortlabels, inline]{enumitem}
+\usepackage{hyperref}
+\usepackage{tikz-cd}
+\usepackage{etoolbox}
+\usepackage{dynkin-diagrams}
+
+\def\row#1/#2!{#1_{\IfStrEq{#2}{}{n}{#2}} & \dynkin{#1}{#2}\\}
+\newcommand{\tble}[1]{
+   \renewcommand*\do[1]{\row##1!}
+   \[
+      \begin{array}{ll}\docsvlist{#1}\end{array}
+   \]
+}
+
+\usepackage[overload]{textcase}
+
+\renewcommand{\chaptername}{Lecture}
+\newtheorem{axiom}{Axiom}[chapter]
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{prop}{Proposition}[chapter]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem{conjecture}{Conjecture}[theorem]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{exercise}{Exercise}[chapter]
+\newtheorem{example}{Example}[definition]
+\newtheorem*{remark}{Remark}
+
+\tcbset{sharp corners, breakable, enhanced, parbox=false}
+\newtcolorbox{mybox}[3][]
+{
+  colframe = #2!150,
+  colback  = #2!5,
+  coltitle = #2!0!white,  
+  title    = {#3},
+  #1,
+}
+
+\titleformat{\chapter}[display]
+    {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{0pt}{40pt}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\Ocal}{\mathcal{O}}
+\newcommand{\ZZ}{\mathcal{Z}}
+\newcommand{\HH}{\mathcal{H}}
+\newcommand{\g}{\mathfrak{g}}
+\newcommand{\gl}{\mathfrak{gl}}
+\newcommand{\slg}{\mathfrak{sl}}
+\newcommand{\Mod}[1]{\ {\mathrm{mod}\ #1}}
+\newcommand{\Pmod}[1]{\ (\mathrm{mod}\ #1)}
+
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\id}{Id}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\SU}{SU}
+\DeclareMathOperator{\U}{U}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\OO}{O}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\B}{B}
+\DeclareMathOperator{\Char}{char}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Bilin}{Bilin}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\refl}{refl}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Fun}{Fun}
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\triv}{triv}
+\DeclareMathOperator{\Path}{Path}
+\DeclareMathOperator{\Wt}{Wt}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\SYT}{SYT}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Stab}{Stab}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\Lie}{Lie}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Der}{Der}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Gr}{Gr}
+\DeclareMathOperator{\sym}{sym}
+\DeclareMathOperator{\height}{ht}
+
+\title{MATH 8803: Representation Theory II}
+\author{Frank Qiang\\Instructor: Anton Zeitlin}
+\date{Georgia Institute of Technology\\Spring 2026}
+
+\begin{document}
+  \maketitle
+
+  \begingroup
+  \let\cleardoublepage\clearpage
+  \tableofcontents
+  \endgroup
+
+  % \foreach \i in {00, 01, 02, 03, 04, ..., 50} {%
+  %   \edef\FileName{lectures/lecture\i.tex}%     The % here are necessary to eliminate any
+  %   \IfFileExists{\FileName}{%  spurious spaces that may get inserted
+  %      \input{\FileName}%       at these points
+  %   }
+  % }
+  \input{lectures/lecture01.tex}
+  \input{lectures/lecture02.tex}
+\end{document}
