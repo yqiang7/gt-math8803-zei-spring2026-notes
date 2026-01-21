@@ -1,0 +1,359 @@
+\chapter{Jan.~21 --- Miniscule Weights}
+
+\section{Miniscule Weights}
+
+\begin{remark}
+  Let $\g$ be a simple complex
+  Lie algebra.
+\end{remark}
+
+\begin{definition}
+  A dominant integral weight
+  $\omega$ for $\g$ is called
+  \emph{miniscule} if
+  $\langle \omega, \beta \rangle \le 1$
+  for every positive coroot $\beta$
+  (equivalently, if
+  $|\langle \omega, \alpha \rangle| \le 1$
+  for any coroot $\beta$).
+\end{definition}
+
+\begin{example}
+  Clearly $\omega = 0$
+  is miniscule.
+\end{example}
+
+\begin{example}
+  Let $\g = \mathfrak{sl}_n$ with
+  fundamental weights
+  $\{\omega_i\}_{i = 1}^{n - 1}$,\footnote{Recall a \emph{fundamental weight} is a weight $\omega_i$ such that $\langle \omega_i, \alpha_j^\vee \rangle = \delta_{i, j}$ for all simple coroots $\alpha_j^\vee$.}
+  where
+  \[
+    \omega_i
+    = (\underbrace{1, \dots, 1}_{i \text{ ones}}, 0, \dots, 0)
+  \]
+  Let $\alpha_{i, j} = \alpha_{i, j}^\vee = e_i - e_j$.
+  Note that $\langle \omega_i, e_j - e_k \rangle = 0$
+  when $j, k \le i$ or $j, k > i$, and
+  $\langle \omega_i, e_j - e_k \rangle = 1$
+  when $j \le i < k$.
+  So all of the $\omega_i$
+  are miniscule in this case.
+\end{example}
+
+\begin{lemma}
+  Every nonzero miniscule weight
+  is fundamental.
+\end{lemma}
+
+\begin{proof}
+  Suppose $\omega$ is miniscule.
+  Then there exists $i$ with
+  $\langle \omega, \alpha_i^\vee \rangle = 1$.
+  Moreover, there can only be one
+  such $i$, since if there were
+  many, then
+  $\langle \omega, \theta^\vee \rangle \ge 2$,
+  where $\theta^\vee$ is the longest
+  coroot (i.e.
+  if $\theta = \sum_{m_i > 0} m_i \alpha_i$ is
+  the longest root, then
+  $\theta^\vee = \sum_{m_i > 0} m_i \alpha_i^\vee$).
+  So $\omega$ is necessarily
+  fundamental.
+\end{proof}
+
+\begin{example}
+  For $G_2$, $F_4$, and $F_8$, none
+  of the fundamental weights are
+  miniscule.
+\end{example}
+
+\begin{lemma}
+  A fundamental weight $\omega_i$
+  is miniscule if and only if
+  $m_i = 1$ where
+  $\theta^\vee = \sum_j m_j \alpha_j^\vee$.
+\end{lemma}
+
+\begin{proof}
+  By the miniscule condition, we
+  know $m_i \le 1$. If $m_i = 1$, then for
+  any positive coroot $\beta = \sum n_j \alpha_j^\vee$
+  we have $n_j \le m_j$, so
+  $n_i \le 1$. Thus
+  $\langle \omega_i, \beta \rangle = n_i \le 1$, so
+  $\omega_i$ is miniscule.
+\end{proof}
+
+\begin{lemma}\label{lem:miniscule_zero}
+  If $\omega \in Q$ with
+  $|\langle \omega, \beta \rangle| \le 1$
+  for all coroots $\beta$, then
+  $\omega = 0$.
+\end{lemma}
+
+\begin{proof}
+  Assume to the contrary that
+  $\omega = \sum_i \alpha_i \ne 0$.
+  We may assume that
+  $\sum_i |m_i|$ is smallest possible.
+  Then
+  $0 < (\omega, \omega) = \sum_{i} m_i(\omega, \alpha_i)$,
+  since the form is positive definite.
+  Thus there exists $j$ such that
+  $m_j$ and $\langle \omega, \alpha_j^\vee \rangle$
+  have the same sign.
+  By replacing $\omega$ with $-\omega$
+  if necessary, we may assume both
+  are positive. Then
+  $\langle \omega, \alpha_j^\vee \rangle = 1$.
+  Consider the reflection
+  $s_j(\omega) = \omega - \alpha_j = \sum_i m_i' \alpha_i$.
+  So $m_i' = m_j - 1$ and
+  $m_i' = m_i$. But then
+  $\sum_i |m_i'| = \sum_i |m_i| - 1 < \sum_i |m_i|$,
+  contradicting the minimality
+  of $\omega$.
+\end{proof}
+
+\begin{prop}
+  The following conditions are
+  equivalent:
+  \begin{enumerate}
+    \item $\omega$ is miniscule;
+    \item all weights of
+      $L_\omega$ belong to the
+      Weyl orbit $W \omega$;
+    \item if $\lambda$ is a dominant
+      integral weight such that
+      $\omega - \lambda \in Q_+$, then
+      $\lambda = \omega$.
+  \end{enumerate}
+\end{prop}
+
+\begin{proof}
+  $(1 \Rightarrow 3)$
+  If $\omega = 0$, then
+  $-\lambda \in Q_+$, so
+  $(\lambda, \rho) \le 0$
+  where $\rho = \sum_{i = 1}^r \omega_i$,
+  so $\lambda = 0$. Now let
+  $\omega = \omega_i$ be miniscule.
+  Then $\omega_i - \lambda = \sum_k m_k \alpha_k$
+  with $m_k \ge 0$. If $m_k = 0$ for
+  $k \ne i$,
+  then the problem reduces to a lower
+  rank Dynkin diagram. So we can
+  assume $m_k > 0$ for every
+  $k \ne i$. Let $\beta$ be a positive
+  coroot, then
+  \[
+    \langle \omega_i - \lambda, \beta\rangle
+    = \langle \omega_i, \beta \rangle
+    - \langle \lambda, \beta \rangle
+    \le \langle \omega_i, \beta \rangle
+    \le 1.
+  \]
+  If $\alpha_i^\vee$ does not
+  occur in $\beta$, then the above is
+  $\le 0$. In particular,
+  we have $\langle \omega_i - \lambda, \alpha_j^\vee \rangle \le 0$
+  for $j \ne i$. If we also have
+  $\langle \omega_i - \lambda, \alpha_i^\vee \rangle \le 0$,
+  then $(\omega_i - \lambda, \omega_i - \lambda) \le 0$,
+  so $\omega_i = \lambda$. Otherwise,
+  $\langle \omega_i - \lambda, \alpha_i^\vee \rangle = 1$.
+  Then $m_j > 0$ for every $j$,
+  so $\langle \omega_i - \lambda, \theta^\vee \rangle \ge 1$, since
+  $\theta^\vee$ is a dominant coweight.
+  Then $\langle \lambda, \theta^\vee \rangle \le 0$,
+  so we must have
+  $\lambda = 0$ since
+  $\theta^\vee$ contains all
+  $\alpha_j^\vee$ with positive
+  coefficients.
+  But then $\omega_i \in Q$, which is
+  impossible by
+  Lemma \ref{lem:miniscule_zero}.
+
+  $(3 \Rightarrow 2)$ If $\mu$ is
+  any weight of $L_\omega$, then
+  there exists $w \in W$ such that
+  $\lambda = w \mu$ is dominant
+  (since every orbit of $W$ intersects
+  the dominant chamber at exactly
+  $1$ point). Then $\omega - \lambda \in Q_+$,
+  so $\lambda = \omega$, hence
+  $\mu = w^{-1} \omega \in W \omega$.
+
+  $(2 \Rightarrow 1)$ Suppose otherwise
+  $\omega$ is not miniscule.
+  Then $\langle \omega, \alpha^\vee \rangle > 1$
+  for some positive coroot
+  $\alpha^\vee$. Then
+  \[
+    2 (\omega, \alpha)
+    > (\alpha, \alpha).
+  \]
+  Note that $\omega - \alpha$
+  is a weight of $L_\omega$ (weight
+  of $f_\alpha v_\omega$, where
+  $v_\omega$ is a highest weight vector
+  and $\{e_\alpha, f_\alpha, \alpha^\vee\}$
+  is an $\mathfrak{sl}_2$-triple).
+  But $\omega - \alpha$ is not
+  $W$-conjugate to $\omega$, since
+  \[
+    (\omega - \alpha, \omega - \alpha)
+    = (\omega, \omega)
+    - 2(\omega, \alpha) + (\alpha, \alpha)
+    < (\omega, \omega)
+  \]
+  but the pairing is $W$-invariant.
+  Contradiction.
+\end{proof}
+
+\begin{corollary}
+  If $\omega$ is miniscule, then
+  $\chi_\omega = \sum_{\gamma \in W \omega} e^\gamma$.
+\end{corollary}
+
+\begin{prop}
+  $\omega \in P_+$
+  is miniscule if and only if
+  the restriction of $L_\omega$
+  to any root $\mathfrak{sl}_2$-subalgebra
+  of $\g$ is the
+  direct sum of $1$-dimensional
+  and $2$-dimensional
+  representations.
+\end{prop}
+
+\begin{proof}
+  $(\Rightarrow)$
+  Let $\omega$ be miniscule and
+  $v \in L_\omega$ the highest
+  weight vector (of weight $w \omega$)
+  for $(\mathfrak{sl}_2)_\alpha$.
+  Then
+  \[
+    h_\alpha v
+    = \langle w \omega, \alpha^\vee \rangle v
+    = \langle \omega, w^{-1} \alpha^\vee \rangle v.
+  \]
+  Then
+  $h_\alpha v = 0$ or $h_\alpha v = v$,
+  so the representation is
+  $1$-dimensional or $2$-dimensional.
+
+  $(\Leftarrow)$ Suppose
+  $\omega$ is not miniscule.
+  Then there exists $\alpha \in Q_+$ 
+  with $\langle \omega, \alpha^\vee \rangle = m > 1$.
+  Let $v_\omega$ be a highest
+  weight vector, then
+  $h_\alpha v_\omega = \langle \omega, \alpha^\vee \rangle v_\omega$, which
+  leads to a higher-dimensional
+  $\mathfrak{sl}_2$-representation.
+\end{proof}
+
+\begin{corollary}
+  If $\omega$ is miniscule, then
+  for every dominant integral
+  weight $\lambda$ of $\g$, we have
+  \[
+    L_\omega \otimes L_\lambda
+    = \bigoplus_{\gamma \in W \omega}
+    L_{\lambda + \gamma}.
+  \]
+  (It is assumed that if
+  $\lambda + \gamma$ is not dominant,
+  then $L_{\lambda + \gamma} = 0$.)
+\end{corollary}
+
+\begin{proof}
+  We know
+  $\chi_\omega = \sum_{\mu \in W \omega} e^\mu$.
+  Then we have
+  \[
+    \chi_{L_\omega \otimes L_\lambda}
+    = \frac{\sum_{\mu \in W \omega} \sum_{w \in W} (-1)^{\ell(\omega)} e^{w(\lambda + \rho) + \mu}}{\Delta}
+    = \frac{\sum_{\gamma \in W \omega} \sum_{w \in W} (-1)^{\ell(\omega)} e^{w(\lambda + \gamma + \rho)}}{\Delta}
+  \]
+  where $\Delta$ is the Weyl denominator.
+  If $\lambda + \gamma \notin P_+$,
+  then for some $\alpha_i^\vee$,
+  we get
+  $\langle \lambda + \gamma, \alpha_i^\vee \rangle < 0$. But we know
+  $\langle \gamma, \alpha_i^\vee \rangle \ge -1$,
+  so $\langle \lambda + \gamma, \alpha_i^\vee \rangle = -1$.
+  Thus $\langle \lambda + \gamma + \rho, \alpha_i^\vee \rangle = 0$,
+  so for any $w \gamma$,
+  the term $w s_i \gamma$ comes
+  with the opposite sign.
+  So we get that
+  \[
+    \chi_{L_\omega \otimes L_\lambda}
+    = \frac{\sum_{\gamma \in W \omega\, :\, \lambda + \gamma \in P_+}
+    \sum_{w \in W} (-1)^{\ell(w)} e^{w(\lambda + \gamma + \rho)}}{\Delta}
+    = \sum_{\gamma \in W \omega\, :\, \lambda + \gamma \in P_+}
+    \chi_{\lambda + \gamma},
+  \]
+  which proves the desired result.
+\end{proof}
+
+\begin{example}
+  For $\mathfrak{sl}_2$, we have
+  $L_1 \otimes L_m = L_{m + 1} \oplus L_{m - 1}$,
+  which leads to the formula
+  \[
+    L_m \otimes L_n
+    = \bigoplus_{k = |m - n|}^{m + n}
+    L_k
+  \]
+\end{example}
+
+\begin{example}
+  Let $V = V_{\omega_1}$ be the defining
+  representation for $\GL_n$. Then
+  \[
+    L_{\omega_1} \otimes L_\lambda
+    = \bigoplus_{\mu \in \lambda + \square} L_\mu,
+  \]
+  where $\lambda$ is a partition
+  and $\lambda + \square$ denotes the
+  set of partitions obtained by
+  adding a single box to $\lambda$.
+  For example, for
+  $\lambda = (3, 3, 2, 1)$ we have
+  \[
+    L_{\omega_1} \otimes
+    S^{(3, 3, 2, 1)} V
+    = S^{(4, 3, 2, 1)} V
+    \oplus S^{(3, 3, 3, 1)} V
+    \oplus S^{(3, 3, 2, 2)} V
+    \oplus S^{(3, 3, 2, 1, 1)} V.
+  \]
+  Similarly, for
+  $\wedge^m V = L_{\omega_m}$
+  (where $\omega_m = (1, \dots, 1, 0, \dots, 0)$
+  with $m$ ones), we have
+  \[
+    L_{\omega_m} \otimes L_\lambda
+    = \bigoplus_{\mu \in \lambda + m \square}
+    L_\mu,
+  \]
+  where we are allowed to
+  add $m$ boxes to $\lambda$
+  in $\lambda + m \square$. For
+  example,
+  \[
+    \wedge^2 V
+    \otimes S^{(3, 1)} V
+    = S^{(4, 2)} V
+    \oplus S^{(4, 1, 1)} V
+    \oplus S^{(3, 2, 1)} V
+    \oplus S^{(3, 1, 1, 1)} V.
+  \]
+\end{example}
