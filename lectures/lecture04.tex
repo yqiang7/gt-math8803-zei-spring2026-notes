@@ -1,0 +1,339 @@
+\chapter{Jan.~26 --- Other Classical Lie Algebras}
+
+\section{Applications of Minuscule Weights, Continued}
+\begin{prop}
+  We have the following:
+  \begin{enumerate}
+    \item Let $\lambda$ be a partition of
+      $N$. Then
+      $\C S_{N + 1} \otimes_{S_{N}} \pi_\lambda
+        = \bigoplus_{\mu \in \lambda + \square} \pi_\mu$.
+    \item Let $\mu$ be a partition
+      of $N + 1$. Then
+      $\pi_\mu|_{S_N}
+        = \bigoplus_{\lambda \in \mu - \square} \pi_\lambda$.
+  \end{enumerate}
+\end{prop}
+
+\begin{proof}
+  (1) Let $V$ be a vector space of
+  sufficiently large dimension.
+  By Frobenius reciprocity,
+  \[
+    \Hom_{S_{N + 1}}(\C S_{N + 1} \otimes_{S_N} \pi_\lambda, V^{\otimes (N + 1)})
+    \cong \Hom_{S_N}(\pi_\lambda, V^{\otimes N} \otimes V)
+    = V \otimes S^\lambda V.
+  \]
+  Now by Schur-Weyl duality, we have
+  \[
+    \Hom_{S_{N + 1}}
+    \Big(\bigoplus_{\mu \in \lambda + \square} \pi_\mu, V^{\otimes(N + 1)}\Big)
+    = \bigoplus_{\mu \in \lambda + \square} S^\mu V.
+  \]
+  Since $V \otimes S^\lambda V
+    = \bigoplus_{\mu \in \lambda + \square} S^\mu V$,
+    we conclude that
+    $\C S_{N + 1} \otimes_{S_N} \pi_\lambda
+      = \bigoplus_{\mu \in \lambda + \square} \pi_\mu$.
+
+  (2) This is left as an exercise. Use
+  a different version of Frobenius reciprocity.
+\end{proof}
+
+\begin{definition}
+  Let $\lambda$ be a partition, and
+  $\lambda^\dagger$ be the
+  \emph{conjugate partition}
+  (the one corresponding to the
+  transposed diagram). For example,
+  $(3, 3, 2, 1)^\dagger = (4, 3, 2)$.
+\end{definition}
+
+\begin{corollary}
+  Let $\C_-$ be the sign representation
+  of $S_N$. Then
+  $\pi_\lambda \otimes \C_- \cong \pi_{\lambda^\dagger}$.
+\end{corollary}
+
+\begin{proof}
+  This is left as an exercise.
+  The proof is by induction on
+  $N = |\lambda|$. Let
+  $C = \sum_{i < j} (i\ j)$, and note
+  that its eigenvalues are the
+  same as the Casimir operator
+  of $\SL_N$.
+\end{proof}
+
+\begin{prop}[Skew Howe duality]
+  We have a decomposition
+  $\wedge^n(V \otimes W) = \bigoplus_\lambda S^\lambda V \otimes S^{\lambda^\dagger} W$
+  (as $\GL(V) \otimes \GL(W)$-modules).
+\end{prop}
+
+\begin{prop}
+  Every coset in $P / Q$ contains a
+  unique minuscule weight. This gives
+  a bijection between $P / Q$ and
+  minuscule weights, so the
+  number of minuscule weights is
+  equal to $\det A$, where $A$ is the
+  Cartan matrix.
+\end{prop}
+
+\begin{proof}
+  Let $C = a + Q \in P / Q$ be a coset.
+  Let $\omega \in C \cap P_+$ be the
+  element which minimizes
+  $\langle \omega, \rho^\vee \rangle$.
+  If $\lambda$ is the dominant weight
+  for $L_\omega$, then
+  $\lambda \in C \cap P_+$ implies
+  that
+  \[
+    (\lambda, \rho^\vee) \ge (\omega, \rho^\vee).
+  \]
+  Thus $(\omega - \lambda, \rho^\vee) \le 0$, so
+  $\omega - \lambda \in Q_+$. Thus
+  $\lambda = \omega$, so $\omega$ is
+  minuscule. Now suppose $\omega_1, \omega_2 \in C$
+  are minuscule and $\omega_1 \ne \omega_2$
+  with $\omega_1 - \omega_2 \in Q$.
+  By Lemma \ref{lem:minuscule_zero},
+  we must have
+  $\langle \omega_1 - \omega_2, \beta \rangle \ge 2$
+  for all coroots $\beta$. But then
+  $\langle \omega_1, \beta \rangle = 1$
+  (which implies $\beta > 0$)
+  and $\langle \omega_2, \beta \rangle = -1$
+  (which implies $\beta < 0$), a
+  contradiction.
+\end{proof}
+
+\begin{remark}
+  Let $A$ be the Cartan matrix.
+  For every root, we can write
+  \[
+    \alpha_i = \sum_{j = 1}^r A_{i, j} \omega_j.
+  \]
+  We have a covering map
+  $\R^r / \Lambda_2 \to \R^r / \Lambda_1$,
+  where $\Lambda_2 = P$ and
+  $\Lambda_1 = Q$. Then
+  $\det A$ is precisely
+  the degree of this covering, which
+  counts the number of cosets.
+\end{remark}
+
+\section{Other Classical Lie Algebras}
+
+\begin{example}
+  Recall that $\g = \mathfrak{sp}_{2n}$
+  corresponds to the Dynkin
+  diagram $C_n$ ($\dynkin{C}{}$),
+  where the arrow points from longer
+  roots to shorter roots. 
+  We have $R_+ = e_i \pm e_j, 2 e_j$.
+  The simple roots are
+  \[
+    \alpha_1 = e_1 - e_2, \quad
+    \alpha_2 = e_2 - e_3, \quad
+    \ldots, \quad
+    \alpha_{n - 1} = e_{n - 1} - e_n, \quad
+    \alpha_n = 2e_n.
+  \]
+  We have $\alpha_i^\vee = \alpha_i$
+  for $i \ne n$ and
+  $\alpha_n^\vee = e_n$, and
+  $\omega_i = (1, \dots, 1, 0, \dots, 0)$
+  (with $i$ ones) for $1 \le i \le n$.
+\end{example}
+
+\begin{example}
+  The Dynkin diagram $B_n$
+  ($\dynkin{B}{}$) corresponds to
+  $\g = \mathfrak{so}_{2n + 1}$.
+  Most things are the same
+  as above, but we will have
+  $\alpha_n = e_n$ and
+  $\alpha_n^\vee = 2en$. We have
+  the same $\omega_i$ for $i < n$,
+  but we get $\omega_n = (1 / 2, \dots, 1 / 2)$.
+  We have $R_+ = e_i \pm e_j, e_i$.
+\end{example}
+
+\begin{example}
+  The Dynkin diagram
+  $D_n$ ($\dynkin{D}{}$)
+  corresponds to $\g = \mathfrak{so}_{2n}$.
+  In this case we have
+  $R_+ = e_i \pm e_j$, and simple
+  roots given by
+  \[
+    \alpha_1 = e_1 - e_2, \quad \dots, \quad
+    \alpha_{n - 2} = e_{n - 1},
+    \quad \alpha_{n - 1} = e_{n - 1} - e_n,
+    \quad \alpha_n = e_{n - 1} + e_n.
+  \]
+  We have $\omega_i = (1, \dots, 1, 0, \dots, 0)$ (with $i$ ones)
+  for $i = 1, \dots, n - 2$, but we get
+  $\omega_{n - 1} = (1 / 2, \dots, 1 / 2, 1 / 2)$
+  and $\omega_n = (1 / 2, \dots, 1 / 2, -1 / 2)$.
+\end{example}
+
+\begin{remark}
+  We have the following:
+  \begin{itemize}
+    \item For $G_2, F_4, F_8$, we have
+  $\det A = 1$ (here $A$ is the Cartan
+  matrix), so the only minuscule
+  weight is $0$.
+
+\item For $B_n$, we have
+  $\det A = 2$ (the nontrivial minuscule
+  weight is $(1 / 2, \dots, 1 / 2)$,
+  and the representation has weights
+  $(\pm 1 / 2, \dots, \pm 1 / 2)$ with
+  all possible combinations of
+  $\pm$ and dimension $2^n$).
+    \item For $D_n$, we have
+      $\det A = 4$. The minuscule
+      weights are $\omega_1, \omega_{n - 1}, \omega_n$.
+      Here $\omega_1$ is the
+      $2n$-dimensional defining
+      representation. The other two
+      are spin representations of
+      dimension $2^{n - 1}$, with
+      weights $(\pm 1 / 2, \dots, \pm 1 / 2)$, taking
+      even or odd numbers of $-$ signs.
+  \end{itemize}
+\end{remark}
+
+\section{Representations of Symplectic Lie Algebras}
+
+\begin{remark}
+  For $\g = \mathfrak{sp}_{2n}$,
+  we have the Dynkin diagram $C_n$
+  and
+  \[
+    \omega_i = (\underbrace{1, \dots, 1}_{i \text{ ones}}, 0, \dots, 0).
+  \]
+  The elements of the Cartan subalgebra
+  are given by
+  $\diag(a_1, \dots, a_n, -a_1, \dots, -a_n)$.
+  So $L_{\omega_1} = V$ (the
+  defining representation) with
+  highest weight $e_1$. Note that
+  $\wedge^2 V$ is not irreducible:
+  \[
+    \wedge^2 V
+    = \wedge_0^2 V \oplus \C,
+  \]
+  where $\C$ is the trivial
+  representation spanned by
+  $B^{-1} = \sum_i e_{i + n} \wedge e_i$ (note that $B^{-1}$ is
+  invariant under $\mathfrak{sp}_{2n}$.
+  However, one can check that
+  $\wedge_0^2 V$ is irreducible.
+
+  Now let us consider $L_{\omega_j}$
+  for $j \ge 2$. Let $B = \sum_i e_i^* \wedge e_{i + n}^*$.
+  We have an operator
+  \[
+    i_B : \wedge^{i + 1} V \longrightarrow \wedge^{i - 1} V,
+  \]
+  and we can denote
+  $\wedge_0^i V = \ker(i_B|_{\wedge^i V})$
+  (note that $i_B|_{\wedge^i V}$ is
+  injective when $i \ge n$).
+  The $\wedge^i_0 V$ are irreducible
+  for $i \le n$, and one can check
+  that these form all of the
+  irreducible representations of
+  $\mathfrak{sp}_{2n}$ (compute their
+  dimensions and compare them to the
+  highest weight representations).
+
+  We can also define an operator
+  \begin{align*}
+    m_B : \wedge^{i - 1} V &\longrightarrow \wedge^{i + 1} V \\
+    u &\mapsto B^{-1} \wedge u.
+  \end{align*}
+  One can check that $m_B$ and
+  $i_B$ together with $h$ (acting as
+  $i - n$ on $\wedge^i V$) form
+  an $\mathfrak{sl}_2$-triple.
+  Then
+  \[
+    \wedge V
+    = \bigoplus_{i = 0}^n L_{\omega_i}
+    \otimes L_{n - j}
+  \]
+  (where $\omega_0 = 0$ and
+  $L_{n - j}$ is the
+  representation of $\mathfrak{sl}_2$
+  of weight $n - j$)
+  as representations of
+  $\mathfrak{sp}_{2n} \oplus \mathfrak{sl}_2$.
+\end{remark}
+
+\section{Representations of Orthogonal Lie Algebras}
+
+\begin{remark}
+  First consider $B_n$, which
+  corresponds to $\g = \mathfrak{so}_{2n + 1}$.
+  Let $Q = \sum_{i = 1}^n x_i x_{i + n} + x^2_{2n + 1}$.
+  In this case, the
+  Cartan subalgebra is given
+  by elements of the form
+  $\diag(a_1, \dots, a_n, -a_1, \dots, -a_n, 0)$.
+  Let $V$ be the $(2n + 1)$-dimensional
+  defining representation. Then
+  for $1 \le i \le n - 1$, the
+  representation $\wedge^i V$
+  is irreducible (one can check this
+  using the dimension formula) with
+  highest weight
+  \[
+    \omega_i
+    = (\underbrace{1, \dots, 1}_{i \text{ ones}}, 0, \dots, 0).
+  \]
+  On the other hand, $\wedge^n V$ is
+  irreducible but not fundamental,
+  with highest weight
+  $(1, \dots, 1) = 2\omega_n$.
+
+  Now we consider the spin
+  representation $S$ (whose elements
+  are called \emph{spinors}).
+  It has weights
+  \[
+    (\pm 1 / 2, \pm 1 / 2, \dots, \pm 1 / 2)
+  \]
+  (all possible combinations of
+  $\pm$). The character of $S$ is
+  given by
+  \[
+    \chi_S(x_1, \dots, x_n)
+    = (x_1^{1 / 2} + x_1^{-1 / 2})
+    \cdots (x_n^{1 / 2} + x_n^{-1 / 2}).
+  \]
+\end{remark}
+
+\begin{remark}
+  We will want to look
+  at the Lie group
+  $\mathrm{Spin}_{2n + 1}(\C)$,
+  the universal cover of
+  $\SO_{2n + 1}(\C)$. For
+  $n = 1$, we have
+  $\g = \mathfrak{so}_3(\C) = \mathfrak{sl}_2(\C)$.
+  We will see that $S$ is
+  $2$-dimensional, and
+  $\pi_1(\SO_3(\C)) = \Z / 2\Z$.
+\end{remark}
+
+\begin{prop}
+  For $n \ge 3$, we have
+  $\pi_1(\SO_n(\C)) = \Z / 2\Z$.
+\end{prop}
