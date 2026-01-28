@@ -1,0 +1,287 @@
+\chapter{Jan.~28 --- Other Classical Lie Algebras, Part 2}
+
+\section{More on Orthogonal Lie Algebras}
+
+\begin{prop}
+  For $n \ge 3$, we have
+  $\pi_1(\SO_n(\C)) = \Z / 2\Z$.
+\end{prop}
+
+\begin{proof}
+  There is a deformation retract
+  from the surface $X_n$ defined by
+  $z_1^2 + \dots + z_n^2 = 1$
+  in $\C^n$ to the
+  sphere $X_n^\R = X_n \cap \R^n$
+  defined by
+  $x_1^2 + \dots + x_n^2 = 1$ in $\R^n$:
+  Let $\vec{z} = \vec{x} + i \vec{y} \in X_n$ for $\vec{x}, \vec{y} \in \R^n$,
+  and note that $|\vec{z}|^2 = 1$
+  if and only if $|\vec{x}|^2 - |\vec{y}|^2 = 1$
+  and $\vec{x} \cdot \vec{y} = 0$.
+  We also have
+  \[
+    (\vec{x} + t i \vec{y})^2
+    = |\vec{x}|^2 - t^2 |\vec{y}|^2
+    = 1 + (1 - t^2) |\vec{y}|^2
+    \ge 1.
+  \]
+  So we can define a homotopy
+  $f_t : X_n \to X_n$ by
+  \[
+    f_t(\vec{z})
+    = \frac{\vec{x} + t i \vec{y}}{\sqrt{|\vec{x}|^2 - t^2 |\vec{y}|^2}},
+  \]
+  which satisfies
+  $|f_t(z)|^2 = 1$,
+  $f_1(z) = z$, and $f_0(z) \in X_n^\R$.
+  Now observe that $\SO_n$ acts on
+  $X_n$ with fibers isomorphic
+  to $\SO_{n - 1}$, so we have a
+  long exact sequence
+  \[
+    \begin{tikzcd}
+      \pi_2(X_n)
+      \ar[r] & \pi_1(\SO_{n - 1}(\C))
+      \ar[r] & \pi_1(\SO_n(\C))
+      \ar[r] & \pi_1(X_n).
+    \end{tikzcd}
+  \]
+  The first and last
+  groups are trivial for $n \ge 4$,
+  so we have
+  that $\pi_1(\SO_{n - 1}(\C)) \cong \pi_1(\SO_n(\C))$.
+  Thus the result follows once one
+  checks that
+  $\pi_1(\SO_3(\C)) \cong \Z / 2\Z$
+  (left as an exercise).
+\end{proof}
+
+\begin{remark}
+  Now consider $D_n$, which
+  corresponds to $\g = \mathfrak{so}_{2n}$.
+  Let $Q = \sum_{i = 1}^n x_i x_{i + n}$.
+  The elements of the Cartan
+  subalgebra are given by
+  $\diag(a_1, \dots, a_n, -a_1, \dots, -a_n)$.
+  Let $V$ be the $2n$-dimensional
+  defining representation,
+  and consider $\wedge^i V$ for
+  $1 \le i \le n$. We have $\wedge^i V$
+  is irreducible for
+  $0 \le i \le n - 1$, and $L_{\omega_i} = \wedge^i V$
+  for $1 \le n - 2$. Note
+  that $L_{(1, \dots, 1, 0)}$
+  is irreducible but not fundamental.
+  Letting
+  \[
+    \omega_{n - 1}
+    = (1 / 2, \dots, 1 / 2, 1 / 2)
+    \quad \text{and} \quad
+    (1 / 2, \dots, 1 / 2, -1 / 2),
+  \]
+  the corresponding
+  $S_+ = L_{\omega_{n - 1}}$
+  and $S_- = L_{\omega_n}$
+  are the spin representations.
+  The characters are
+  \[
+    \chi_{S_{\pm}}
+    = ((x_1^{1 / 2} + x_1^{-1 / 2})\cdots (x_n^{1 / 2} + x_n^{-1 / 2}))_{\pm},
+  \]
+  where the $\pm$ denotes an even or
+  odd number of $-$ signs.
+\end{remark}
+
+\begin{example}
+  We have $\mathrm{Spin}_4 = \SL_2 \times \SL_2$,
+  where factors correspond to
+  $S_+$ and $S_-$. We have
+  $\mathrm{Spin}_5 = \mathrm{Sp}_4$,
+  where $S$ is the $4$-dimensional
+  defining representation, and
+  $\SO_5 = \mathrm{Sp}_4 / \{\pm 1\}$.
+  We have $\mathrm{Spin}_6 = \SL_4$,
+  where $S_+, S_-$ are the
+  $4$-dimensional defining
+  representation and its dual, and
+  $\SO_6 = \SL_4 / \{\pm 1\}$.
+\end{example}
+
+\begin{example}
+  Let $V$ be a finite-dimensional
+  vector space, and consider
+  $S V = \C[x_1, \dots, x_n]$, where
+  $x_1, \dots, x_n$ is an orthonormal
+  basis.
+  Denote $R^2 = \sum_{i = 1}^n x_i^2 = S^2 V$
+  and $\Delta = \sum_{i = 1}^n \partial^2 / \partial x_i^2$.
+  Then:
+  \begin{enumerate}
+    \item Find a first-order
+      differential operator making
+      $\{R^2, \Delta, \cdot\}$
+      an $\mathfrak{sl}_2$-triple.
+      Make sure that it commutes
+      with the $\SO(V)$ action.
+    \item Let $H_m \subseteq S^m V$
+      be the subspace of harmonic
+      polynomials. Then
+      \[
+        SV = \bigoplus_{m = 0}^\infty H_m \otimes W_m,
+      \]
+      where $H_m = L_{m \omega_1}$ is
+      the irreducible representation
+      of $\SO(V)$, and
+      $W_m$ is the Verma module for
+      $\mathfrak{sl}_2$ of highest
+      weight $m$.
+  \end{enumerate}
+\end{example}
+
+\section{Clifford Algebras}
+
+\begin{definition}
+  Let $V$ be a finite-dimensional
+  vector space (over $\mathbb{K} = \R$ or $\C$)
+  and $(\cdot, \cdot)$ a non-degenerate
+  inner product on $V$. Give an
+  associative algebra structure
+  to $V$ by
+  \[
+    v^2 = \frac{1}{2}(v, v).
+  \]
+  Such an algebra is called a
+  \emph{Clifford algebra}, and is
+  denoted by $\Cl(V)$.
+\end{definition}
+
+\begin{corollary}
+  $ab + ba = (a + b)^2 - a^2 - b^2 = (a, b)$.
+\end{corollary}
+
+\begin{example}
+  The operators
+  ${}^i\partial / \partial x_i$
+  and $dx_i \wedge \cdot$
+  define a Clifford algebra.
+\end{example}
+
+\begin{example}
+  Let $e^i e^j + e^j e^i = \delta_{i, j}$.
+  Then $D = \sum_{i = 1}^n e^i \partial_i$
+  (the \emph{Dirac operator})
+  satisfies $D^2 = \Delta$.
+\end{example}
+
+\begin{theorem}
+  The algebra $\Cl(V)$ is isomorphic
+  to $\Mat_{2^n}(\mathbb{K})$ if
+  $\dim V = 2n$ and to
+  $\Mat_{2^n}(\mathbb{K}) \oplus \Mat_{2^n}(\mathbb{K})$
+  if $\dim V = 2n + 1$.
+\end{theorem}
+
+\begin{proof}
+  First consider the even case.
+  Choose a basis $a_1, \dots, a_n, b_1, \dots, b_n$
+  such that
+  \[
+    (a_i, a_j)
+    = (b_i, b_j) = 0, \quad
+    (a_i, b_j) = \delta_{i, j}, \quad
+    a_i a_j + a_j a_i = 0, \quad
+    b_i b_j + b_j b_i = 0, \quad
+    b_i a_i + a_i b_i = 1.
+  \]
+  Consider $\Cl(V)$-module
+  $M = \wedge(a_1, \dots, a_n)$ (note
+  that $\dim M = 2^n$) with
+  action defined by
+  \[
+    \rho(a_i) w = a_i w \quad
+    \text{and} \quad
+    \rho(b_i) w
+    = \frac{\partial w}{\partial a_i}.
+  \]
+  We have the relations
+  \[
+    1 = \left[a_i, \frac{\partial}{\partial a_i}\right]
+    = a_i \frac{\partial}{\partial a_i}
+    + \frac{\partial}{\partial a_i} a_i
+    \quad \text{and} \quad
+    a_j \frac{\partial}{\partial a_i}
+    = - \frac{\partial}{\partial a_i} a_j
+  \]
+  for $i \ne j$. Let
+  $c_{I, J} = a_{i_1} \cdots a_{i_k} b_{j_1} \cdots b_{j_m}$
+  for $I = \{i_1, \dots, i_k\}$
+  and $J = \{j_1, \dots, j_m\}$.
+  Check as an exercise that the
+  $c_{I, J}$ are linearly
+  independent, then
+  $\rho : \Cl(V) \to \End(M)$
+  is an isomorphism.
+
+  If $\dim V = 2n + 1$, then we
+  can pick an extra element $z$
+  satisfying
+  \[
+    (z_, a_i) = (z, b_i) = 0
+    \quad \text{and} \quad
+    (z, z) = 2,
+  \]
+  with relations
+  $z a_i + a_i z = z b_i + b_i z = 0$
+  and $z^2 = 1$.
+  Then $zw = \pm (-1)^{\deg w} wz$
+  for $w \in M_{\pm}$.
+\end{proof}
+
+\begin{remark}
+  There is an embedding
+  $\mathfrak{so}(V) \to \Cl(V)$.
+  Define a map
+  \begin{align*}
+    \xi : \wedge^2 V = \mathfrak{so}(V)
+    &\longrightarrow \Cl(V) \\
+    a \wedge b
+    &\longmapsto \frac{1}{2} (ab - ba)
+    = ab - \frac{1}{2}(a, b).
+  \end{align*}
+  One can check that
+  $[\xi(a \wedge b), \xi(c \wedge d)] = \xi([a \wedge b, c \wedge d])$,
+  so $\xi$ is a homomorphism
+  of Lie algebras. We have
+  $\xi^* M$ for even dimensional
+  $V$ and $\xi^* M_{\pm}$ for odd
+  dimensional $V$, and
+  \[
+    \rho_{\xi^* M}(a) = \rho_M(\xi(a))
+  \]
+  gives $\xi^* M$ the structure of an
+  $\mathfrak{so}(V)$-representation
+  (and similarly for $\xi^* M_{\pm}$.
+  Notice that $\chi^* M$ is reducible:
+  \[
+    \xi^* M
+    = (\xi^* M)_0
+    \oplus (\xi^* M)_1
+  \]
+  as representations, where the
+  first factor corresponds to even
+  degree
+  and the second to odd degree.
+\end{remark}
+
+\begin{example}
+  We have the following:
+  \begin{enumerate}
+    \item $(\xi^* M)_0 \cong S_+$
+      and $(\xi^* M)_1 \cong S_-$
+      for even dimensional $V$.
+    \item If $\dim V$ is odd, then
+      $\chi^* M_{\pm}$ are both
+      isomorphic to $S$.
+  \end{enumerate}
+\end{example}
