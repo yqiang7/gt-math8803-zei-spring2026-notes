@@ -1,0 +1,370 @@
+\chapter{Feb.~2 --- Duals, Maximal Weights, Exponents}
+
+\section{Dual Representations}
+
+\begin{remark}
+  Let $L_\lambda$ be the
+  irreducible representation of
+  highest weight $\lambda$.
+  What is the highest weight of the
+  dual representation $L_\lambda^*$?
+  Let $w_0$ be the maximal element
+  in $W$.
+\end{remark}
+
+\begin{prop}
+  We have $L_\lambda^* = L_{-w_0(\lambda)}$.
+\end{prop}
+
+\begin{proof}
+  Since $\lambda$ is the highest weight
+  in $L_\lambda$, for every
+  weight $\mu$ in $L_\lambda$ we have
+  $\lambda - \mu \in Q_+$. So
+  \[
+    Q_- \ni
+    w_0(\lambda - \mu)
+    = w_0(\lambda) - w_0(\mu),
+  \]
+  so $w_0(\mu) - w_0(\lambda) \in Q_+$.
+  Thus $w_0(\lambda) \le w_0(\mu)$
+  for all $\mu \in L_\lambda$, so the
+  length of $w_0$ is $|R_+|$.
+  Thus $-w_0(\lambda)$ is the
+  lowest weight of $L_\lambda$, which
+  is the highest weight of
+  $L_\lambda^*$.
+\end{proof}
+
+\begin{example}
+  Since the length of $w_0$ is
+  $|R_+|$,
+  $w_0$ permutes the fundamental
+  (co)weights and (co)roots, so
+  $w_0$ is an automorphism
+  of Dynkin diagrams. Note that
+  that $W$ acts on $P / Q$, and
+  $w_0$ acts as inversion.
+  \begin{itemize}
+    \item
+  The Dynkin diagrams
+  $A_1, B_n, C_n, G_2, F_4, E_7, E_8$
+  have no automorphisms, so
+  $L_\lambda^* = L_\lambda$ for these.
+  \item 
+  For $A_n$ with $n \ge 2$, we have
+  $P / Q = \Z / n\Z$ (e.g. if
+  $V$ is the defining representation,
+  then we have that $L_{\omega_1}^* = V^* = \wedge^{n - 1} V = L_{\omega_{n - 1}}$).
+  \item
+  For $E_6$, we have
+  $P / Q = \Z / 3\Z$, where
+  $w_0$ exchanges the two
+  minuscule weights.
+\item For $D_{2n + 1}$, we have
+  $P / Q = \Z / 4\Z$ and
+  $S_+^* = S_-$. For
+  $D_{2n}$,
+  $P / Q = \Z / 2\Z \times \Z / 2\Z$,
+  and $S_{\pm}^* = S_{\pm}$.
+  \end{itemize}
+\end{example}
+
+\section{Maximal Weights}
+
+\begin{definition}
+  Let \emph{maximal weight} of
+  $\mathfrak{g}$, denoted $\theta$, is
+  the highest weight of the
+  adjoint representation.
+\end{definition}
+
+\begin{example}
+  If $\g = \mathfrak{sl}_n$,
+  then $\theta$ is the highest
+  weight for $V^* \otimes V$
+  where $V$ is the defining representation.
+  Note that $V^* = \wedge^{n - 1} V$,
+  so the highest weight of
+  $V^* \otimes V$ is
+  $\theta = \omega_1 + \omega_{n - 1}$.
+  It is not fundamental.
+\end{example}
+
+\begin{example}
+  For $\g = \mathfrak{sp}_{2n}$, we
+  have$ \g = S^2 V$ where $V$ is
+  the defining representation for
+  $\mathfrak{sp}_{2n}$. Then
+  $\theta = 2 \omega_1$, which is
+  also not fundamental.
+\end{example}
+
+\begin{prop}
+  For a simple Lie algebra with
+  $\g \ne \mathfrak{sl}_n, \mathfrak{sp}_{2n}$,
+  the maximal weight $\theta$ is
+  fundamental.
+\end{prop}
+
+\begin{example}
+  For $\mathfrak{so}_N$ with $N \ge 7$
+  (type $B$ or $D$), we have
+  $\g = \wedge^2 V = L_{\omega_2}$.
+\end{example}
+
+\section{Principal \texorpdfstring{$\mathfrak{sl}_2$}{sl2}-Subalgebra}
+
+\begin{definition}
+  Let $\g$ be a simple Lie algebra
+  and $\{e_i, f_i, h_i\}$ (where
+  $h_i = \alpha_i^\vee)$ be Chevalley
+  generators. Let $e = \sum_{i = 1}^r e_i$,
+  and $h$ such that $\alpha_i(h) = 2$
+  for all $i$ (so $h = 2 \rho^\vee$).
+  Note that we have $[h, e] = 2e$ and
+  $h = \sum_{i = 1}^r (2 \rho^\vee, \omega_i) \alpha_i^\vee$.
+  Let $f = \sum_{i = 1}^r (2 \rho^\vee, \omega_i) f_i$.
+  Then $\{h, e, f\}$ spans the
+  \emph{principal $\mathfrak{sl}_2$-subalgebra}
+  of $\g$.
+\end{definition}
+
+\begin{example}
+  Let $\g = \mathfrak{sl}_{n + 1}$.
+  Then the restriction of the defining
+  representation to the principal
+  $\mathfrak{sl}_2$ is $L_n$, the
+  irreducible representation
+  of $\mathfrak{sl}_2$ of highest weight $n$.
+\end{example}
+
+\begin{remark}
+  Let $\g = \mathfrak{n}_- \oplus \mathfrak{h} \oplus \mathfrak{n}_+$, so
+  that $\g = \sum \g[2m]$ where $m$ is the
+  height of the corresponding root subspace (and
+  $2m$ is the weight with respect to
+  $h$).
+  Note $\g[0] = \mathfrak{h}$
+  and $\dim \g[0] = r$.
+  Let $r_m = \dim \g[2m]$.
+\end{remark}
+
+\begin{definition}
+  We say that $m$ is an
+  \emph{exponent} of $\g$ if
+  $r_m > r_{m + 1}$. The
+  \emph{multiplicity} of an exponent
+  $m$ is $r_m - r_{m + 1}$.
+\end{definition}
+
+\begin{remark}
+  We have $r_0 = r$ and there are
+  $r$ exponents (counted with
+  multiplicities)
+  $m_1 \le m_2 \le \cdots \le m_r$.
+  The roots of height $2$
+  are given by $\alpha_i + \alpha_j$
+  (where $i, j$ are connected in the
+  in the Dynkin diagram).
+  So $r_0 = r_1 = 1$ and
+  $r_2 = r - 1$. Thus $m_1 = 1$
+  and $m_2 > 1$. We have
+  \[
+    m_r = (\rho^\vee, \theta)
+    = h_\mathfrak{g} - 1,
+  \]
+  where $\theta$ is the highest
+  root. We call $h_\mathfrak{g}$
+  the \emph{Coxeter number} of
+  $\g$. Note that
+  $\sum_{i = 1}^r m_i = |R_+|$.
+\end{remark}
+
+\begin{prop}
+  The restriction of $\g$ to its
+  principal $\mathfrak{sl}_2$-subalgebra
+  decomposes as $\bigoplus_{i = 1}^r L_{2m_i + 1}$.
+\end{prop}
+
+\begin{example}
+  The exponents for
+  $\mathfrak{sl}_n$ are
+  $1, 2, \dots, n - 1$.
+\end{example}
+
+\begin{definition}
+  The \emph{Coxeter number}
+  of $\mathfrak{g}$
+  is $h_\mathfrak{g} = \langle \theta, \rho^\vee \rangle + 1 = m_r + 1$,
+  and the \emph{dual Coxeter number}
+  is
+  \[
+    h_\mathfrak{g}^\vee
+    = \langle \widetilde{\theta}^\vee, \rho \rangle + 1,
+  \]
+  where $\widetilde{\theta}^\vee = 2\theta / (\theta, \theta)$.
+  If we normalize $(\theta, \theta) = 2$,
+  then $h_\mathfrak{g}^\vee = \frac{1}{2}(\theta, \theta + 2\rho)$, which
+  is the eigenvalue of $\frac{1}{2} C$
+  (where $C$ is the Casimir operator).
+\end{definition}
+
+\section{Complex, Real, and Quaternionic Types}
+
+\begin{definition}
+  Let $G$ be a Lie group. An
+  irreducible representation $V$ of
+  $G$ or $\g$ is of
+  \emph{complex type} if
+  $V \ncong V^*$, \emph{real type}
+  if there exists a symmetric
+  isomorphism $V \to V^*$ (i.e. a
+  symmetric inner product for $V$), and
+  \emph{quaternionic (or symplectic) type}
+    if the isomorphism is
+    given through an anti-symmetric
+    inner product.
+\end{definition}
+
+\begin{exercise}
+  Let $V$ be an irreducible
+  representation of a finite group $G$.
+  Show that $\End_{\R G}(V)$
+  (i.e. $V \otimes V^*$)
+  can only be one of three types:
+  \begin{itemize}
+    \item complex type if
+      $\End_{\R G}(V) \cong \C$,
+    \item real type if
+      $\End_{\R G}(V) \cong \Mat_{2 \times 2}(\R)$,
+    \item quaternionic type if
+      $\End_{\R G}(V) \cong \mathbb{H}$.
+  \end{itemize}
+\end{exercise}
+
+\begin{example}
+  Let $L_n$ be an irreducible
+  representation of
+  $\mathfrak{sl}_2$. Then $L_n$
+  is of real type for even $n$ and
+  of quaternionic type for odd $n$.
+  Thus $L_n = S^n V$ where
+  $V = L_1$ is 2-dimensional.
+  The invariant form on $S^n V$
+  is $S^n B$, where
+  $B$ is a skew-symmetric invariant
+  form on $V$.
+\end{example}
+
+\begin{prop}
+  Assume $\lambda = -w_0(\lambda)$,
+  so that the corresponding
+  representation is of real or
+  quaternionic type. Then $L_\lambda$
+  is of real type if
+  $(2\rho^\vee, \lambda)$ is even
+  and of quaternionic type if
+  it is odd.
+\end{prop}
+
+\begin{proof}
+  The number
+  $n = (2\rho^\vee, \lambda)$
+  is the eigenvalue of $h$ (from the
+  principal $\mathfrak{sl}_2$-subalgebra)
+  on the highest weight vector.
+  Thus we have a decomposition
+  \[
+    L_\lambda|_{\mathfrak{sl}_2}
+    = L_n \oplus \bigoplus_{m < n} k_m L_m,
+  \]
+  where $L_n$ has multiplicity $1$.
+  One can determine the type based
+  on $L_n$.
+\end{proof}
+
+\section{Review of Compact Lie Groups}
+
+\begin{remark}
+  Let $G$ be a real Lie group of
+  dimension $n$. Then $\xi \in \wedge^n \g^*$
+  gives a generating $n$-form $\omega$,
+  which is non-vanishing if $\xi$
+  is non-vanishing. This gives
+  rise to left- and right-invariant
+  measures $\mu_L$ and $\mu_R$
+  on $G$, which are
+  unique up to a constant.
+  We say that $G$ is \emph{unimodular}
+  if $\mu_L = \mu_R$ (up to constants).
+
+  When does $\mu_L = \mu_R$?
+  For a $1$-dimensional
+  representation $V$ of $G$, let $|V|$
+  be the representation of $G$ on
+  the same space where
+  $\rho_{|V|}(g) = |\rho_V(g)|$
+  (where $\rho_V : G \to \Aut(V) = \R^\times$).
+\end{remark}
+
+\begin{prop}\label{prop:unimodular}
+  We have $\mu_L = \mu_R$ if and only
+  if $|{\wedge^n \g^*}|$ is a trivial
+  representation of $G$.
+\end{prop}
+
+\begin{proof}
+  We have $\mu_L = \mu_R$ if and only
+  if the left-invariant form is right-
+  or left-invariant
+  up to a sign. This is equivalent
+  to $\xi \in \wedge^n \g^*$
+  being invariant up to a sign under the
+  action of $\g$.
+\end{proof}
+
+\begin{prop}
+  A compact group is unimodular.
+\end{prop}
+
+\begin{proof}
+  For compact groups,
+  the representation
+  $|{\wedge^n \g^*}|$
+  gives a continuous homomorphism
+  $G \to \R^+$, whose
+  only compact subgroup is
+  $\{1\}$. The result follows by
+  Proposition \ref{prop:unimodular}.
+\end{proof}
+
+\begin{prop}
+  Let $V$ be an irreducible
+  representation of $G$. Then
+  $V$ admits a $G$-invariant
+  unitary structure.
+\end{prop}
+
+\begin{proof}
+  Take any positive Hermitian form
+  $B$ on $V$, and define
+  \[
+    B_{\mathrm{av}}(v, w)
+    = \int_G B(\rho_V(g) v, \rho_V(g) w)\, dg.
+  \]
+  This is well-defined and
+  invariant by construction.
+\end{proof}
+
+\begin{corollary}[Weyl unitary trick]
+  Any finite-dimensional
+  representation is completely
+  reducible.
+\end{corollary}
+
+\begin{proof}
+  Write $V = W \oplus W^\perp$.
+  If $W$ is invariant, then so
+  is $W^\perp$.
+\end{proof}
