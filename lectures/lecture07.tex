@@ -1,0 +1,322 @@
+\chapter{Feb.~4 --- Compact Groups}
+
+\section{More on Exponents}
+
+\begin{theorem}[Chevalley's restriction theorem]
+  There is an isomorphism
+  $\C[\g]^{G} \overset{\cong}{\longrightarrow} \C[\mathfrak{h}]^W$.
+\end{theorem}
+
+\begin{theorem}[Harish-Chandra theorem]
+  There is an isomorphism
+  $\C[\mathfrak{h}]^W \overset{\cong}{\longrightarrow} \mathcal{Z}(U(\g))$.
+\end{theorem}
+
+\begin{remark}
+  Pick an ordering
+  $s_{i_1}, \dots, s_{i_r}$
+  of the simple roots. Then
+  $c = s_{i_1} \cdots s_{i_r}$
+  is the \emph{Coxeter element}, and
+  $c^h = 1$ where $h$ is the
+  Coxeter number. Then the eigenvalues
+  of $c$ are
+  $\zeta^{m_i + 1}$ where
+  $\zeta = e^{2\pi i / h}$ and
+  the $m_i$ are the exponents.
+  Also note that $|W| = \prod_{i = 1}^r (m_i + 1)$.
+
+  If $e, f, h$ is the principal
+  $\mathfrak{sl}_2$-triple, then one
+  can consider $e + \g^f$
+  where $\g^f = \ker \ad_f$.
+\end{remark}
+
+\section{Matrix Coefficients}
+
+\begin{remark}
+  For the rest of this lecture, let
+  $G$ be a real compact group and
+  $V$ a finite-dimensional
+  continuous complex representation
+  of $G$.
+\end{remark}
+
+\begin{definition}
+  A \emph{matrix coefficient}
+  of $\rho_V : G \to \GL(V)$
+  is a function $G \to \C$ of the
+  form
+  \[
+    g \longmapsto
+    \langle f, \rho_V(g) v \rangle
+  \]
+  for some $v \in V$ and
+  $f \in V^*$.
+\end{definition}
+
+\begin{prop}
+  Matrix coefficients are smooth.
+\end{prop}
+
+\begin{proof}
+  Call $v \in V$ a smooth vector
+  if $\langle f, \rho_V(g) v \rangle$
+  is smooth for all $f \in V^*$.
+  It is obvious that such vectors
+  form a subspace of $V$, call it
+  $V_{\mathrm{sm}} \subseteq V$. Fix
+  $v \in V$ and
+  $\phi : G \to \C$ smooth and
+  with compact
+  support. Let
+  \[
+    w
+    = w(\phi, v)
+    = \int_G \phi(g) \rho_V(g) v\, dg.
+  \]
+  We claim that $w$ is smooth.
+  We have
+  \[
+    f(\rho(h) w)
+    = f\left(\rho_V(h) \int_G \phi(g) \rho_V(g) v\, dg\right)
+    = \int_G f(\phi(g) \rho_V(hg) v)\, dg
+    = \int_G f(\phi(h^{-1} g)\rho_V(g) v)\, dg.
+  \]
+  Differentiating under the integral
+  sign and noting that
+  $\phi(h^{-1} g)$ is smooth in $h$,
+  we see that the above expression
+  is smooth in $h$. Now choose a
+  delta-like sequence $\phi_n$
+  with compact support around $1$
+  so that
+  \[
+    \int_G \phi_n(g)\, dg = 1.
+  \]
+  Then $w_n = w(\phi_n, v) \to v$
+  and each $w_n$ is smooth,
+  so $v$ is smooth.
+\end{proof}
+
+\begin{remark}
+  Let $V$ be an irreducible
+  representation of $G$. Then:
+  \begin{enumerate}
+    \item $V$ has an invariant
+      positive-definite inner product
+      which is unique up to scaling;
+    \item one can use an orthonormal
+      basis $v_1, \dots, v_n$
+      to define matrix coefficients:
+      \[
+        \psi_{V, i, j}(g)
+        = v_j^*(\rho_V(g) v_i)
+        = (\rho_V(g) v_i, v_j)
+      \]
+      (note that this definition is
+      independent of normalization).
+  \end{enumerate}
+\end{remark}
+
+\begin{theorem}[Orthonormality of matrix coefficients]
+  Let $V, W$ be irreducible
+  representations of $G$.
+  \begin{enumerate}
+    \item If $V, W$ are not
+      isomorphic, then
+      \[
+        \int_G \psi_{V, i, j}(g)
+        \overline{\psi}_{W, k, \ell}(g)\, dg = 0.
+      \]
+    \item For $V = W$, we have
+      \[
+        \int_G \psi_{V, i, j}(g)
+        \overline{\psi}_{V, k, \ell}(g)\, dg = \frac{\delta_{i, k} \delta_{j, \ell}}{\dim V}.
+      \]
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  Let $\{v_i\}$ and
+  $\{w_k\}$ be orthonormal bases
+  for $V$ and $W$, respectively. We
+  have
+  \[
+    \int_G \psi_{V, i, j}(g)
+    \overline{\psi}_{W, k, \ell}(g)\, dg
+    = \int_G ((\rho_V(g) \otimes \rho_{\overline{W}}(g)) (v_i \otimes w_k), v_j \otimes w_\ell)\, dg
+  \]
+  Define the operator
+  \[
+    P = \int_G (\rho_V \otimes \rho_{\overline{W}})(g)\, dg
+    = \int_G \rho_{V \otimes \overline{W}}(g)\, dg.
+  \]
+  Since $\overline{W} \cong W^*$,
+  we have $P : V \otimes W^* \to V \otimes W^*$.
+  Thus
+  \[
+    \im P
+    \subseteq (V \otimes W^*)^G,
+  \]
+  which is $0$ if $V \ncong W$. On
+  the other hand, if $V \cong W$,
+  then the only invariant is
+  \[
+    \vec{u} = \sum_k (v_k \otimes \overline{v}_k),
+  \]
+  so $P$ is the orthogonal projection
+  onto $\vec{u}$. Thus
+  \[
+    P\vec{x}
+    = \frac{(\vec{x}, \vec{u})}{(\vec{u}, \vec{u})} \vec{u},
+  \]
+  so we have
+  $(P(v_i \otimes w_k), v_j \otimes w_\ell) = \delta_{i, j} \delta_{k, \ell} / (\dim V)$.
+\end{proof}
+
+\section{Peter-Weyl Theorem}
+
+\begin{theorem}[Peter-Weyl theorem]
+  The matrix coefficients
+  $\psi_{V, i, j}$ form
+  an orthogonal basis in
+  $L^2(G)$.
+\end{theorem}
+
+\begin{remark}
+  Let $V$ be a finite-dimensional
+  irrep of $G$. There is a natural
+  inclusion
+  \begin{align*}
+    i_V : V^* &\longhookrightarrow
+    \Hom_G(V, L^2(G)), \\
+    f &\longmapsto
+    [v \mapsto (\rho_{V^*}(\cdot)f)(v)].
+  \end{align*}
+  \pagebreak
+  We claim that $i_V$ is also surjective.
+  To see this, let
+  $\phi \in \Hom_G(V, L^2(G))$, i.e.
+  an $L^2$ function left-invariant
+  under $G$. Thus we have that
+  \[
+    \phi(x)
+    = \rho_{V^*}(x g^{-1}) \phi(g)
+  \]
+  (after modifying $\phi$ on a set
+  of measure zero). Setting
+  $g = 1$, we get
+  $\phi(x) = \rho_{V^*}(x) \phi(1)$,
+  so we have
+  \[
+    \xi : 
+    \bigoplus_{V \in \Irr(G)}
+    V \otimes V^*
+    \cong
+    \bigoplus_{V \in \Irr(G)}
+    V \otimes \Hom_G(V, L^2(G))
+    \longhookrightarrow L^2(G),
+  \]
+  an embedding of $(G \times G)$-modules.
+  Call the left-hand side
+  $L^2_{\mathrm{alg}}(G)$.
+\end{remark}
+
+\begin{theorem}[Peter-Weyl theorem, alternative]
+  $L^2_{\mathrm{alg}}(G)$
+  is dense in $L^2(G)$, i.e.
+  \[
+    L^2(G)
+    = \widehat{\bigoplus}_{V \in \Irr(G)}
+    V \otimes V^*.
+  \]
+\end{theorem}
+
+\begin{example}
+  Let $G = S^1 = U(1)$. The
+  irreducible representations
+  of $G$ are $\psi_n(\theta) = e^{i n \theta}$.
+  The $e^{i n \theta}$ form a basis
+  of $L^2(G) = L^2(S^1)$, where the
+  norm is given by
+  \[
+    \|f\|^2
+    = \frac{1}{2\pi}
+    \int_0^{2\pi} |f(\theta)|^2\, d\theta.
+  \]
+  This is the usual Fourier series
+  on $S^1$. The Peter-Weyl theorem
+  extends this to non-abelian groups.
+\end{example}
+
+\begin{exercise}
+  Let $G$ be a compact group and
+  $H$ a closed subgroup of $G$.
+  \begin{enumerate}
+    \item Show that
+      $L^2(G / H) = \widehat{\bigoplus}_{V \in \Irr(G)} N_H(V) V$, where
+      $N_H(V) = \dim V^H$ (the
+      space of $H$-invariants).
+    \item Let $G = \SO(3)$
+      and $H = \SO(2)$. Then show that
+      $L^2(G / H) = L^2(S^2) = \widehat{\bigoplus}_{m \ge 0} N_H(m) L_{2m}$,
+      and that
+      $N_H(m) = 1$ for every $m$.
+  \end{enumerate}
+\end{exercise}
+
+\section{Introduction to Quantum Mechanics}
+
+\begin{remark}
+  Let $\mathcal{H}$ be a Hilbert
+  space and $H$ a self-adjoint operator
+  on $\mathcal{H}$. The spectrum
+  of $H$ gives the \emph{energy levels}
+  of the system. The elements
+  $\psi(x, y, z) \in L^2(\R^3)$
+  are called \emph{wave functions},
+  and we assume that they are
+  normalized so that $\|\psi\|_{L^2} = 1$.
+  This is so that
+  \[
+    |\psi(x, y, z)|^2 \Delta V
+  \]
+  gives the probability of a quantum
+  particle to be in the region
+  $\Delta V$.
+  
+  In general, there is also a
+  time dependence in the wave
+  function $\psi$, so we have
+  $\psi(x, y, z, t)$. The time
+  dependence is governed by the
+  Schroedinger equation:
+  \[
+    i \partial_t \psi = H \psi.
+  \]
+  One can solve this equation via
+  separation of variables, and we
+  can write
+  \[
+    \psi(x, y, z, t)
+    = \sum_{N} e^{-i E_N t} \psi_N(x, y, z),
+  \]
+  where the $\psi_N$ are eigenvectors
+  satisfying $H \psi_N = E_N \psi_N$.
+\end{remark}
+
+\begin{example}
+  For the hydrogen atom,
+  we have
+  \[
+    H = -\frac{1}{2} \Delta - \frac{1}{r},
+  \]
+  where $\Delta = \partial_x^2 + \partial_y^2 + \partial_z^2$
+  is the Laplacian and
+  $r = \sqrt{x^2 + y^2 + z^2}$.
+  The $\Delta / 2$ is called the
+  \emph{kinetic part} of $H$, and
+  the $1 / r$ is called the
+  \emph{potential part} of $H$.
+\end{example}
