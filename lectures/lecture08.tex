@@ -1,0 +1,319 @@
+\chapter{Feb.~9 --- Hydrogen Atom}
+
+\section{Bound States of the Hydrogen Atom}
+\begin{remark}
+  We are looking for eigenvectors
+  for $H = -\frac{1}{2} \Delta - \frac{1}{r}$,
+  i.e. $\psi_N \in L^2(\R^3)$ such that
+  $H \psi_N = E_N \psi_N$ with $E_N < 0$.
+  We first write the Laplacian in
+  spherical coordinates:
+  \begin{align*}
+    \Delta &= \Delta_r + \frac{1}{r} \Delta_{\mathrm{sph}} \\
+    \Delta_r &= \partial_r^2 + \frac{2}{r} \partial_r \\
+    \Delta_{\mathrm{sph}} &= \frac{1}{\sin^2 \theta} \partial_\phi^2 + \frac{1}{\sin \theta} \partial_\theta(\sin \theta \partial_\theta \cdot{}),
+  \end{align*}
+  where $\phi$ is the angle in the
+  $xy$-plane and $\theta$ is the angle
+  from the positive $z$-axis. Then we have
+  \[
+    \partial_r^2 \psi
+    + \frac{2}{r} \partial_r \psi
+    + \frac{2}{r} \psi + \frac{1}{r^2} \Delta_{\mathrm{sph}} \psi = -2 E \psi,
+  \]
+  which is solved by
+  $\psi(r, \vec{u}) = f(r) \xi(\vec{u})$
+  for $\vec{u} \in S^2$ satisfying
+  \begin{align*}
+    \Delta_{\mathrm{sph}} \xi + \lambda \xi &= 0 \tag{$*$} \\
+    f''(r) + \frac{2}{r} f'(r)
+    + \left(\frac{2}{r} - \frac{\lambda}{r^2} + 2E\right) f(r) &= 0.
+  \end{align*}
+  Note that $(*)$ implies
+  $\Delta_{\mathrm{sph}}$ is
+  rotationally invariant. By the
+  Peter-Weyl theorem, we have
+  \[
+    L^2(S^2)
+    = \widehat{\bigoplus}_{\ell \ge 0}
+    L_{2\ell},
+  \]
+  where $S^2 = \SO(3) / {\SO(2)}$
+  and $L_{2\ell}$ are the irreps of
+  $\SO(3)$.
+
+  Let $Y_\ell^0 \subseteq L_{2\ell}$
+  be a vector of weight $0$, which is
+  invariant under $\SO(2)$. Thus it depends
+  only on $\theta$.
+  So we can write $Y_\ell^0(\theta) = P_\ell(\cos \theta)$,
+  where $P$ is a polynomial of
+  degree $\ell$. By orthogonality,
+  \[
+    \int_{-1}^1 P_k(z) P_\ell(z)\, dz
+    = 0, \quad k \ne n.
+  \]
+  Thus we can write
+  \[
+    -\lambda_e P_{\ell}(z) = \Delta_{\mathrm{sph}} P_\ell(z)
+    = \partial_z(1 - z^2) \partial_z P_\ell(z).
+  \]
+  From looking at the leading term we must
+  have $\lambda_\ell = \ell(\ell + 1)$.
+
+  Now take $Y_\ell^m \in L_{2\ell}$
+  for $-\ell \le m \le \ell$.
+  Write $Y_\ell^m(\phi, \theta) = e^{i m \phi} P_\ell^m(\cos \theta)$.
+  So we have
+  \[
+    \frac{-m^2}{1 - z^2} P_\ell^m
+    + \partial_z(1 - z^2) \partial_z
+    P_\ell^m + \ell(\ell + 1) P_\ell^m = 0,
+    \quad -\ell \le m \le \ell.
+  \]
+  This equation has a unique solution
+  (up to scaling) on $[-1, 1]$, given by
+  \[
+    P_\ell^m
+    = (1 - z^2)^{m / 2} \partial_z^{\ell + m}(1 - z^2)^\ell.
+  \]
+  Now we return to the radial equation:
+  \[
+    f''(r)
+    + \frac{2}{r} f'(r)
+    + \left(\frac{2}{r} - \frac{\ell(\ell + 1)}{r^2} + 2E\right) f(r) = 0.
+  \]
+  Write $f(r) = r^\ell e^{-r / n} h(2r / n)$,
+  where $n$ is to be chosen later and
+  $h$ satisfies
+  \[
+    \rho h''(\rho)
+    + (2\ell + 2 - \rho) h'(\rho)
+    + \left(n - \ell - 1 + \frac{1}{4}(1 + 2E n^2) \rho\right) h(\rho) = 0.
+  \]
+  Now choose $n = 1 / \sqrt{-2E}$, so that
+  $E = -1 / 2n^2$. Then the above equation
+  becomes
+  \[
+    \rho h''(\rho)
+    + (2\ell + 2 - \rho) h'(\rho)
+    + (n - \ell - 1) h(\rho) = 0.
+  \]
+  This equation is known as the
+  \emph{generalized Laguerre equation}.
+  To get $\|\psi\|_{L^2}^2 < \infty$,
+  we must have
+  \[
+    \int_0^\infty \rho^{2\ell + 2} e^{-\rho}
+    |h(\rho)|^2\, d\rho < \infty,
+  \]
+  where the extra $+2$ in $\rho^{2\ell + 2}$
+  comes from the Jacobian. Solutions
+  around $0$ behave like
+  $\rho^s(1 + o(1))$, so
+  \[
+    s(s + 2\ell + 1) = 0.
+  \]
+  Thus either $s = 0$ or $s = -2\ell - 1$.
+
+  First consider when $\ell = 0$. Then
+  $s = -1$ and we have $\rho^{-1}(1 + o(1))$,
+  so $\psi \sim 1 / r$ as $r \to 0$.
+  Then
+  \[
+    H \psi = E \psi + C \delta_0,
+  \]
+  where $\delta_0$ is the delta function at $0$,
+  so we do not get an eigenvector in this
+  case.
+
+  Thus $s = -2\ell - 1$.
+  Expanding $h(\rho)$ in a series and
+  substituting, we get
+  the recursive formula
+  \[
+    h_n(\rho)
+    = \sum_{k = 0}^\infty \frac{(1 + \ell - n) \cdots (k + \ell - n)}{(2\ell + 2) \cdots (2\ell + 1 + k)k!} \rho^k.
+  \]
+  This series converges, and we have
+  \[
+    \lim_{\rho \to \infty} \frac{h_n(\rho)}{\rho} = 1
+  \]
+  unless the series terminates. Thus
+  $n - \ell - 1 \in \Z_{\ge 0}$, so we can
+  write
+  \[
+    h_n(\rho)
+    = \sum_{k = 0}^{n - \ell - 1}
+    \frac{(1 + \ell - n) \cdots (k + \ell - n)}{(2\ell + 2) \cdots (2\ell + 1 + k)k!} \rho^k
+    = L_{n - \ell - 1}^{2\ell + 1}(\rho),
+  \]
+  which is known as the
+  \emph{generalized Laguerre polynomial}:
+  \[
+    L_N^\alpha(\rho)
+    = \sum_{k = 0}^N (-1)^N \frac{N \cdots (N -k + 1)}{(\alpha + 1) \cdots (\alpha + k)} \frac{\rho^k}{k!}.
+  \]
+\end{remark}
+
+\begin{theorem}\label{thm:hydrogen}
+  The bound states (i.e. solutions to
+  $H \psi = E \psi$ in $L^2(\R^3)$)
+  of the hydrogen atom are
+  \[
+    \psi_{n, \ell, m}(r, \phi, \theta)
+    = r^\ell e^{-r / n} L_{n - \ell - 1}^{2\ell + 1}(2r / n) Y_\ell^m(\theta, \phi),
+  \]
+  where $n \in \Z_{> 0}$,
+  $\ell$ is an integer from
+  $0, \dots, n - 1$, $E_n = - 1 / 2n^2$,
+  and $m$ is an integer between
+  $-\ell, \dots, \ell$.
+\end{theorem}
+
+\begin{remark}
+  In Theorem \ref{thm:hydrogen}, $n$ is known as
+  the \emph{principal quantum number}, and
+  $\ell$ is known as the
+  \emph{azimuthal quantum number}.
+  Note that if $\vec{L}^2 = L_x^2 + L_y^2 + L_z^2 = -\Delta_{\mathrm{sph}}$,
+  where $iL_x, iL_y, iL_z$ are the
+  generators of $\mathfrak{so}(3)$
+  satisfying $[L_{\{x}, L_y] = -iL_{z\}}$,
+  then $\vec{L}^2 = C = \ell(\ell + 1)$ is the
+  Casimir operator.
+\end{remark}
+
+\begin{corollary}
+  The space $W_n$ of states with
+  principal number $n$ has dimension $n^2$.
+\end{corollary}
+
+\begin{proof}
+  This follows from
+  $\sum_{\ell = 0}^{n - 1} (2\ell + 1) = n^2$.
+\end{proof}
+
+\begin{remark}
+  Note that
+  $\widehat{\bigoplus}_n W_n$ forms a
+  proper, closed subspace $L^2_0(\R^3)$ of
+  $L^2(\R^3)$. We need
+  to find all $\varphi$ with
+  $(H \varphi, \varphi) \ge 0$ to
+  reconstruct all of $L^2(\R^3)$.
+  This corresponds to the
+  continuous spectrum of $H$.
+\end{remark}
+
+\section{Spin}
+
+\begin{remark}
+  \emph{Spin} is a kind of
+  intrinsic angular momentum.
+  Instead of just $L^2(\R^3)$, we should
+  consider
+  \[
+    L^2(\R^3) \otimes \C^2
+    = L^2(\R^3) \otimes L_1
+  \]
+  to be the space of states for the
+  hydrogen atom. We have
+  \[
+    V_n = (L_0 \oplus L_2 \oplus \cdots \oplus L_{2n - 2}) \otimes L_1
+    = 2L_1 \oplus 2L_3 \oplus \cdots \oplus 2L_{2n - 3} \oplus 2L_{2n - 1},
+  \]
+  so $\dim V_n = 2n^2$. We have an
+  additional \emph{spin operator}
+  given by
+  \[
+    S_z =
+    \begin{pmatrix}
+      1 / 2 & 0 \\
+      0 & -1 / 2
+    \end{pmatrix},
+  \]
+  which acts on $\C^2$ in the
+  standard basis $e_+, e_-$. Then we have
+  \[
+    \psi_{n, \ell, m, +}
+    = \psi_{n, \ell, m} \otimes e_+
+    \quad \text{and} \quad
+    \psi_{n, \ell, m, -}
+    = \psi_{n, \ell, m} \otimes e_-.
+  \]
+  The \emph{total spin} is
+  $m + s$ (where $s$ is the eigenvalue for
+  $S_z$), which is
+  either $m + 1 / 2$, or $m - 1 / 2$.
+\end{remark}
+
+\section{Pauli Exclusion Principle}
+
+\begin{remark}
+  The space $\wedge^k V_n$ corresponds to
+  the space of states for $k$ electrons
+  at energy level $n$. Note that
+  we must have $k \le 2n^2$ to have
+  $\wedge^k V_n \ne 0$, which gives
+  the \emph{Pauli exclusion principle}.
+
+  In the periodic table, one has
+  \emph{orbitals} $s, p, d, f$
+  corresponding to $\ell = 0, 1, 2, 3$,
+  respectively, written with coefficient
+  $n$ and with exponent $k$
+  corresponding to the number of electrons
+  in the orbital. For example, the element
+  Ruthenium has
+  \[
+    1s^2 2s^2 2p^6 3s^2 3p^6 3d^{10}
+    4s^2 4p^6 4d^7 5s^1.
+  \]
+  The periodic table is organized
+  as follows: from left to right 
+  ordered by how many \emph{valent}
+  electrons (i.e. the number of electrons
+  in the outermost orbital), and from
+  top to bottom ordered by how many
+  energy levels. For Ruthenium,
+  it is on column $8$ and row $5$.
+  The number is $44$, for
+  $44$ total electrons.
+\end{remark}
+
+\begin{exercise}
+  Let $\vec{r} = (x, y, z)$ and
+  $\vec{p} = (-\partial_x, -i \partial_y, -i \partial_z)$
+  be the \emph{position} and
+  \emph{momentum} operators.
+  Let $\vec{L} = \vec{r} \times \vec{p}$
+  and $H = \frac{1}{2} \vec{p}{\,}^2 + U(r)$,
+  where $U$ is rotationally invariant.
+  Show that:
+  \begin{enumerate}
+    \item The components
+      $i\vec{L}$ are generators 
+      of the rotations on $\R^3$, and
+      $[\vec{L}, \vec{p}{\,}^2] = 0$.
+    \item $\vec{A}_0 = \frac{1}{2}(\vec{p} \times \vec{L} - \vec{L} \times \vec{p})$
+      satisfies $[\vec{A}_0, \vec{p}{\,}^2] = 0$.
+    \item Let $A = \vec{A}_0 + \phi(r) \vec{r}$.
+      There exists $\phi$ such that
+      $[\vec{A}, H] = 0$ if and only if
+      $U$ is a \emph{Columb potential}
+      (i.e. $U(r) = \frac{C}{r} + D$),
+      and in this case $\phi$ is
+      completely determined.
+    \item (Hidden symmetry of the hydrogen
+      atom) Use the
+      commutation relations between
+      $\vec{A}$ and $\vec{L}$ to define an
+      action on $\mathfrak{so}_4 = \mathfrak{so}_3 \oplus \mathfrak{so}_3$,
+      so that $\vec{L}$ is the diagonal
+      copy in this decomposition.
+    \item $W_n = L_{n - 1} \boxtimes L_{n - 1}$
+      as representations of
+      $\mathfrak{so}_4 = \mathfrak{so}_3 \oplus \mathfrak{so}_3 = \mathfrak{sl}_2 \oplus \mathfrak{sl}_2$.
+  \end{enumerate}
+\end{exercise}
