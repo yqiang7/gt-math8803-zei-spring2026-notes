@@ -1,0 +1,294 @@
+\chapter{Feb.~11 --- Real Forms}
+
+\section{Automorphisms of Semisimple Lie Algebras}
+
+\begin{remark}
+  Recall that we can identify
+  $\Aut(\g)$ with a Lie group with
+  Lie algebra $\g$. The connected
+  component of the identity
+  $\Aut^0(\g)$ (also known as the
+  \emph{adjoint group} $G_{\mathrm{ad}}$)
+  acts transitively
+  on the set of Cartan subalgebras.
+  If $\mathfrak{h} \subseteq \g$
+  is a Cartan subalgebra, then there is
+  a connected subgroup
+  $H \subseteq G_{\ad}$ which
+  acts as $1$ on $\mathfrak{h}$ and
+  as $e^{\alpha(x)}$ on $g_\alpha$
+  for $x \in \mathfrak{h}$. Then
+  we have
+  \[\mathfrak{h} / 2\pi i P^\vee \cong H,\]
+  and $H$ is called a \emph{maximal torus}.
+\end{remark}
+
+\begin{prop}
+  The normalizer $N(H)$ of $H$
+  in $G_{\mathrm{ad}}$ coincides with the
+  stabilizer of $\mathfrak{h}$ and
+  contains $H$ as a normal subgroup
+  such that $N(H) / H = W$ (the Weyl group).
+\end{prop}
+
+\begin{proof}
+  Note that $\SL_2(\C)$ is simply connected,
+  so for any simple root $\alpha_i$
+  there is a homomorphism
+  \[
+    \eta_i : \SL_2(\C)
+    \longrightarrow G_{\ad} = \widetilde{G} / \mathcal{Z}(\widetilde{G}).
+  \]
+  Define $S_i = \eta_i\left(\begin{smallmatrix}
+    0 & 1 \\ -1 & 0
+  \end{smallmatrix}\right)$.
+  Consider $w = s_{i_1} \cdots s_{i_n}$
+  and $\widetilde{w} = S_{i_1} \cdots S_{i_n}$.
+  Note that $\widetilde{w}$ acts on
+  $\mathfrak{h}$ acts $w$, and
+  if $w = w_1 w_2$, then
+  $\widetilde{w} = \widetilde{w}_1 \widetilde{w}_2 h$
+  for some $h \in H$.
+  To see the latter claim, note that $h$
+  has the preserve the root decomposition,
+  hence $h|_{\mathfrak{g}_{\alpha_j}} = \exp(b_j)$.
+  Thus $h = \exp(\sum_j b_j w_j^\vee) \in H$
+  (where $\langle w_j^\vee, \alpha_i \rangle = \delta_{j, i}$).
+
+  So $\widetilde{w}$ and $H$ generate
+  a subgroup $N \subseteq N(H)$ such that
+  $N / H = W$. It remains to show that
+  $N(H) = N$. Let $x \in N(H)$ and consider
+  simple roots $\alpha_i' = x(\alpha_i)$.
+  Then there exists $w \in W$ such that
+  $w(\alpha_i') = \alpha_{p(i)}$ for some
+  permutation $p$. Then
+  $\widetilde{w} x(\alpha_i) = \alpha_{p(i)}$,
+  so this is a Dynkin diagram automorphism.
+  Now $\widetilde{\omega} x$ is an element
+  of a group, so the fundamental
+  weights are fixed. Thus
+  $p = \id$.
+\end{proof}
+
+\begin{remark}
+  Although $N(H) / H = W$, in general
+  $N(H)$ is not a semidirect product
+  of $H$ and $W$.
+\end{remark}
+
+\begin{prop}
+  The map
+    $\xi : \Aut(D) \ltimes G_{\mathrm{d}}
+    \to \Aut(\g)$
+  is an isomorphism.
+\end{prop}
+
+\begin{proof}
+  We have to show that $\xi$ is surjective.
+  Let $a \in \Aut(\g)$. We can say that
+  $a$ preserves the Cartan subalgebra
+  (if not, we can shift it by $g \in G_{\mathrm{ad}}$).
+  Multiplying by $\Aut(D) N(H)$,
+  we can make it act trivially
+  on $\mathfrak{h}$ and
+  $\g_{\alpha_i}$. Then $a = 1$, so
+  $a \in \im \xi$.
+\end{proof}
+
+\section{Real Forms of Semisimple Lie Algebras}
+
+\begin{remark}
+  Recall the Serre presentation for
+  $\mathfrak{g}$, i.e. generators
+  $\{h_i, f_i, e_i\}$ with certain
+  relations. In this setting, everything
+  was defined
+  over $\Q$.
+\end{remark}
+
+\pagebreak
+\begin{definition}
+  A semisimple Lie algebra
+  is \emph{split} if it admits a
+  Chevalley-Serre basis over
+  base field $K$.
+\end{definition}
+
+\begin{remark}
+  Let $L$ be a Galois extension of $K$ 
+  ($\Char K = 0$), and
+  assume that $\g_L$ is a split semisimple
+  Lie algebra. We want to find
+  $\g$ over $K$
+  such that $\g \otimes_K L = \g_L$.
+  The problem is then to find a
+  classification of all such $\g$.
+  Let
+  $\Gamma = \Gal(L / K)$.
+  Define an action of $\Gamma$ on $\g_L$ by
+  \[
+    g(\lambda x) = g(\lambda) g(x),
+    \quad x \in \g_L, \lambda \in L,
+    g \in \Gamma,
+  \]
+  which is twisted linear. We can
+  reconstruct $\g$ as the
+  invariants $\g_L^\Gamma$.
+
+  The simplest action of this kind is
+  $\rho_0(g)$, which acts on scalars
+  and preserves $\{h_i, e_i, f_i\}$.
+  Any twisted linear action
+  takes the form $\rho(g) = \eta(g) \rho_0(g)$
+  for some $\eta : \Gamma \to \Aut(\g_L)$.
+  As $\rho$ is a homomorphism,
+  \[
+    \eta(gh) \rho_0(gh)
+    = \eta(g) \rho_0(g) \eta(h) \rho_0(h),
+  \]
+  and upon rearranging, we have
+  \[
+    \eta(gh)
+    = \eta(g) g(\eta(h)),
+  \]
+  where $g(a) = \rho_0(g) a \rho_0(g)^{-1}$
+  for $a \in \Aut(\g_L)$.
+  The above is called a
+  \emph{$1$-cocycle condition}.
+
+  Denote the Lie algebra associated
+  to the cocycle $\eta$ by $\g_\eta$.
+  When do we have $\g_{\eta_1} \cong \g_{\eta_2}$?
+  This is the case when $\rho_1$ and
+  $\rho_2$ are isomorphic, i.e. there
+  exists $a \in \Aut(\g_L)$ such that
+  $\rho_1(g) a = a \rho_2(g)$. Then
+  \[
+    \eta_1(g)
+    \rho_0(g) a = a \eta_2(g) \rho_0(g),
+  \]
+  so $\eta_1(g) = a \eta_2(g) g(a)^{-1}$.
+  Thus $\eta_1$ and $\eta_2$ are
+  cohomologous cocycles.
+\end{remark}
+
+\begin{prop}
+  The semisimple Lie algebras $\g$
+  over $K$ which split over $L$ (where
+  $L / K$ is Galois) are classified by
+  $H^1(\Gamma, \Aut(\g_L))$, where
+  $\Gamma = \Gal(L / K)$.
+\end{prop}
+
+\begin{remark}
+  We will now specialize to
+  $K = \R$, $L = \C$, where
+  $\Gamma = \Z / 2\Z$, generated by
+  complex conjugation.
+  We have $\Aut(\g_L) = \Aut(D) \ltimes G_{\mathrm{ad}}$.
+  Since $\eta(1) = 1$, $\eta$ is determined
+  by $\eta(-1)$.
+  The cocycle condition is
+  \[
+    s \overline{s} = 1, \quad s = \eta(-1).
+  \]
+  The corresponding Lie algebra (up to
+  isomorphism) depends only on the
+  cohomology class of $s$, where
+  $s \to a s \overline{a}^{-1}$ for $a \in \Aut(D)$.
+\end{remark}
+
+\begin{theorem}
+  The real semisimple Lie algebras
+  whose complexification is $\g$ (i.e.
+  the real forms of $\g$) are classified
+  by $s \in \Aut(D) \ltimes G_{\mathrm{ad}}$
+  such that $s \overline{s} = 1$,
+  modulo the equivalence
+  $s \to a s \overline{a}^{-1}$ for $a \in \Aut(D)$.
+\end{theorem}
+
+\begin{remark}
+  Note that complex conjugation
+  acts trivially on $\Aut(D)$.
+\end{remark}
+
+\begin{remark}
+  Denote by $\g_{(s)} = \{x \in \g : \overline{x} = s(x)\}$ the
+  real form corresponding to $s$.
+  Denote by $\g_{(1)}$ the split
+  form consisting of real $x \in \g$
+  (so that $x = \overline{x}$).
+
+  Alternatively, we can define an
+  antilinear involution
+  $\sigma_s(x) = \overline{s(x)}$.
+  Then $\g_{(s)}$ is the fixed point
+  set of $\sigma_s$.
+\end{remark}
+
+\begin{remark}
+  Note that $s$ defines $s_0 \in \Aut(D)$
+  with $s_0^2 = 1$.
+\end{remark}
+
+\begin{corollary}
+  The conjugacy class of $s_0$ is
+  invariant under equivalences.
+\end{corollary}
+
+\begin{remark}
+  Since $s_0$ permutes the
+  connected components of the Dynkin
+  diagram $D$, it preserves some and
+  divides some into pairs.
+  So every semisimple real
+  Lie algebra is a direct sum of simple
+  ones, and each simple one has
+  either connected Dynkin diagram or
+  consists of two identical components.
+\end{remark}
+
+\begin{remark}
+  We now consider the case when
+  $D$ is connected and $\g$ is simple.
+\end{remark}
+
+\begin{definition}
+  A real form $\g_{(s)}$ of a complex
+  simple Lie algebra is said to be
+  \emph{inner to}  $\g_{(s')}$ 
+  if $s' = gs$ up to equivalence, where
+  $g \in G_{\mathrm{ad}}$ (i.e. $s, s'$ differ
+  by an inner automorphism).
+  The \emph{inner class} of $\g_{(s)}$ is the collection
+  of all real forms inner to
+  $\g_{(s)}$. An \emph{inner form}
+  is a form inner to a split form.
+  We call $\g_{(s)}$ \emph{quasi-split}
+  if $s = s_0 \in \Aut(D)$.
+\end{definition}
+
+\begin{corollary}
+  We have the following:
+  \begin{enumerate}
+    \item Any real form is inner to a unique
+      quasi-split form.
+    \item A real form which is both
+      inner and quasi-split is split.
+  \end{enumerate}
+\end{corollary}
+
+\begin{example}
+  Consider the \emph{Cartan involution}
+  $\tau$ defined by
+  \[
+    \tau(h_j) = -h_j, \quad
+    \tau(e_j) = -f_j, \quad
+    \tau(f_j) = -e_j.
+  \]
+  Then $\g_{(\tau)} = \g^c$
+  is called the \emph{compact real form}
+  of $\g$.
+\end{example}
