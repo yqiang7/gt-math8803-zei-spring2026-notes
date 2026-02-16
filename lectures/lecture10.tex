@@ -1,0 +1,317 @@
+\chapter{Feb.~16 --- Real Forms, Part 2}
+
+\section{Compact Real Forms}
+
+\begin{prop}
+  Let $\tau$ be the Cartan involution
+  (defined in Example \ref{ex:cartan-involution})
+  and $\g^c = \g_{(\tau)}$.
+  Then the Killing form of $\g^c$ is
+  negative definite.
+\end{prop}
+
+\begin{proof}
+  We can write $\g^c = (\mathfrak{h} \cap \g^c) \oplus \bigoplus_{\alpha \in R_+} (\g_\alpha \oplus \g_{-\alpha}) \cap \g^c$.
+  The Killing form is negative definite on
+  $\mathfrak{h} \cap \g^c$ since the
+  inner product on a coroot lattice is
+  positive definite. Thus it is
+  negative definite on $\g^c$, as
+  $\{i \alpha_j^\vee\}$ is a basis for
+  $\g^c \cap \mathfrak{h}$. Now we
+  need to show that it is negative definite
+  on $(\g_{\alpha} \oplus \g_{-\alpha}) \cap \g^c$.
+  Note that for $\g = \mathfrak{sl}_2$,
+  we have a basis for $\g^c$ given by
+  $ih$, $e - f$, $i(e + f)$, so
+  $\g^c = \mathfrak{su}(2)$. So the
+  statement holds there. For general
+  $\g$, we have that $S_i$ preserves
+  $\g^c$, since
+  \[
+    S =
+    \begin{pmatrix}
+      0 & 1 \\
+      -1 & 0
+    \end{pmatrix} \in \SU(2).
+  \]
+  So we have $\Lie(\SU(2)_i) \subseteq \g^c$.
+  For any $w \in W$, the lift $\widetilde{w}$
+  preserves $\g^c$, so the restriction
+  of the Killing form of $\g^c$ to
+  $\g^c \cap (\mathfrak{sl}_2)_\alpha$
+  is negative definite.
+\end{proof}
+
+\begin{remark}
+  Consider $\Aut(\g^c)$. Since the Killing
+  form is negative definite,
+  $\Aut(\g^c)$ is a closed subgroup of
+  $\OO(\g^c)$, so it is compact.
+  Moreover, this is a Lie group with
+  Lie algebra $\g^c$.
+\end{remark}
+
+\begin{corollary}
+  $G^c_{\mathrm{ad}} = \Aut(\g^c)^\circ$
+  is a connected, compact Lie group with
+  Lie algebra $\g^c$.
+\end{corollary}
+
+\begin{example}
+  We have the following:
+  \begin{enumerate}
+    \item For $\g = \mathfrak{sl}_n$,
+      we have $G_{\mathrm{ad}}^c = \mathrm{PSU}(n) = \SU(n) / \mu_n$,
+      where $\mu_n$ is the $n$th roots
+      of unity.
+    \item For $\g = \mathfrak{so}_{n}$,
+      we have $G_{\mathrm{ad}}^c = \SO(n)$
+      for odd $n$ and
+      $G_{\mathrm{ad}}^c = \SO(n) / \{\pm 1\}$ for even $n$.
+    \item For $\g = \mathfrak{sp}_{2n}$,
+      we have
+      $G_{\mathrm{ad}}^c = \U(n, \mathbb{H}) / \{\pm 1\}$.
+      The group
+      \[
+        \U(n, \mathbb{H})
+        = \Sp_{2n}(\C) \cap \U(2n)
+      \]
+      is called the \emph{quaternionic unitary group}.
+  \end{enumerate}
+\end{example}
+
+\begin{example}
+  We have the following:
+  \begin{enumerate}
+    \item Consider $A_{n - 1}$,
+      which corresponds to the
+      split form $\mathfrak{sl}(n, \R)$
+      and compact form $\mathfrak{su}(n)$.
+      For $n > 2$, we have a quasi-split
+      real form as follows: Let
+      $s(A) = -J A^T J^{-1}$ where
+      $J_{i, j} = (-1)^i \delta_{i, n + 1 - j}$.
+      Then
+      \[
+        e_i, f_i, h_i,
+        \longmapsto
+        e_{n + 1 - i}, f_{n + 1 - i}, h_{n + 1 - i}.
+      \]
+      Note that $J$ is a Hermitian or
+      skew-Hermitian form of signature $(p, p)$
+      with $n = 2p$ or of signature
+      $(p + 1, p), (p, p + 1)$,
+      which are isomorphic
+      when $n = 2p + 1$.
+
+      For $n = 2$, we have
+      $\mathfrak{su}(1, 1) = \mathfrak{sl}(2, \R)$
+      (and
+      $\mathrm{PSU}(1, 1) = \PSL(2, \R)$).\footnote{Note that $\mathrm{PSU}(1, 1)$ is the group of automorphisms of the unit disk, and $\PSL(2, \R)$ is the group of automorphisms of the upper half-plane. The isomorphism comes from the Cayley transform from the unit disk to the upper half-plane.}
+    \item For type $B_n$, we have
+      compact form $\mathfrak{so}(2n + 1)$
+      and split form $\mathfrak{so}(n + 1, n)$.
+      There are no nontrivial automorphisms,
+      so there are no non-split quasi-split
+      forms.
+
+      Particular cases of interest are
+      $\SO(3) \cong \SU(2)$ and
+      $\SO^+(2, 1) = \mathrm{PSU}(1, 1) = \PSL(2, \R)$.
+    \item For type $C_n$, we have the
+      split form $\mathfrak{sp}(2n, \R)$ and
+      compact form $\mathfrak{u}(n, \mathbb{H})$.
+      There are no non-split quasi-split
+      reals forms, as there are no
+      nontrivial automorphisms
+      of the Dynkin diagram.
+
+      Note that $B_2 = C_2$, so we have
+      $\mathfrak{so}(3, 2) = \mathfrak{sp}_4(\R)$
+      and $\mathfrak{so}(5) = \mathfrak{u}(2, \mathbb{H})$.
+    \item For type $D_n$, we have split form
+      $\mathfrak{so}(n, n)$ and compact form
+      $\mathfrak{so}(2n)$. For $n > 4$,
+      there is a unique nontrivial involution,
+      while for $n = 4$, we have $\Aut(D) = S_3$.
+      However, there is still a unique
+      non-split quasi-split form as
+      there is only one nontrivial involution
+      up to conjugation. Recall
+      \[
+        A = -J A^T J^{-1}, \quad
+        J_{i, j} = \delta_{i, 2n + 1 - j}.
+      \]
+      Then the quasi-split form
+      is given by $J \mapsto J' = gJ$,
+      where $g$ permutes $e_n, e_{n + 1}$
+      (which corresponds to $\alpha_{n - 1}, \alpha_n$).
+      The signature defined by $J'$ is
+      $(n + 1, n - 1)$, so the
+      quasi-split form is
+      $\mathfrak{so}(n + 1, n - 1)$.
+
+      Note that $D_2 = A_1 \oplus A_1$,
+      so we have the following isomorphisms:
+      \begin{align*}
+        \mathfrak{so}(4)
+        &= \mathfrak{su}(2) \oplus \mathfrak{su}(2), \\
+        \mathfrak{so}(2, 2)
+        &= \mathfrak{su}(1, 1) \oplus \mathfrak{su}(1, 1), \\
+        \mathfrak{so}(3, 1)
+        &= \mathfrak{sl}_2(\C),
+      \end{align*}
+      where in the last isomorphism we view
+      $\mathfrak{sl}_2(\C)$ as a real Lie algebra.
+
+      We also have $D_3 = A_3$, which
+      gives the following isomorphisms:
+      \begin{align*}
+        \mathfrak{so}(6) &= \mathfrak{su}(4), \\
+        \mathfrak{so}(3, 3) &= \mathfrak{sl}_4(\R), \\
+        \mathfrak{so}(4, 2) &= \mathfrak{su}(2, 2).
+      \end{align*}
+  \end{enumerate}
+\end{example}
+
+\section{Classification of Real Forms}
+
+\begin{remark}
+  Write $\g = \g^c \otimes_\R \C$
+  and $\omega = \sigma_\tau$ the Cartan
+  antilinear involution (so that
+  $\g^c$ is the fixed points of $\sigma_\tau$).
+  Another real structure on $\g$ is given by
+  $\sigma = \omega \circ g$ for
+  $g \in \Aut(\g)$, as
+  \[
+    \sigma^2 = \omega \circ g \circ \omega \circ g
+    = 1
+  \]
+  (note that $\omega \circ \omega = \omega(g)$, and $\omega(g) g = 1$).
+  Define
+  \[
+    (X, Y)
+    = \tr(\ad_X \ad_{\omega(Y)}),
+  \]
+  which is the Hermitian extension of
+  the Killing form from $\g^c$ to $\g$.
+  Note that $\omega(g) = (\g^\dagger)^{-1}$, where $g^\dagger$ is the
+  adjoint of $g$. Thus we see that
+  $g$ is self-adjoint.
+  \pagebreak
+
+  In particular, $g$ is diagonalizable
+  with real eigenvalues. So we can write
+  \[
+    \g = \bigoplus_{\gamma \in \R}
+    \g(\gamma),
+  \]
+  where $\g(\gamma)$ is the eigenspace of
+  $\g$ corresponding to eigenvalue
+  $\gamma$. Note that
+  \[
+    [\g(\beta), \g(\gamma)]
+    = \g(\beta \gamma).
+  \]
+  Consider the operator $|g|^t$ for
+  $t \in \R$, which acts on $\g(\gamma)$ as
+  $|\gamma|^t$. We can rewrite
+  \[
+    |g|^t
+    = \exp(t \log |g|) \in G_{\mathrm{ad}},
+  \]
+  which is a $1$-parameter subgroup of $G_{\mathrm{ad}}$.
+  Then we can define $\theta := g|g|^{-1}$,
+  and we have
+  \[
+    \begin{cases}
+      \theta \circ \omega = \omega \circ \theta, \\
+      \theta^2 = 1,
+    \end{cases}
+  \]
+  where the first identity follows from
+  $(\theta^\dagger)^{-1} = \theta$.
+  We have
+  \[
+    \theta = |g|^{-1 / 2} g \omega(|g|^{1 / 2}).
+  \]
+  We can assume $g = \theta$ with
+  $\theta \circ \omega = \omega = \theta$,
+  or equivalently, that $\theta \in \Aut(\g^c)$
+  and $\theta^2 = 1$.
+  Thus $\theta$ has $\pm 1$ eigenspaces.
+  Note that $\theta'$ defines the same
+  real form if and only if
+  \[
+    \theta' = x \theta (\omega(x))^{-1}
+  \]
+  for some $x \in \Aut(\g)$. Then
+  we have $x \theta(\omega(x))^{-1} = \omega(x) \theta x^{-1}$
+  (since $\theta'^2 = 1$, so $\theta'^{-1} = \theta'$).
+  Let
+  \[
+    z = (\omega(x))^{-1} x,
+  \]
+  so that $\omega(z) = z^{-1}$. Then
+  $\theta z = z^{-1} \theta$. Now note that
+  $z = x^\dagger x$ is positive definite,
+  so if $y = xz^{-1 / 2}$,
+  \[
+    \omega(y)
+    = \omega(x) z^{1 / 2}
+    = (x^\dagger)^{-1} z^{1 / 2}
+    = x z^{-1 / 2} = y.
+  \]
+  Thus $y \in \Aut(\g^c)$,
+  and we also have that
+  \[
+    \theta' = x \theta \omega(x)^{-1}
+    = x \theta z x^{-1}
+    = x z^{-1 / 2} \theta z^{1 / 2} x^{-1}
+    = y \theta y^{-1}.
+  \]
+\end{remark}
+
+\begin{theorem}
+  The real forms of $\g$ are in
+  one-to-one correspondence with the
+  conjugacy classes of involutions
+  $\theta \in \Aut(\g^c)$, where
+  $\theta \mapsto \omega_\theta = \theta \circ \omega = \omega \circ \theta$.
+\end{theorem}
+
+\begin{remark}
+  For $\theta : \g \to \g$, denote by
+  $\g_\theta$ the corresponding real form.
+  For example,
+  \[
+    \g_1 = \g^c = \g_{(\tau)},
+  \]
+  where the latter is our old notation
+  using the split forms.
+\end{remark}
+
+\begin{remark}
+  We now have a canonical (up to automorphisms of $\g^c$)
+  decomposition
+  \[
+    \g = \mathfrak{k} \oplus \mathfrak{p},
+  \]
+  where $\theta = 1$ on $\mathfrak{k}$ and $\theta = -1$ on $\mathfrak{p}$.
+  Here $\mathfrak{k}$ is a Lie subalgebra
+  and $[\mathfrak{p}, \mathfrak{p}] \subseteq \mathfrak{k}$.
+  For $\g^c$ itself, we have
+  \[
+    \g^c = \mathfrak{k}^c \oplus \mathfrak{p}^c.
+  \]
+  Moreover, we have
+  $\g_\theta = \mathfrak{k}^c \oplus \mathfrak{p}_\theta$,
+  where $\mathfrak{p}_\theta = i \mathfrak{p}^c$ (a fixed point of $\sigma = \omega \circ \theta$ has to have an extra $-$ sign, which we can achieve by multiplying by $i$).
+\end{remark}
+
+\begin{exercise}
+  Show that $\mathfrak{k}$ is reductive
+  but not necessarily semisimple.
+\end{exercise}
