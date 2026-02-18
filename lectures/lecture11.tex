@@ -1,0 +1,302 @@
+\chapter{Feb.~18 --- Real Forms, Part 3}
+
+\section{Classification of Real Forms, Continued}
+
+\begin{prop}
+  There exists a Cartan subalgebra
+  $\mathfrak{h}$ in $\g$ which is invariant
+  under $\theta$ and such that
+  $\mathfrak{h} \cap \mathfrak{k}$
+  is a Cartan subalgebra in $\mathfrak{k}$.
+\end{prop}
+
+\begin{proof}
+  Consider a generic element
+  $t \in \mathfrak{k}^c$. It is regular and
+  semisimple. Consider
+  $\mathfrak{h}^c_+$, the centralizer
+  of $t$ in $\mathfrak{k}^c$. Then
+  necessarily $\mathfrak{h}_+ := \mathfrak{h}^c_+ \otimes_\R \C$
+  is a Cartan subalgebra in $\mathfrak{k}$.
+  Let $\mathfrak{h}^c_-$ be a maximal
+  subspace of $\mathfrak{p}^c$ so that
+  $\mathfrak{h}^c = \mathfrak{h}^c_+ \oplus \mathfrak{h}_-^c$
+  is a commutative subalgebra of
+  $\g^c$.
+  Then we claim that $\mathfrak{h} = \mathfrak{h}^c \otimes_\R \C$
+  is a Cartan subalgebra of $\g$.
+  Note that $\mathfrak{h}$ consists of
+  the semisimple elements, and all
+  elements in $\g^c$ are
+  anti-self-adjoint operators.
+  If $z \in \g$ commutes with
+  $\mathfrak{h}$, then
+  \[
+    z = z_+ + z_-, \quad z_+ \in \mathfrak{k}, z_- \in \mathfrak{p},
+  \]
+  where $z_\pm$ commute with $\mathfrak{h}$.
+  Then $z_+ \in \mathfrak{h}_+$, and
+  \[
+    z_- = x + iy, \quad x, y \in \mathfrak{p}^c,
+  \]
+  where $x, y$ commute with
+  $\mathfrak{h}$. Then
+  $x, y \in \mathfrak{h}^c_-$ (by the
+  definition of $\mathfrak{h}^c_-$),
+  so $z \in \mathfrak{h}$.
+\end{proof}
+
+\begin{corollary}
+  We have
+  $\mathfrak{h} = \mathfrak{h}_+ \oplus \mathfrak{h}_-$, where
+  $\theta = 1$ on $\mathfrak{h}_+$ and
+  $\theta = -1$ on $\mathfrak{h}_-$.
+\end{corollary}
+
+\begin{lemma}
+  There are no coroots of $\g$ in
+  $\mathfrak{h}_-$.
+\end{lemma}
+
+\begin{proof}
+  Suppose otherwise
+  that $\alpha^\vee \in \mathfrak{h}_-$.
+  Then $\theta(\alpha^\vee) = -\alpha^\vee$,
+  so
+  \[
+    \theta(e_\alpha) = e_{-\alpha}
+    \quad \text{and} \quad
+    \theta(e_{-\alpha}) = e_\alpha
+  \]
+  for some $e_{\pm \alpha} \in \g_{\pm \alpha}$.
+  Then $x = e_{\alpha} + e_{-\alpha}$
+  satisfies $\theta(x) = x$, so
+  $x \in \mathfrak{k}$. But
+  $x \notin \mathfrak{h}_+$ (since
+  $x \perp \mathfrak{h}_+$).
+  Thus $[\mathfrak{h}_+, x] = 0$
+  since $\alpha$ vanishes on
+  $\mathfrak{h}_+$, a contradiction as
+  $\mathfrak{h}_+$ is a maximal commutative
+  subalgebra of $\mathfrak{k}$.
+\end{proof}
+
+\begin{remark}
+  Pick a generic element $t \in \mathfrak{h}_+$,
+  which is regular in $\g$. Choose $t$
+  so that
+  \[
+    \re(t, \alpha^\vee)
+    \ne 0
+  \]
+  for all $\alpha^\vee$ of $\g$. Then
+  we can define a \emph{polarization}
+  on $R$ by
+  \[
+    R_+ = \{\alpha \in R : \re(t, \alpha^\vee) > 0\}
+  \]
+  which satisfies $\theta(R_+) = R_+$.
+  Now $\{\theta(i) : i \in D\}$ gives the
+  action of $\theta$: If $\theta = i$, then
+  \[
+    \theta(e_i) = \pm e_i, \quad
+    \theta(h_i) = h_i, \quad
+    \theta(f_i) = \pm f_i.
+  \]
+  \pagebreak
+  Otherwise, if $\theta(i) \ne i$,
+  then we can choose generators
+  $h_i, e_i, e_{\theta(i)}, f_i, f_{\theta(i)}, h_{\theta(i)}$
+  such that
+  \[
+    \theta(x_i) = x_{\theta(i)}, \quad
+    x = e, f, h.
+  \]
+  We can then construct \emph{markings}
+  on the Dynkin diagram as follows:
+  \begin{itemize}
+    \item Connect vertices $i$ and
+      $\theta(i)$ if $\theta(i) \ne i$.
+    \item Mark a vertex $i$ as white if
+      $\theta(e_i) = e_i$.
+    \item Mark a vertex $i$ as black if
+      $\theta(e_i) = -e_i$.
+  \end{itemize}
+  This is the \emph{Vogan diagram}
+  associated to the Dynkin diagram.
+  Note that $e_i \in P$ is a non-compact root.
+\end{remark}
+
+\begin{exercise}
+  Showing the following:
+  \begin{enumerate}
+    \item The signature of the Killing
+      form of $g_\theta$ is
+      $(\dim \mathfrak{p}, \dim \mathfrak{k})$.
+      Moreover, the Killing form is
+      negative definite if and only if
+      $\theta = 1$, i.e. $\g = \g^c$.
+    \item For a split real form,
+      $\dim \mathfrak{k} = |R_+|$.
+    \item Show that for any real form
+      in a compact inner class,
+      $\rank(\mathfrak{k}) = \rank(\g)$.
+  \end{enumerate}
+\end{exercise}
+
+\section{Real Forms of Classical Lie Algebras}
+
+\begin{example}
+  We have the following real forms of
+  the classical Lie algebras:
+  \begin{enumerate}
+    \item Type $A_{n - 1}$, compact inner
+      class.
+
+      Let $\theta$ be the inner automorphism
+      element of $\mathrm{PSU}(n)$
+      of order $2$. Let
+      $g \in \U(n)$ such that $g^2 = 1$.
+      Then $\theta(x) = gxg^{-1}$, so
+      $g = \id_p \otimes (-\id_q)$
+      with $p + q = n$. Thus
+      \[
+        \g_\theta = \mathfrak{su}(p, q)
+        \quad \text{and} \quad
+        \mathfrak{k}
+        = \mathfrak{gl}_p \oplus \mathfrak{sl}_q.
+      \]
+      For $n = 2$, we have
+      $\mathfrak{su}(2)$ and
+      $\mathfrak{su}(1, 1)$, with
+      $\mathfrak{k} = \mathfrak{gl}_1$.
+    \item Type $A_{n - 1}$, split inner class.
+
+      If $n$ is odd (so all vertices
+      are divided into connected pairs),
+      then
+      \[
+        \g_\theta = \mathfrak{sl}_n(\R).
+      \]
+      If $n$ is even, then there is
+      $1$ stable vertex (which is either
+      black or white). In these cases
+      we either have
+      $\mathfrak{k} = \mathfrak{sp}_{2k}$
+      (in which case $\g_\theta = \mathfrak{sl}(k, \mathbb{H})$) or
+      $\mathfrak{k} = \mathfrak{so}_{2k}$
+      (which is just the split form
+      $\mathfrak{sl}_n(\R)$).
+    \item Type $B_n$ (i.e. $\mathfrak{so}_{2n + 1}$).
+
+      Let $\theta$ be the inner automorphism
+      of order $\le 2$. We can write
+      \[
+        \theta = \id_{2p + 1} \oplus (-\id_{2q})
+      \]
+      where $p + q = n$. The real forms
+      are $\mathfrak{so}(2p + 1, 2q)$,
+      with $\mathfrak{k} = \mathfrak{so}_{2p + 1} \oplus \mathfrak{so}_{2q}$.
+    \item Type $C_n$.
+
+      We can have
+      $g \in \Sp_{2n}(\C)$ such that
+      $g^2 = 1$ or $g^2 = -1$. The adjoint
+      compact group is
+      \[(\Sp(2n) \cap U(n)) / {\pm 1}.\]
+      If $g^2 = 1$, then the eigenspace
+      with eigenvalue $1$ has dimension
+      $2p$, and the eigenspace for
+      $-1$ has dimension $2q$ (where
+      $p + q = n$). Assume that
+      $p \ge q$ (otherwise take $g \mapsto -g$).
+      Then we have
+      \[
+        \mathfrak{sp}(2p, 2q)
+        = \mathfrak{sp}_{2n} \cap \mathfrak{u}(p, q)
+        = \mathfrak{u}(p, q, \mathbb{H}).
+      \]
+      In this case, we have
+      $\mathfrak{k} = \mathfrak{sp}_{2p} \oplus \mathfrak{sp}_{2q}$.
+
+      If $g^2 = -1$, then
+      $\C^{2n} = V(i) \oplus V(-i)$.
+      In this case, $\mathfrak{k} = \mathfrak{gl}_n(\C)$,
+      as for any $(w, w) = w \cdot \overline{w}$
+      in $\C^n$,
+      \[
+        \im(w, w)
+        = i \im (w \wedge \overline{w})
+      \]
+      defines a symplectic form
+      on $\R^{2n}$. Thus we can view
+      $\U(n) \subseteq \Sp_{2n}(\R)$.
+
+    \item Type $D_n$, compact inner class.
+
+      In this case, $\theta$ is given by
+      $g \in \SO(2n)$ with $g^2 = \pm 1$.
+
+      If $g^2 = 1$, then
+      $\C^{2n} = V(1) \oplus V(-1)$ (
+      where $\dim V(1) = 2p$ and $\dim V(-1) = 2q$ with $p + q = n$).
+      Note that $\det(g) = 1$, so the
+      eigenspaces are even-dimensional.
+      Then
+      \[
+        \g_\theta
+        = \mathfrak{so}(2p, 2q)
+        \quad \text{and} \quad
+        \mathfrak{k}
+        = \mathfrak{so}(2p) \oplus \mathfrak{so}(2q).
+      \]
+      If $g^2 = -1$, then
+      $\C^{2n} = V(i) \oplus V(-i)$,
+      so $\mathfrak{k} = \mathfrak{gl}_n(\C)$.
+      In this case, we have
+      \[
+        \g_\theta = \mathfrak{so}^*(2n),
+      \]
+      which is known as the
+      \emph{quaternionic orthogonal Lie algebra}.
+    \item Type $D_n$, the other inner class.
+
+      In this case, $\theta$ is given by
+      $g \in \OO(2n)$ with
+      $\det(g) = -1$ and $g^2 = \pm 1$.
+
+      Note that if $g^2 = -1$, then $\det(g) = 1$,
+      which is a contradiction. So
+      we can only have $g^2 = 1$. Then
+      \[
+        \C^{2n} = V(1) \oplus V(-1),
+      \]
+      where $\dim V(1) = 2p + 1$ and $\dim V(-1) = 2q + 1$.
+      Here $\mathfrak{k} = \mathfrak{so}({2p + 1}) \oplus \mathfrak{so}({2q + 1})$.
+  \end{enumerate}
+\end{example}
+
+\section{More on Compact Groups}
+
+\begin{exercise}
+  Show that if $K^c$ is a
+  compact Lie group, then
+  $\mathfrak{k} = \Lie_\C(K^c)$ is a
+  reductive Lie algebra.
+\end{exercise}
+
+\begin{example}
+  Let $G_{\mathrm{ad}} = \Aut^0(\g)$
+  for a semisimple Lie algebra $\g$,
+  and let $G_{\mathrm{ad}}^c$ be
+  its compact form. Consider the
+  following product:
+  \[
+    (S^1)^r \times G_{\mathrm{ad}}^c.
+  \]
+  We will see that any Lie algebra
+  of a compact group is isomorphic to a
+  Lie algebra of such a product.
+  We can also consider covering spaces,
+  i.e. what is $\pi_1(G_{\mathrm{ad}}^c)$?
+\end{example}
