@@ -1,0 +1,337 @@
+\chapter{Feb.~25 --- Maximal Tori}
+
+\section{Classification of Reductive Lie Groups}
+
+\begin{definition}
+  A connected complex Lie group $G$ is
+  \emph{reductive} if it has the form
+  \[
+    ((\C^\times)^r \times G_{\mathrm{ss}}) / Z,
+  \]
+  where $G_{\mathrm{ss}}$ is semisimple and
+  $Z$ is a finite central subgroup.
+  A complex Lie group $G$ is called
+  \emph{reductive} if $G^0$ is reductive
+  and $G / G_0$ is finite.
+\end{definition}
+
+\begin{example}
+  Recall that
+  $\GL_n(\C)
+    = (\C^\times \times \SL_n(\C)) / \mu_n$,
+  hence $\GL_n(\C)$ is reductive.
+\end{example}
+
+\begin{remark}
+  With this definition, a simply connected
+  complex Lie group with reductive
+  Lie algebras is not necessarily reductive
+  (e.g. $\C$).
+\end{remark}
+
+\begin{remark}
+  Given $G = ((\C^\times)^r \times G_{\mathrm{ss}}) / Z$,
+  we have $Z \subseteq (S^1)^r \times G_{\mathrm{ss}} \subseteq (\C^\times)^r \times G_{\mathrm{ss}}$.
+  Then
+  \[
+    G^c = ((S^1)^r \times G_{\mathrm{ss}}^c) / Z \subseteq G.
+  \]
+  Recall that restriction from $G$ to $G^c$
+  defines an equivalence of categories between their
+  representations, so the representations
+  of $G$ are completely reducible and
+  the irreps are characterized by
+  \[
+    (n_1, \dots, n_r, \lambda), \quad
+    \lambda \in P_+(G_{\mathrm{ss}}),\, n_i \in \Z.
+  \]
+  Thus we have the characterize the
+  trivial character of $Z$.
+\end{remark}
+
+\begin{definition}
+  A connected Lie group $G$ is called
+  \emph{linear} if it can be realized as
+  a subgroup of $\GL_n(\C)$ (or $\GL_n(\R)$)
+  for some $n$.
+\end{definition}
+
+\begin{remark}
+  Any complex semisimple Lie group
+  can be realized as a linear one, but
+  this is not true for real Lie groups
+  (e.g. the universal cover of $\SL_2(\R)$).
+\end{remark}
+
+\begin{prop}
+  Suppose $\g_\theta$ is a real form of a
+  semisimple Lie algebra $\g$, and let
+  $G$ be the connected complex Lie group
+  corresponding to $\g$. Define
+  $G_\theta = G^{\omega_\theta}$.
+  Then $G_\theta$ and $G^0_\theta$ are
+  linear Lie groups, and every connected
+  real semisimple Lie group is of the form
+  $G_\theta^0$ for some $\g_\theta$.
+\end{prop}
+
+\section{Maximal Tori}
+
+\begin{remark}
+  Let $\g$ be a complex semisimple Lie
+  algebra and $\g^c$ its compact form.
+  Let $G$ be the corresponding connected
+  Lie group and $G^c$ its compact part.
+  Let $\mathfrak{h}^c \subseteq \g^c$
+  be a maximal commutative Lie subalgebra.
+  Note that $\mathfrak{h}^c \otimes_\R \C = \mathfrak{h} \subseteq \g$,
+  where $\mathfrak{h}$ is
+  a Cartan subalgebra in $\g$.
+\end{remark}
+
+\begin{remark}
+  Recall that we have
+  $\{(\mathfrak{h}, \Pi)\}$ (here
+  $\mathfrak{h}$ is a Cartan subalgebra
+  and $\Pi$ the set of simple roots) are all
+  conjugate: For any $(\mathfrak{h}, \Pi)$
+  and $(\mathfrak{h}', \Pi')$, there
+  exists $g \in G$ such that
+  \[
+    \Ad_g(\mathfrak{h}, \Pi) = (\mathfrak{h}', \Pi').
+  \]
+  The same happens for $\g^c$.
+\end{remark}
+
+\begin{lemma}
+  Any two Cartan subalgebras in $\g^c$
+  equipped with systems of simple roots
+  are conjugate under some $g \in G^c$.
+\end{lemma}
+
+\begin{proof}
+  Fix $(\mathfrak{h}^c, \Pi)$ and
+  $((\mathfrak{h}^c)', \Pi')$. Then there
+  exists $g \in G$ such that
+  \[
+    \Ad_g(\mathfrak{h}^c, \Pi) = ((\mathfrak{h}^c)', \Pi'),
+  \]
+  and for $\overline{g} = \omega(g)$,
+  we have $\Ad_{\overline{g}}(\mathfrak{h}^c, \Pi) = ((\mathfrak{h}^c)', \Pi')$.
+  Then $\overline{g}^{-1} g$ commutes
+  with $\mathfrak{h}^c$,
+  so it preserves $\Pi$. Now
+  $\overline{g} h = g$ for some
+  $h \in H = \exp(\mathfrak{h}^c_\C)$.
+  Write $g = kp$ for some $k \in G^c$ and
+  $p \in P$ by the polar decomposition. Then
+  $\overline{g} = kp^{-1}$, so
+  $kp^{-1} h = kp$, so $h = p^2$.
+  So $p = h^{1 / 2}$ commutes with
+  $\mathfrak{h}^c$ and preserves
+  $\Pi$. Thus we can take $k \in G^c$
+  to be the desired element.
+\end{proof}
+
+\begin{definition}
+  Given a Cartan subalgebra $\mathfrak{h}^c \subseteq \g^c$,
+  the corresponding Lie group
+  $H^c = \exp(\mathfrak{h}^c) \subseteq G^c$
+  is called a \emph{maximal torus}.
+\end{definition}
+
+\begin{corollary}
+  Any two maximal tori in $G$ or $G^c$
+  equipped with systems of simple roots
+  are conjugate.
+\end{corollary}
+
+\begin{theorem}
+  Every element of a connected compact
+  Lie group $K$ is contained in a maximal
+  torus, and all maximal tori are
+  conjugate.
+\end{theorem}
+
+\begin{proof}
+  We can assume $K$ is semisimple and
+  $K = G^c$. Let $K' \subseteq K$ be the
+  set of elements contained in some
+  maximal torus. Fix a maximal torus
+  $T \subseteq K$, and define
+  \begin{align*}
+    f : K \times T
+    &\longrightarrow K \\
+    k, t &\longmapsto k t k^{-1}.
+  \end{align*}
+  Clearly $\im f = K'$. Note that $K'$ is
+  compact, so $K'$ is closed and hence
+  $K \setminus K'$ is open. Note that a
+  generic
+  $x \in \g^c$ is a regular element, i.e. its
+  centralizer $\mathfrak{z}_x$ has
+  $\dim \mathfrak{z}_x = \rank \g$.
+  Then every regular element $g \in K$ is
+  contained in the maximal torus
+  $\exp(\mathfrak{z}_x)$, so
+  the elements of $K' \setminus K$ are
+  non-regular. Since the non-regular
+  elements are defined by a set of
+  polynomial equations, $K' \setminus K$
+  is also closed. Hence $K' \setminus K$
+  must be empty by connectedness.
+\end{proof}
+
+\begin{corollary}
+  On compact groups, the exponential map
+  $\exp : \g^c \to G^c$ is surjective.
+\end{corollary}
+
+\section{Semisimple and Unipotent Elements}
+
+\begin{definition}
+  Let $G$ be a connected complex reductive
+  Lie group.
+  An element $g \in G$ is \emph{semisimple}
+  (resp. \emph{unipotent})
+  if it acts in every finite-dimensional
+  representation of $G$ by semsimple
+  (resp. unipotent, i.e. all eigenvalues
+  are $1$) operators.
+\end{definition}
+
+\begin{exercise}
+  Recall that for any compact $G$, there is a faithful
+  finite-dimensional representation $Y$.
+  Show that $g \in G$
+  is semisimple (resp. unipotent) if and only if
+  it acts on $Y$ by a semisimple
+  (resp. unipotent) operator.
+\end{exercise}
+
+\begin{exercise}
+  Show that if $G$ is semisimple, then
+  the exponential map defines a
+  homeomorphism between the set of
+  nilpotent elements in $\g = \Lie(G)$ and
+  the set of unipotent elements in $G$.
+\end{exercise}
+
+\begin{exercise}
+  Let $Z$ be the center of a connected
+  complex reductive Lie group $G$.
+  \begin{enumerate}
+    \item Show that the homomorphism
+      $\pi : G \to G / Z$ defines a bijection
+      between the unipotent elements of
+      $G$ and $G / Z$.
+    \item Show that the set of semisimple
+      elements of $G$ is the preimage under
+      $\pi$ of the set of semisimple
+      elements in $G / Z$.
+  \end{enumerate}
+\end{exercise}
+
+\begin{prop}[Jordan decomposition]
+  Any $g \in G$ has a unique factorization
+  \[
+    g = g_s g_u,
+  \]
+  where $g_s \in G$ is semisimple,
+  $g_u \in G$ is unipotent, and
+  $g_s g_u = g_u g_s$.
+\end{prop}
+
+\begin{proof}
+  We can reduce to the adjoint group. Then
+  we can decompose
+  \[
+    \Ad_g = s u
+  \]
+  uniquely on the level of matrices, where
+  $s$ is semisimple and $u$ is unipotent.
+  It then suffices to show that
+  $s, u$ are $\Ad_{g_s}, \Ad_{g_u}$ for
+  some group elements. Fill in the details
+  as an exercise.
+\end{proof}
+
+\section{Cartan Decomposition}
+
+\begin{remark}
+  Let $G$ be a connected complex semisimple
+  Lie group. Let $G_\theta \subseteq G$
+  be a real form, and write
+  $G_\theta = K^c P_\theta$. Then
+  $\g_\theta = \mathfrak{k}^c \oplus \mathfrak{p}_\theta$
+  and $\g^c = \mathfrak{k}^c \oplus \mathfrak{p}^c$
+  where $\mathfrak{p}_\theta = i \mathfrak{p}^c$.
+\end{remark}
+
+\begin{prop}
+  We have the following:
+  \begin{enumerate}
+    \item Let $\mathfrak{a}$ be a maximal abelian subspace
+      in $\mathfrak{p}_\theta$. Then
+      the centralizer $\mathfrak{z}$
+      of $\mathfrak{a}$ in $\g^c$
+      has the form $\mathfrak{m} \oplus \mathfrak{a}$,
+      where $\mathfrak{m}$ is a reductive
+      Lie algebra in $\mathfrak{k}^c$.
+      Moreover, $\mathfrak{t}$ is
+      a Cartan subalgebra in
+      $\mathfrak{m}$,
+      $\mathfrak{t} \oplus i \mathfrak{a}$
+      is a Cartan subalgebra in
+      $\mathfrak{t} \oplus \mathfrak{a}$
+      is a Cartan subalgebra in $\g_\theta$.
+    \item If $a \in \mathfrak{a}$ is
+      sufficiently generic in
+      $\mathfrak{p}_\theta$, then the
+      centralizer of $a$ in
+      $\mathfrak{p}_\theta$ is
+      $\mathfrak{a}$.
+    \item For all $p \in \mathfrak{p}_\theta$,
+      there exists $k \in K^c$ such that
+      $\Ad_k(p) \in \mathfrak{a}$.
+    \item All maximal subspaces of
+      $\mathfrak{p}_\theta$ are conjugated
+      by $K^c$.
+  \end{enumerate}
+\end{prop}
+
+\begin{theorem}[Cartan decomposition]\label{thm:cartan-decomposition}
+  Let $\mathfrak{a} \subseteq \mathfrak{p}_\theta$
+  be a maximal abelian subspace. Let
+  $A = \exp(\mathfrak{a}) \subseteq P_\theta \subseteq G_\theta$,
+  which is isomorphic to
+  $\R^n$ where $n = \dim \mathfrak{a}$.
+  Then $G_\theta = K^c A K^c$.
+\end{theorem}
+
+\begin{remark}
+  The decomposition in Theorem
+  \ref{thm:cartan-decomposition}
+  is not unique.
+\end{remark}
+
+\begin{remark}
+  For $G_\theta = \GL_n(\C)$, the
+  Cartan decomposition is $U_1 D U_2$
+  where $U_1, U_2$ are unitary and
+  $D$ is diagonal with positive
+  entries, a classical theorem of linear
+  algebra.
+\end{remark}
+
+\begin{theorem}[E. Cartan]
+  Let $G_\theta$ be a real form of a
+  connected semisimple complex Lie group.
+  Then any compact subgroup $L$ of
+  $G_\theta$ is conjugated to a subgroup of $K^c$
+  by an element of $P_\theta$. Also,
+  every compact subgroup of $G_\theta$
+  is contained in a maximal one.
+  Therefore, all maximal compact subgroups
+  are conjugate to each other.
+\end{theorem}
