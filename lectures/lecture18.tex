@@ -1,0 +1,376 @@
+\chapter{Mar.~16 --- Correlation Functions}
+
+\section{Correlation Functions}
+\begin{remark}
+  Recall that if we write
+  $J_x(z) = J^+_x(z) - J_x^-(z)$, then
+  \[
+    [J^{\pm}_x(z), \Phi_n^{(g)}(w)]
+    = \frac{1}{z - w} \Phi^g_{xn}(w).
+  \]
+  Then $\widehat{\Phi}^g(z) = z^{-\Delta(\mu)} \widetilde{\Phi}^g(z) = \sum_{n \in \Z} \Phi^g[n] z^{-n - \Delta}$,
+  where
+  $\Delta = \Delta(\lambda_1) - \Delta(\lambda_0) + \Delta(\mu)$ and
+  \[
+    \Phi^g(z)
+    : V_{\lambda_1, k} \longrightarrow
+    V_{\lambda_0, k}\, \widehat{\otimes}\, V_{\mu}(z).
+  \]
+\end{remark}
+
+\begin{theorem}[FR]
+  We have
+  \[
+    (k + h^\vee) \frac{d}{dz} \widehat{\Phi}^g(z)
+    = \sum_{a \in B} {:}J_a(z) \widehat{\Phi}^g_{an}(z){:}.
+  \]
+\end{theorem}
+
+\begin{remark}
+  Let $\widehat{\Phi}^{g_i}(z_i) : V_{\lambda_i, k}\, \widehat{\otimes}\, z^{-\Delta} V_{\mu_i}[z_i^{\pm 1}]$
+  and
+  \[
+    \psi(z_1, \dots, z_N)
+    = (\widehat{\Phi}^{g_1}(z_1) \otimes \cdots \otimes 1) \cdots
+    (\widehat{\Phi}^{g_{N-1}}(z_{N - 1}) \otimes 1)
+    \widehat{\Phi}^{g_N}(z_N),
+  \]
+  where $\psi : V_{\lambda_N, k} \to V_{\lambda_0, k}\, \widehat{\otimes}\, V_{\mu_1}(z_1)\, \widehat{\otimes}\, \cdots \,\widehat{\otimes}\, V_{\mu_N}(z_N)$.
+  Here $V_{\mu_i}$ are the lowest weight
+  modules with lowest weight $-\mu_i$.
+  Let $u_0 \in (V_{\lambda_0, k}[0])^* = L_{\lambda_0}^*$
+  and $u_{N + 1} \in V_{\lambda_N, k}[0] = L_{\lambda_N}$.
+  Then
+  \[
+    \langle u_0, \psi(z_1, \dots, z_N) u_{N + 1} \rangle
+    \in V_{\mu_1} \otimes \cdots \otimes V_{\mu_N}.
+  \]
+  We can also treat this as lying in
+  $z_1^{-\Delta_1} \cdots z_N^{-\Delta_N} \C\llbracket z_2 / z_1, \dots, z_N / z_{N - 1}\rrbracket$.
+  Fix $u_0$ and define a $V$-valued
+  function
+  (called the \emph{correlation function})
+  \[
+    \psi(z_1, \dots, z_N)
+    = \langle u_0, \psi(z_1, \dots, z_N) \cdot \rangle,
+  \]
+  where $V = V_{\mu_1} \otimes \cdots \otimes V_{\mu_N} \otimes L_{\lambda_N}^*$.
+  For $u_i \in V_{\mu_i}^*$, we have
+  \[
+    \psi_{u_1, \dots, u_{N + 1}}(z_1, \dots, z_N)
+    = \langle u_0, \Phi^{g_1}_{u_1} \cdots \Phi^{g_N}_{u_N} u_{N + 1} \rangle \in \C.
+  \]
+\end{remark}
+
+\begin{theorem}\label{thm:KZ}
+  The correlation function 
+  $\psi(z_1, \dots, z_N)$ satisfies the
+  following system of differential equations:
+  \[
+    (k + h^\vee) \partial_{z_i} \psi
+    = \bigg(
+      \sum_{j = 1, j \ne i} \frac{\Omega_{i, j}}{z_i - z_j} + \frac{\Omega_{i, N + 1}}{z_i}
+    \bigg) \psi,
+  \]
+  where $\Omega = \sum x_i \otimes x^i$ and
+  $A_{i, j} = (x)_i (y)_j$
+  for $A = x \otimes y \in \g \otimes \g$.
+\end{theorem}
+
+\begin{proof}
+  We can write
+  \begin{align*}
+    &(k + h^\vee) \frac{\partial}{\partial z_i} \psi_{u_1, \dots, u_{N + 1}}(z_1, \dots, z_N) \\
+    &\quad \quad= \sum_{a \in B}
+    \langle u_0, \widehat{\Phi}_{u_1}(z_1),
+    \dots, (J_a^+(z_i) \widehat{\Phi}_{au_i}(z_i) - \widehat{\Phi}_{au_i}(z_i)J_a^-(z_i)), \dots,
+    \widehat{\Phi}_{u_N}(z_N) u_{N + 1} \rangle \\
+    &\quad \quad= \sum_{j = 1}^{i - 1}
+    \langle u_0, \widehat{\Phi}_{u_1}(z_1), \dots, [\widehat{\Phi}_{u_j}(z_j), J_a^+(z_i)], \dots, \widehat{\Phi}_{u_N}(z_N) u_{N + 1} \rangle \tag{$*$} \\
+    &\quad \quad \quad \quad
+    + \sum_{j = i + 1}^N
+    \langle u_0, \widehat{\Phi}_{u_1}(z_1), \dots, [\widehat{\Phi}_{u_j}(z_j), J_a^-(z_i)], \dots, \widehat{\Phi}_{u_N}(z_N) u_{N + 1} \rangle \tag{$**$} \\
+    &\quad \quad \quad \quad +
+    \langle u_0, J_a^+(z_i) \widehat{\Phi}_{u_1}(z_1), \dots, \widehat{\Phi}_{au_i}(z_i), \dots, \widehat{\Phi}_{u_N}(z_N) u_{N + 1} \rangle \tag{$*{*}*$} \\
+    & \quad \quad \quad \quad -
+    \langle u_0, \widehat{\Phi}_{u_1}(z_1), \dots, \widehat{\Phi}_{au_i}(z_i), \dots, \widehat{\Phi}_{u_N}(z_N) J_a^-(z_i) u_{N + 1} \rangle.
+  \end{align*}
+  Now we have $J_a^-(z) u_{N + 1} = (-1 / z) a u_{N + 1}$ and
+  $\langle u_0, J_a^+(z) w \rangle = 0$
+  since $w \in V_{\lambda, k}$.
+  Then
+  \[
+    (*)
+    = \sum_{j = 1}^{i - 1} \sum_{a \in B}
+    \frac{1}{z_i - z_j} \langle u_0,
+    \widehat{\Phi}_{u_1}(z_1), \dots,
+    \widehat{\Phi}_{au_j}(z_j), \dots,
+    \widehat{\Phi}_{au_i}(z_i), \dots, \widehat{\Phi}_{u_N}(z_N) u_{N + 1} \rangle,
+  \]
+  and similarly,
+  \[
+    (**)
+    = \sum_{j = i + 1}^N \sum_{a \in B}
+    \frac{1}{z_i - z_j} \langle u_0,
+    \widehat{\Phi}_{u_1}(z_1), \dots,
+    \widehat{\Phi}_{au_i}(z_i), \dots,
+    \widehat{\Phi}_{au_j}(z_j), \dots, \widehat{\Phi}_{u_N}(z_N) u_{N + 1} \rangle.
+  \]
+  We also get
+  \[
+    (*{*}*)
+    = \sum_{a \in B} \frac{1}{z_i}
+    \langle u_0, \widehat{\Phi}_{u_1}(z_1), \dots,
+    \widehat{\Phi}_{au_i}(z_i), \dots, \widehat{\Phi}_{u_N}(z_N) a u_{N + 1} \rangle.
+  \]
+  This is the action of
+  the Casimir element $\Omega$.
+\end{proof}
+
+\begin{remark}
+  For $j > i$, we can write
+  \[
+    \frac{1}{z_i - z_j}
+    = z_i^{-1} \sum_{n = 0}^\infty (z_j / z_i)^n.
+  \]
+\end{remark}
+
+\begin{remark}
+  The usual form of the KZ equations (call
+  this the \emph{symmetric} form) is
+  written as
+  \[
+    (k + h^\vee) \frac{\partial}{\partial z_i} \psi
+    = \bigg(
+      \sum_{j = 1, j \ne i}^{N + 1}
+      \frac{\Omega_{i, j}}{z_i - z_j}
+    \bigg) \psi
+  \]
+  for $i = 1, \dots, N + 1$. These
+  systems are
+  equivalent: If $\widetilde{\psi}(z_1, \dots, z_{N + 1})$
+  is a solution to the above system, then
+  $\widetilde{\psi}(z_1, \dots, z_N, 0)$ is a solution to the system in Theorem
+  \ref{thm:KZ} (call this the
+  \emph{non-symmetric} form). Similarly, if
+  $\psi(z_1, \dots, z_N)$ is a solution to the system in Theorem \ref{thm:KZ}, then
+  $\widetilde{\psi}(z_1, \dots, z_{N + 1}) = \psi(z_1 - z_{N + 1}, \dots, z_N - z_{N + 1})$ is a solution to the above system.
+\end{remark}
+
+\begin{remark}
+  If $\psi(z_1, \dots, z_{N + 1})$ is a solution
+  to the KZ equations, then so is
+  $\psi(z_1 + c, \dots, z_{N + 1} + c)$
+  for constant $c$. Also notice that
+  for $\lambda_N = 0$, the non-symmetric
+  system turns into the symmetric one.
+\end{remark}
+
+\begin{remark}
+  If $u_0 \in (V_{\lambda_0, k}[0])^*$
+  is the lowest weight vector with respect
+  to $\g$, then
+  \[
+    \psi(z_1, \dots, z_N)
+    = \langle u_0, \psi(z_1, \dots, z_N) \cdot \rangle
+  \]
+  (which a priori has values in $V = V_{\mu_1} \otimes \cdots \otimes V_{\mu_N} \otimes L_{\lambda_N}^*$)
+  takes values in $V^{\mathfrak{n}_-}$.
+  If $\lambda_0 = 0$, then
+  this is $\g$-invariant, and $\psi$ takes
+  values in $V^\g$.
+\end{remark}
+
+\begin{theorem}
+  The KZ system is consistent, i.e.
+  for all $p, q = 1, \dots, N + 1$,
+  \[
+    \left[
+      (k + h^\vee) \partial_{z_p}
+      - \sum_{j = 1, j \ne p}^{N + 1}
+      \frac{\Omega_{p, j}}{z_p - z_j},
+      (k + h^\vee) \partial_{z_q}
+      - \sum_{j = 1, j \ne q}^{N + 1}
+      \frac{\Omega_{q, j}}{z_q - z_j}
+    \right] = 0.
+  \]
+\end{theorem}
+
+\begin{proof}
+  We trivially
+  have $\Omega_{p, q} = \Omega_{q, p}$, so
+  \[
+    [\Omega_{p, q}, \Omega_{p, r} + \Omega_{q, r}]
+    = \left[
+      \sum_a a_{p} \otimes a_q, \sum_b b_p \otimes b_r + \sum_b b_q \otimes b_r
+    \right]
+    = 0.
+  \]
+  Expanding this out, we get that
+  \[
+    0
+    = \sum_{a, b \in B}
+    (a_q [a_p, b_p] b_r + a_p [a_q, b_q] b_r)
+    = \sum_{b \in B} [\Omega_{p, q}, b_p + b_q] b_r,
+  \]
+  so that $[\Omega, b\otimes 1 + 1 \otimes b] = 0$. Since
+  $\Omega = \sum_a a \otimes a$, this
+  proves consistency.
+\end{proof}
+
+\begin{remark}
+  The above results imply that the
+  KZ equations define a flat connection
+  on a trivial vector bundle $V$ over
+  \[
+    X_{N + 1}
+    = \{
+      (z_1, \dots, z_{N + 1}) \in \C^N
+      : z_i \ne z_j
+    \}.
+  \]
+  We will see later that
+  for any open disk $D \subseteq X_{N + 1}$,
+  the space of solutions
+  $\Gamma(D, V_{\mathrm{KZ}})$ is a space
+  of flat sections of $V_{\mathrm{KZ}}$
+  over $D$. If $D$ is simply connected,
+  then $\Gamma(D, V_{\mathrm{KZ}}) \cong V$
+  by $\psi \mapsto \psi(p)$.
+  In other words,
+  $V_{\mathrm{KZ}}$ is a direct sum of
+  finite dimensional vector bundles
+  (i.e. \emph{local systems}).
+\end{remark}
+
+\begin{theorem}
+  The KZ system is $\g$-invariant, meaning
+  that if $x \in \g$ and $\psi$ is a solution,
+  then $x \psi$ is also a solution.
+\end{theorem}
+
+\begin{proof}
+  Check as an exercise that
+  $[\sum_{j = 1, j \ne p}^{N + 1}
+      \Omega_{p, j} / (z_p - z_j), x
+      ] = 0$,
+  where $x = \sum_{i = 1}^{N + 1} x_i$.
+\end{proof}
+
+\section{Analyticity of Correlation Functions}
+
+\begin{remark}
+  We change variables from $z_1, \dots, z_N$
+  to $\zeta_i = z_{i + 1} / z_i$
+  for $i = 1, \dots, N - 1$, and $\zeta_N = z_N$.
+  Then the KZ equations become the following
+  system:
+  \[
+    \zeta_i \frac{\partial}{\partial \zeta_i} \psi = A_i(\zeta_1, \dots, \zeta_{N - 1}) \psi.
+  \]
+  To see this, one can take
+  logarithmic derivatives and then take
+  differences. Here the $A_i$ are
+  holomorphic functions in the region
+  \[\{|\zeta_j| < 1 : 1 \le j \le N\},\]
+  and we have $[A_i(0), A_j(0)] = 0$
+  for all $i, j$.
+\end{remark}
+
+\begin{prop}\label{prop:analyticity}
+  Let $A_i(\zeta_1, \dots, \zeta_m)$
+  for $1 \le i \le m$ be $n \times n$
+  matrix-valued
+  functions holomorphic in the region
+  $R = \{|\zeta_j| < 1 : 1 \le j \le m\}$ and
+  such that the differential operators
+  $\zeta_i \partial_{z_i} - A_i$ commute
+  with each other. Assume also that for all
+  $i$, the eigenvalues of $A_i(0)$ do not
+  differ by a nonzero integer. Then
+  the differential equation
+  \[
+    \zeta_i \frac{\partial}{\partial \zeta_i} F = A_i(\zeta_1, \dots, \zeta_m) F, \quad
+    i = 1, \dots, m
+  \]
+  has a unique $n \times n$ matrix solution
+  of the form
+  \[
+    F(\zeta_1, \dots, \zeta_m)
+    = F_0(\zeta_1, \dots, \zeta_m)
+    \zeta_1^{A_1(0)} \cdots \zeta_m^{A_m(0)},
+  \]
+  where $F_0$ is an $n \times n$ matrix
+  valued function holomorphic in the region
+  $R$ and $F_0(0) = \id$.
+\end{prop}
+
+\begin{corollary}
+  In the notation of Proposition
+  \ref{prop:analyticity}, let $f$ be a
+  vector-valued power series
+  \[
+    f(\zeta_1, \dots, \zeta_m)
+    = \zeta_1^{\delta_1} \cdots \zeta_m^{\delta_m}
+    f_0(\zeta_1, \dots, \zeta_m),
+  \]
+  where $f_0 \in \C^n \llbracket \zeta_1, \dots, \zeta_m \rrbracket$
+  and $\delta_i \in \C$. Then there exists
+  such a vector $v \in \C^n$ such that
+  $f(\zeta_1, \dots, \zeta_m) = F(\zeta_1, \dots, \zeta_m) v$,
+  where $F$ is the fundamental solution
+  from Proposition \ref{prop:analyticity},
+  and $f$ converges to an analytic
+  solution in the region $R$.
+\end{corollary}
+
+\begin{proof}
+  Let $v(\zeta_1, \dots, \zeta_m) = F^{-1} f$,
+  then differentiating gives
+  $\partial_{\zeta_i} v = 0$.
+\end{proof}
+
+\begin{theorem}
+  The correlation function is absolutely
+  convergent in the region
+  $|z_1| > |z_2| > \cdots > |z_N| > 0$ and
+  defines a regular, multi-valued function
+  in this region.
+\end{theorem}
+
+\begin{corollary}
+  For $|z_1| > \cdots > |z_N| > 0$, the
+  product $\widehat{\Phi}_{u_1}(z_1) \cdots \widehat{\Phi}_{u_N}(z_N)$
+  is a well-defined operator
+  \[
+    V_{\lambda_N, k}
+    \longrightarrow
+    \widehat{V}_{\lambda_0, k}
+  \]
+  (i.e. all matrix elements are converging
+  series).
+\end{corollary}
+
+\begin{corollary}\label{cor:asymptotics}
+  In the limit $|z_1| \gg \cdots \gg |z_N|$,
+  the correlation function has the following
+  asymptotics:
+  \[
+    \psi(z_1, \dots, z_N)
+    \sim z_1^{-\Delta_1} \cdots z_N^{-\Delta_N} v,
+  \]
+  where $v = \langle u_0, g_1 \cdots g_N \cdot \rangle \in V$.
+\end{corollary}
+
+\begin{remark}
+  By Corollary \ref{cor:asymptotics}, we
+  can write
+  $\psi = z_1^{-\Delta_1} \cdots z_N^{-\Delta_N} \psi_0$, where
+  \[
+    \psi_0
+    = \psi_0(\zeta_1, \dots, \zeta_{N - 1})
+    = \psi_0(z_2 / z_1, \dots, z_N / z_{N - 1})
+  \]
+  is analytic in a neighborhood of
+  $\{\zeta_i = 0\}$ and $\psi_0(0) = v$.
+\end{remark}
