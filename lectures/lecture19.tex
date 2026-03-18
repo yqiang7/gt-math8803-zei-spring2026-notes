@@ -1,0 +1,353 @@
+\chapter{Mar.~18 --- KZ Equations, Part 2}
+
+\section{Correlation Functions, Continued}
+
+\begin{prop}
+  The correlation functions span the
+  space of solutions of the KZ equations.
+\end{prop}
+
+\begin{remark}
+  Let $\xi = (\lambda_0, \dots, \lambda_N; g_1, \dots, g_N; u_0)$,
+  $\lambda_i \in \mathfrak{h}^*$,
+  $g_i \in \Hom_{\g}(L_{\lambda_i}, L_{\lambda_{i - 1}} \otimes V_{\mu_i})$
+  where $u_0 \in L_{\lambda_0}^*$. Let
+  \[
+    \Xi
+    = \bigoplus_{\lambda_0, \dots, \lambda_{N - 1}} \bigg(
+      L_{\lambda_0}^*
+      \otimes \bigotimes_{i = 1}^N \Hom_{\g}
+      (L_{\lambda_i}, L_{\lambda_{i - 1}} \otimes V_{\mu_i})
+    \bigg).
+  \]
+  The only nonzero terms satisfy
+  $\lambda_i + \mu_i - \lambda_{i - 1} \in Q$,
+  and this space has a natural
+  $\g$-module structure, and
+  the $\Hom_{\g}(L_{\lambda_i}, L_{\lambda_{i - 1}} \otimes V_{\mu_i})$ are
+  trivial $\g$-modules. Each $\xi \in \Xi$
+  defines a unique correlation function
+  \[
+    \psi^\xi(z_1, \dots, z_N)
+    \in V
+    = V_{\mu_1} \otimes \cdots \otimes V_{\mu_N} \otimes L_{\lambda_N}^*.
+  \]
+\end{remark}
+
+\begin{theorem}\label{thm:correlation-functions-span-solutions}
+  Fix $\lambda_N$ and
+  $\mu_i$ for $i = 1, \dots, N$. Let
+  $V_{\mu_i}$ be the lowest weight modules
+  satisfying either of the two
+  following conditions:
+  \begin{enumerate}
+    \item \emph{Generic case:}
+      The weights $\lambda_N, \lambda_N + \mu_N, \dots, \lambda_N + \mu_N + \cdots + \mu_1$
+      are generic and $k$ is generic with
+      respect to each;
+    \item \emph{Finite-dimensional case:}
+      $\lambda_N, \mu_i \in P^+$,
+      $k \notin \Q$, and the $V_{\mu_i}$
+      are irreducible finite-dimensional
+      modules with lowest weight $-\mu_i$.
+  \end{enumerate}
+  Then the correlation functions span
+  the space of $V$-valued solutions
+  of the KZ equations in a region $D$.
+  Moreover, the following map
+  \begin{align*}
+    \Xi &\longrightarrow \Gamma(D, V_{\mathrm{KZ}}) \\
+    \xi &\longmapsto \psi^\xi(z_1, \dots, z_N)
+  \end{align*}
+  is an isomorphism of $\g$-modules.
+\end{theorem}
+
+\begin{remark}
+  In Case 1 of Theorem \ref{thm:correlation-functions-span-solutions},
+  the $\lambda_i$ are generic, and in
+  Case 2, the $\lambda_i \in P^+$.
+\end{remark}
+
+\begin{lemma}
+  Under assumptions (1) or (2) of
+  Theorem \ref{thm:correlation-functions-span-solutions},
+  the map
+  \[
+    (\lambda_0, \dots, \lambda_{N - 1}; g_1, \dots, g_N; u_0)
+    \longmapsto
+    \langle u_0, g_1 \cdots g_N \cdot \rangle
+  \]
+  is an isomorphism of $\g$-modules.
+\end{lemma}
+
+\begin{proof}
+  Note that $\Hom_\g(L_{\lambda_i}, L_{\lambda_{i - 1}} \otimes V_{\mu_i}) \cong \Hom_\g(L_{\lambda_{i - 1}}^*, V_{\mu_i} \otimes L_{\lambda_i}^*)$.
+  So it suffices to show that
+  \[
+    \bigoplus_v \Hom_\g(L_v^*, V_\mu \otimes L_\lambda^*) \otimes L_v^*
+    \longrightarrow
+    V_\mu \otimes L_\lambda^*
+  \]
+  is an isomorphism. This is true if
+  we are in the finite-dimensional case.
+  In general, if $\lambda$ and $\lambda + \mu$
+  are generic, the $L_v^*$ being
+  irreducible implies that the above map
+  is injective. Since $v$ is
+  generic, $L_v^* \cong M_v^*$
+  and $L_\lambda^* \cong M_\lambda^*$, so
+  $\Hom_\g(L_v^*, V_\mu \otimes L_\lambda^*) \cong V_\mu^{(\lambda - v)}$
+  (the weight subspace).
+\end{proof}
+
+\begin{corollary}
+  If $u_0$ is the lowest weight vector, then
+  the correlation functions span solutions
+  with values in $V^{\mathfrak{n}_-}$.
+  Moreover, if $u_0$ is $\g$-invariant,
+  then the correlation functions take
+  values in $V^\g$.
+\end{corollary}
+
+\begin{remark}
+  We had an identification
+  $\Gamma(D, V_{\mathrm{KZ}}) \cong V$
+  via $\psi \mapsto \psi(p)$
+  (i.e. evaluation at $p$). Now we
+  have
+  \[
+    \Gamma(D, V_{\mathrm{KZ}})
+    \cong \Xi \cong V,
+  \]
+  which is a more sophisticated
+  identification that is not attached to
+  a particular point.
+\end{remark}
+
+\section{Trigonometric KZ Equations}
+
+\begin{remark}
+  Let $\phi(z_1, \dots, z_N) = \langle u_0, \psi(z_1, \dots, z_N) u_{N + 1} \rangle \in V_{\mu_1} \otimes \cdots \otimes V_{\mu_N}$.
+  Then
+  \[\phi \in (V_{\mu_1} \otimes \cdots \otimes V_{\mu_N})^{\lambda_N - \lambda_0},\]
+  and $\phi$ satisfies the following
+  differential equation
+  \[
+    (k + h^\vee) \frac{\partial}{\partial z_i} \phi
+    = \bigg(
+      \sum_{j = 1}^N \frac{\Omega_{ij}}{z_i - z_j}
+    \bigg) \phi
+    - \frac{1}{z_i} \sum_e (a_e)_i \langle u_0, \psi(z_1, \dots, z_N) a^\ell u_{N + 1} \rangle,
+  \]
+  where $a^e, a_e$ are dual basis
+  elements in $\g$. For
+  $\alpha \in R_+$, let
+  $e_\alpha \in \g^\alpha$,
+  $f_\alpha \in \g^{-\alpha}$ such that
+  $\langle e_\alpha, f_\alpha \rangle = 1$. Then
+  \[
+    \Omega = \sum_{\alpha \in R_+}
+    (e_\alpha \otimes f_\alpha + f_\alpha \otimes e_\alpha)
+    + \sum_p x_p \otimes x_p,
+  \]
+  where $x_p$ is the dual
+  basis in $\mathfrak{h}$, and
+  $C = \sum_{\alpha \in R_+} (e_\alpha f_\alpha + f_\alpha e_\alpha) + \sum_p x_p^2$.
+  We can rewrite
+  \begin{align*}
+    \sum_e (a_e)_i \langle u_0, \psi a^\ell u_{N + 1} \rangle
+    &= \sum_{\alpha \in R_+} (e_\alpha)_i
+    \langle u_0, \psi f_\alpha u_{N + 1} \rangle
+    + \sum_{p} (x_p)_i \rangle u_0, \psi \langle x_p, \lambda_N \rangle u_{N + 1} \rangle \\
+    &= \sum_{\alpha \in R_+} (e_\alpha)_i
+    \sum_{j = 1}^N (f_\alpha)_j \phi + (h_{\lambda_N})_i \phi.
+  \end{align*}
+  Note that $u_0$ is $\mathfrak{n}_-$-invariant.
+  Now $\phi$ has weight $\lambda_N - \lambda_0$,
+  so
+  \[
+    \sum_p \sum_{j = 1}^N (x_p)_i (x_p)_j \phi
+    = (h_{\lambda_N - \lambda_0})_i \phi.
+  \]
+  Then we can rewrite
+  \pagebreak
+  \begin{align*}
+    \sum_e (a_e)_i \langle u_0, \psi a^\ell u_{N + 1} \rangle
+    &= \sum_{j = 1}^N
+    \bigg(
+      \sum_{\alpha \in R_+} (e_\alpha)_i (f_\alpha)_j
+      + \frac{1}{2} \sum_p (x_p)_i (x_p)_j
+    \bigg) \phi
+    + \frac{1}{2} (h_{\lambda_N} + \lambda_0)_i \phi \\
+    &= \sum_{j = 1}^N \Omega_{i, j}^+ \phi
+    + \frac{1}{2}(h_{\lambda_N + \lambda_0})_i \phi
+    + \bigg(\sum_{\alpha \in R_+} e_\alpha f_\alpha + \frac{1}{2} \sum_p x_p^2\bigg)_i \phi,
+  \end{align*}
+  where $\Omega^+ = \sum_{\alpha \in R_+} e_\alpha \otimes f_\alpha + \frac{1}{2} \sum_p x_p \otimes x_p$
+  \[
+    \Omega^- = \Omega - \Omega^+
+    = \sum_{\alpha \in R_+} f_\alpha \otimes e_\alpha
+    + \frac{1}{2} \sum_p x_p \otimes x_p.
+  \]
+  Check as an exercise that
+  $[e_\alpha, f_\alpha] = h_\alpha$ and
+  that
+  \[
+    \sum e_\alpha f_\alpha + \frac{1}{2} \sum_p x_p^2
+    = \frac{1}{2} C + h_\rho.
+  \]
+  Then we have that
+  \begin{align*}
+    \sum_\ell (a_\ell)_i \langle u_0, \psi a^\ell u_{N + 1} \rangle
+    &= \sum_{\substack{j = 1 \\ j \ne i}}^N \Omega_{i, j}^+ \phi
+    + \frac{1}{2} (h_{\lambda_N + \lambda_0 + 2\rho})_i \phi
+    + \frac{1}{2}(C)_i \phi \\
+    &= \bigg(
+      \sum_{j = 1}^N \Omega_{i, j}^+
+      + \frac{1}{2}(h_{\lambda_N + \lambda_0 + 2\rho})_i
+      + \frac{1}{2} \langle \mu_i, \mu_i + 2\rho \rangle
+    \bigg) \phi.
+  \end{align*}
+  Thus we can rewrite the KZ equations as
+  \[
+    (k + h^\vee) z_i \partial_{z_i} \phi
+    = \bigg(\sum_{\substack{j = 1 \\ j \ne i}}^N
+    \frac{z_i \Omega_{i, j}^- + z_j \Omega_{i, j}^+}{z_i - z_j}
+    - \frac{1}{2}(h_{\lambda_N + \lambda_0 + 2\rho})_i
+    - \frac{1}{2}\langle \mu_i, \mu_i + 2\rho \rangle\bigg) \phi
+  \]
+\end{remark}
+
+\begin{theorem}
+  Let $z_i = e^{z_i}$. Then
+  \[
+    (k + h^\vee)
+    \partial_{x_i} \phi
+    = \bigg(
+      \sum_{\substack{j = 1 \\ j \ne i}}^N
+      r_{i, j}(x_i - x_j) -
+      \frac{1}{2} (h_{\lambda_N + \lambda_0 + 2\rho})_i
+      - \langle \mu_i, \mu_i + 2\rho \rangle
+    \bigg) \phi,
+  \]
+  where $r(x) = (e^x \Omega^- + \Omega^+) / (e^x - 1)$.
+\end{theorem}
+
+\section{Factorizable Systems}
+\begin{remark}
+  The equations we are studying take the
+  form
+  \[
+    \frac{\partial}{\partial z_i} \phi(z_1, \dots, z_N)
+    = A_i(z_1, \dots, z_N) \phi(z_1, \dots, z_N), \quad \phi \in V,\, A_i \in \End(V),
+  \]
+  where $\partial_i A_j \partial_j A_i + [A_i, A_j] = 0$ and
+  the $A_i$ are holomorphic in
+  $D \subseteq \C^N$.
+\end{remark}
+
+\begin{definition}
+  We say that such a system is
+  \emph{factorizable} if
+  \begin{enumerate}
+    \item $V = V_1 \otimes \cdots \otimes V_N$,
+      where the $\{V_i\}$ are $\g$-modules,
+    \item there exists a function
+      $r(z) \in \g \otimes \g$ of one
+      complex variable meromorphic
+      in a neighborhood of the origin,
+      and $\kappa \in \C$ such that
+      \[
+        A_i(z_1, \dots, z_N)
+        = \frac{1}{\kappa}
+        \bigg(
+          \sum_{j > i} r_{i, j}(z_i - z_j)
+          - \sum_{j < i} r_{j, i}(z_j - z_i)
+          + s_i
+        \bigg)
+      \]
+      for $s \in \g$ such that
+      $[s \otimes 1 + 1 \otimes s, r(z)] = 0$.
+  \end{enumerate}
+\end{definition}
+
+\begin{prop}\label{prop:classical-yang-baxter-equation}
+  A factorizable system is consistent
+  if
+  \[
+    [r_{i, j}(z_i - z_j), r_{j, k}(z_j - z_k)]
+    + [r_{i, k}(z_i - z_k), r-{j, k}(z_j - z_k)]
+    + [r_{i, j}(z_i - z_j), r_{i, k}(z_i - z_k)] = 0.
+  \]
+  These are called the
+  \emph{classical Yang-Baxter equations}.
+\end{prop}
+
+\begin{remark}
+  There are also
+  \emph{quantum Yang-Baxter equations}, which
+  is of the form
+  \[
+    R_{i, j}(z_i - z_j)
+    = 1 + \hbar r(z_i - z_j) + O(\hbar^2),
+  \]
+  and one can recover the
+  classical equation from it.
+\end{remark}
+
+\begin{remark}
+  We can naturally take $V_i \cong U(\g)$
+  to make a factorizable system, and in
+  this case the
+  condition in Proposition
+  \ref{prop:classical-yang-baxter-equation} is
+  satisfied in $U(\g)^{\otimes 3}$.
+\end{remark}
+
+\begin{definition}
+  \emph{Classical $r$-matrices} are
+  solutions of the classical Yang-Baxter
+  equations which are meromorphic in a
+  neighborhood of the origin
+  with at least one point
+  $z$ where $r(z)$ is nondegenerate.
+\end{definition}
+
+\begin{definition}
+  Two classical $r$-matrices
+  $r(z)$, $\widetilde{r}(z)$ are
+  \emph{equivalent} if there is
+  $\phi(x) \in \Aut(\g)$ such that
+  \[
+    \widehat{r}(z_1 - z_2)
+    = (\phi(z_1) \otimes \phi(z_2)) r(z_1 - z_2).
+  \]
+\end{definition}
+
+\begin{theorem}
+  A classical $r$-matrix $r(z)$ extends
+  to a meromorphic function on the
+  complex plane satisfying
+  $r_{1, 2}(-z) = -r_{2, 1}(z)$. Moreover,
+  they fall into one of the following
+  classes:
+  \begin{enumerate}
+    \item \emph{Rational:}
+      $r(z) = c \Omega / z + P(z)$ for
+      some $P \in \g \otimes \g \otimes \C[z]$
+      and $c \in \C^\times$.
+    \item \emph{Hyperbolic (or trigonometric):}
+      $r = f(e^{az})$, where
+      \[
+        r(z)
+        = \frac{P(e^{az})}{e^{a(n + 1)z} - 1}
+        + e^{-anz} Q(e^{az})
+      \]
+      where $P, Q$ are polynomials
+      and $r(z + 2\pi i / a) = r(z)$.
+    \item \emph{Elliptic:}
+      $r(z + n \omega_1) = r(z + n\omega_2) = r(z)$.
+      This case exists only for
+      Type A Lie algebras.
+  \end{enumerate}
+\end{theorem}
