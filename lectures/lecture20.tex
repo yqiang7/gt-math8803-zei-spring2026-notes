@@ -1,0 +1,408 @@
+\chapter{Mar.~30 --- KZ Equations for \texorpdfstring{$\mathfrak{sl}_2$}{sl2}}
+
+\section{KZ Equations for \texorpdfstring{$\mathfrak{sl}_2$}{sl2}}
+\begin{remark}
+  For this lecture, let
+  $\g = \mathfrak{sl}_2$. Then we have
+  (letting $\kappa = k + h^\vee$)
+  \[
+    \kappa \frac{\partial}{\partial z_i} \psi
+    = \bigg(
+      \sum_{j = 1}^N \frac{\Omega_{i, j}}{z_i - z_j}
+    \bigg) \psi, \quad i = 1, \dots, N.
+  \]
+  Note that
+  $\psi$ takes values in
+  $V = V_{\mu_1} \otimes \cdots \otimes V_{\mu_{N }}$,
+  where $V_{\mu_i}$ are the lowest
+  weight modules (with height $-\mu_i$)
+  Let $(V^{\mathfrak{n}_-})^{\underline{\lambda}}$
+  be the space of singular vectors, where
+  $\underline{\lambda}$ is a weight.
+  Write $\lambda = -\sum_{i = 1}^N \mu_i + \mu$,
+  where $\mu = \sum_{i = 1}^r n_i \alpha_i$.
+  Call $|\mu| = \sum_{i = 1}^r n_i$ the
+  \emph{level} of the solution. Let
+  \[
+    e =
+    \begin{pmatrix}
+      0 & 1 \\
+      0 & 0
+    \end{pmatrix}, \quad
+    f =
+    \begin{pmatrix}
+      0 & 0 \\
+      1 & 0
+    \end{pmatrix}, \quad
+    h =
+    \begin{pmatrix}
+      1 & 0 \\
+      0 & -1
+    \end{pmatrix}
+  \]
+  and $\Omega = e \otimes f + f \otimes e + \frac{1}{2} h \otimes h$.
+  Let $(x, y) = \tr(xy)$, so that
+  \[
+    (\beta, \gamma)
+    = (\beta \omega, \gamma \omega)
+    = \frac{\beta \gamma}{2}.
+  \]
+  With this normalization, we have
+  $h \to 1$, $\alpha \to 2$, $\rho = 1$,
+  $k + h^\vee \to k + 2$, and
+  $h = h^\vee = 2$.
+
+  Now we find the dimension of $W$.
+  Let $p_N(m)$ be the number of ordered
+  partitions of $m$ into $N$ parts, i.e.
+  \[
+    p_N(m)
+    = 
+    \#\left\{\vec{m} = (m_1, \dots, m_N) \in \Z_+^N : \sum m_i = m\right\}
+    = \binom{N + m - 1}{m}
+    = \frac{(N + m - 1)!}{m! (N - 1)!}.
+  \]
+  Note that $p_N$ has generating function
+  $1 / (1 - q)^N$. Let $v_i$ be the lowest
+  weight vector in $V_{\mu_i}$. Consider
+  \[
+    e^{m_1} v_1 \otimes \cdots \otimes e^{m_N} v_N,
+  \]
+  then we see that $\dim V^\lambda = p_N(m)$
+  where $\lambda = - \sum \mu_i + 2m$.
+\end{remark}
+
+\begin{prop}
+  Let $W$ be the space of singular vectors of
+  weight $\lambda = -\sum \mu_i + 2m$ in $V$.
+  Then for generic $\mu_i$, we have
+  \[
+    \dim W = p_{N - 1}(m)
+    = \binom{N + m - 2}{m}
+  \]
+\end{prop}
+
+\begin{remark}
+  In level $0$, we have
+  $W^0 = \C v$, where
+  $v = v_1 \otimes \cdots \otimes v_N$.
+  Then
+  \[
+    \Omega_{i, j} v
+    = \frac{1}{2} (v_1 \otimes \cdots \otimes hv_i \otimes \cdots \otimes hv_j \otimes \cdots \otimes v_N)
+    = \frac{\mu_i \mu_j}{2} v.
+  \]
+  \pagebreak
+  Define the function
+  \[
+    \psi_0(z_1, \dots, z_N)
+    = \prod_{i < j} (z_i - z_j)^{\mu_i \mu_j / 2 \kappa}.
+  \]
+  Then $\psi_0 = \psi_0(z_1, \dots, z_n) v$
+  is a solution to the KZ equations.
+
+  We will now consider $N = 3$, which gives
+  the simplest level $1$ solution.
+\end{remark}
+
+\begin{prop}
+  Any solution $\psi(z_1, z_2, z_3)$ of the
+  KZ equations can be rewritten as
+  \[
+    \psi(z_1, z_2, z_3)
+    = (z_1 - z_3)^{(\Omega_{1, 2} + \Omega_{1, 3} + \Omega_{2, 3}) / \kappa}
+    f \bigg(\frac{z_1 - z_2}{z_1 - z_3}\bigg).
+  \]
+  where $f$ satisfies the equation
+  \[
+    \kappa \frac{\partial}{\partial z} f(z)
+    = \bigg(\frac{\Omega_{1, 2}}{z} + \frac{\Omega_{2, 3}}{z - 1}\bigg) f(z). \tag{$*$}
+  \]
+\end{prop}
+
+\begin{remark}
+  Consider $L_0, L_{\pm 1}$ with
+  $-d / dz$, $-z d / dz$, and $-z^2 d / dz$. Let
+  \[
+    x = \frac{z_1 - z_2}{z_1 - z_3}, \quad
+    y = z_1 - z_3, \quad t = z_1 + z_2 + z_3.
+  \]
+  Then we have that
+  \begin{align*}
+    \kappa \frac{\partial \psi}{\partial x} =
+    \bigg(
+      \frac{\Omega_{1, 2}}{x}
+      + \frac{\Omega_{2, 3}}{x - 1}
+    \bigg) \psi, \quad
+    \kappa \frac{\partial \psi}{\partial y} =
+    \frac{(\Omega_{1, 2} + \Omega_{1, 3} + \Omega_{2, 3})}{y} \psi, \quad
+    \kappa \frac{\partial \psi}{\partial t} = 0.
+  \end{align*}
+  Then we see that
+  $f = y^{-(\Omega_{1, 2} + \Omega_{1, 3} + \Omega_{2, 3}) / \kappa} \psi(x, y)$
+  does not depend on $y$.
+\end{remark}
+
+\begin{remark}
+  Note that $W$ is $2$-dimensional on level
+  $1$: Assume $\mu_i \ne 0$, then
+  \begin{align*}
+    w_1 &= \mu_1 ev_1 \otimes v_2 \otimes v_3 - \mu_2 v_1 \otimes ev_2 \otimes v_3 \\
+    w_2 &=
+    \mu_3 v_1 \otimes ev_2 \otimes v_3 - \mu_2 v_1 \otimes v_2 \otimes ev_3
+  \end{align*}
+\end{remark}
+
+\begin{theorem}
+  Any solution $f(z)$ of the equation
+  $(*)$ can be written as follows:
+  \[
+    f(z)
+    = z^{(\mu_1 \mu_2 - 2\mu_1 - 2\mu_2) / 2 \kappa}
+    (1 - z)^{(\mu_2 \mu_3) / 2\kappa}
+    \bigg(F(z) w_1 + z \frac{\kappa}{\mu_3}F'(z) w_2\bigg),
+  \]
+  where $F(z)$ is a solution of the
+  \emph{Gauss hypergeometric equation}:
+  \[
+    z(1 - z) \frac{d^2}{dz^2} F
+    = [c - (a + b + 1) z] \frac{dF}{dt} - ab F = 0,
+  \]
+  where $a = \mu_3 / \kappa$,
+  $b = -\mu_1 / \kappa$, and
+  $c = 1 - (\mu_1 + \mu_2) / \kappa$.
+\end{theorem}
+
+\begin{remark}
+  The unique solution of the
+  Gauss hypergeometric equation with
+  $F(0) = 1$ is given by
+  \[
+    {}_{2}F_1(a, b, c, z)
+    = \sum_{n = 0}^\infty \frac{(a)_n (b)_n}{n! (c)_n} z^n
+  \]
+  in $|z| < 1$, where
+  $(a)_n = a (a + 1) \cdots (a + n - 1)$.
+\end{remark}
+
+\begin{prop}
+  For generic values of parameters,
+  \[
+    F^{(1)} = {}_{2}F_1(a, b, c, z)
+    \quad \text{and} \quad
+    F^{(2)} = z^{1 - c} {}_{2}F_1(a - c + 1, b - c + 1, 2 - c, z)
+  \]
+  form a basis for the space of solutions.
+\end{prop}
+\pagebreak
+
+\section{Integral Formulas for Hypergeometric Equation}
+
+\begin{remark}
+  Let $\vec{z} = (z_1, \dots, z_N)$, and
+  define
+  $\psi_1(\vec{z}, t)
+    = \prod_{j = 1}^N (t - z_j)^{-\mu_j / \kappa}$.
+    Then we claim that
+    \[
+      \psi_C(\vec{z})
+      = \psi_0(\vec{z})
+      \sum_{r = 1}^N \int_C \psi_1(\vec{z}, t)
+      \frac{dt}{t - z_r} e_r v
+    \]
+    is a well-defined integral,
+    where $v = v_1 \otimes \cdots \otimes v_N$
+    and $e_r = 1 \otimes \cdots \otimes e \otimes \cdots \otimes 1$ ($r$-th position).
+\end{remark}
+
+\begin{remark}
+  Fix two distinct points $z_1, z_2 \in \C$.
+  Consider a closed
+  contour around $z_1, z_2$, which
+  wraps around $z_1$ once in the negative
+  direction, then $z_1$ once in the negative
+  direction, then $z_2$ once in the positive direction, and
+  finally $z_1$ once in the positive direction.
+  This is called the \emph{Pochhammer contour}.
+  Using this, one can show that $\psi_C$
+  is well-defined.
+\end{remark}
+
+\begin{prop}
+The function $\psi_C$ as defined above
+is a $W$-valued solution of the KZ equations.
+\end{prop}
+
+\begin{proof}
+  This is a direct calculation. Define
+  \[
+    T_i(\vec{z}, t)
+    = \psi_1(\vec{z}, t) \frac{e_i}{t - z_i},
+    \quad
+    Y(\vec{z}, t)
+    = \sum_i T_i(\vec{z}, t), \quad
+    H(\vec{z}, t)
+    = \sum_i \frac{h_i + \mu_i}{t - z_i}.
+  \]
+  We use the following lemma, which is also
+  a direct calculation using commutators:
+  \begin{quote}
+    \vspace{-2em}
+    \begin{lemma}
+  We have
+  \[
+    \kappa \frac{\partial}{\partial z_i} Y
+    - \left[\sum_{j = 1}^N \frac{\Omega_{i, j}}{z_i - z_j}, Y\right]
+    = Y \frac{h_i + \mu_i}{t - z_i}
+    - T_i H - \kappa \frac{\partial}{\partial t} T_i
+  \]
+    \end{lemma}
+  \end{quote}
+  Now we check that $\psi_C$ is a solution.
+  We can write
+  \[
+    \psi_C(\vec{z})
+    = \psi_0(\vec{z}) \int_C Y(\vec{z}, t) v\, dt.
+  \]
+  Since $\psi_0(\vec{z}) v$ is a solution, it
+  is enough to see that
+  \[
+    \int_C \left[
+      \kappa \frac{\partial}{\partial t_i}
+      - \sum_{j = 1}^N \frac{\Omega_{i, j}}{z_i - z_j}, Y
+    \right] v\, dt
+    = \int_C \kappa \frac{\partial}{\partial_t} T_i v\, dt = 0.
+  \]
+  To check that $\psi_C$ is $W$-valued, we
+  want to show that
+  $f \psi_C = 0$. Note that
+  \[
+    [f, Y(\vec{z}, t)]
+    = \psi_1(\vec{z}, t) \sum_i \frac{-h_i}{t - z_i},
+  \]
+  so we get that
+  \begin{align*}
+    f \psi_C(\vec{z}, t)
+    &= \psi_0(\vec{z}) \int_C \psi_1(\vec{z}, t) \sum_i \frac{-\mu_i}{t - z_i} v\, dt \\
+    &= \psi_0(\vec{z})
+    \int_C \psi_1(\vec{z}, t) \sum_i \frac{\mu_i}{t - z_i} v\, dt
+    = 
+    -\psi_0(\vec{z}) v \int_C \kappa \frac{\partial}{\partial t} \psi_1(\vec{z}, t)\, dt = 0.
+  \end{align*}
+  This proves the desired result.
+\end{proof}
+
+\begin{example}
+  Let $N = 3$. Then $z_1 = 0$, $z_2 = z$, and
+  $z_3 = 1$. We have
+  \begin{align*}
+    \psi_C(0, z, 1)
+    &= z^{\mu_1 \mu_2 / 2 \kappa}
+    (1 - z)^{\mu_2 \mu_3 / 2 \kappa} \\
+    &\quad \quad \int_C t^{-\mu_1 / \kappa}
+    (t - z)^{-\mu_2 / \kappa}
+    (t - 1)^{-\mu_3 / \kappa}
+    \bigg(\frac{ev_1 \otimes v_2 \otimes v_3}{t} + \frac{v_1 \otimes ev_2 \otimes v_3}{t - z} + \frac{v \otimes v_2 \otimes e v_3}{t - 1}\bigg) dt.
+  \end{align*}
+  Note that the function
+  \[
+    F_C(z)
+    = z^{(\mu_1 + \mu_2) / \kappa}
+    \int_C t^{-\mu_1 / \kappa}
+    (t - z)^{-\mu_2 / \kappa}
+    (1 - t)^{-\mu_3 / \kappa}\, \frac{dt}{t}
+  \]
+  is a solution of the hypergeometric
+  equation.
+  Let $t = xz$, $z^{-1} \in [0, 1]$, and
+  $C$ be the Pochhammer contour around
+  $0, 1$. Then we have that
+  \begin{align*}
+    F_C(z)
+    &= \int_C x^{-1 - \mu_1 / \kappa}
+    (1 - x)^{-\mu_2 / \kappa}
+    (1 - zx)^{-\mu_3 / \kappa}\, dx \\
+    &= (1 - e^{2\pi i \mu_1 / \kappa})(1 - e^{2\pi i \mu_2 / \kappa})
+    \int_0^1 x^{-1 - \mu_1 / \kappa}
+    (1 - x)^{-\mu_2 / \kappa}
+    (1 - zx)^{-\mu_3 / \kappa}\, dx.
+  \end{align*}
+  For $\re(\mu_i / \kappa) < 0$,
+  $\re(\mu_2 / \kappa) < 1$, and $\mu_i / \kappa \notin \Z$,
+  we have that
+  \[
+    F(z)
+    = \int_{0}^1
+    x^{-1 - \mu_1 / \kappa}
+    (1 - x)^{-\mu_2 / \kappa}
+    (1 - zx)^{-\mu_3 / \kappa}\, dx
+  \]
+  is a solution of the hypergeometric equation.
+\end{example}
+
+\begin{prop}
+  We have
+  \[
+    {}_{2}F_2(1)(a, b, c, z)
+    = \frac{\Gamma(c)}{\Gamma(b) \Gamma(a)}
+    = \int_0^1 x^{b - 1} (1 - x)^{c - b - 1} (1 - zx)^{-a}\, dx.
+  \]
+\end{prop}
+
+\section{Solutions in Higher Levels}
+
+\begin{remark}
+  Let $m = \mu / 2 \in \Z_+$ be the level of
+  the solution. Let
+  \[\vec{z} = (z_1, \dots, z_N), \quad
+  \vec{t} = (t_1, \dots, t_m), \quad
+  d\vec{t} = dt_1 \wedge \cdots \wedge dt_m.
+  \]
+  Define the multi-valued differential form
+  \[
+    \omega_{\vec{z}, m}
+    := 
+    \prod_{p < n}(t_p - t_n)^{2 / \kappa}
+    Y(\vec{z}, t_1) \cdots Y(\vec{z}, t_m) \, d\vec{t}
+    \in Y_{\vec{z}, m}
+    := \{t \in \C^m : t_i \ne t_j, t_i \ne z_j\} \subseteq \C^m
+  \]
+\end{remark}
+
+\begin{theorem}
+  The function
+  \[
+    \psi_C(\vec{z})
+    = \psi_0(\vec{z}) \int_C \omega_{\vec{z}, m} v
+  \]
+  is a solution of the KZ equations if
+  $C$ is a ``legitimate'' cycle.
+\end{theorem}
+
+\begin{remark}
+  Define the function
+  \[
+    \psi_m(\vec{z}, t)
+    = \prod_{i < j} (z_i - z_j)^{\mu_i \mu_j / 2 \kappa}
+    \prod_{p, j} (t_p - z_j)^{-\mu_j / \kappa}
+    \prod_{p < n} (t_p - t_n)^{2 / \kappa},
+  \]
+  \pagebreak
+  and let (here
+  $\Sigma_m$ is the set of maps
+  $s : \{1, \dots, m\} \to \{1, \dots, N\}$
+  such that $s^{-1}(j) = m_j$ for
+  $1 \le j \le N$)
+  \[
+    \rho_{\vec{m}}(\vec{z}, t)
+    = \sum_{s \in \Sigma_m} \prod_{n = 1}^n
+    (t_n - z_{s(n)})^{-1}.
+  \]
+  Then we have that
+  \[
+    \psi_C(\vec{t})
+    = \bigg(\sum_{\vec{m}}
+    \int_C \psi_m(\vec{z}, t) \rho_{\vec{m}}(\vec{z}, t) dt_1 \wedge \cdots \wedge dt_m\bigg)
+    (e^{m_1} v_1 \otimes \cdots \otimes e^{m_N} v_N).
+  \]
+\end{remark}
