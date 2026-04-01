@@ -396,13 +396,15 @@ is a $W$-valued solution of the KZ equations.
   \[
     \rho_{\vec{m}}(\vec{z}, t)
     = \sum_{s \in \Sigma_m} \prod_{n = 1}^n
-    (t_n - z_{s(n)})^{-1}.
+    (t_n - z_{s(n)})^{-1},
   \]
+  where $\vec{m} = (m_1, \dots, m_N)$ with
+  $\sum m_i = m$.
   Then we have that
   \[
-    \psi_C(\vec{t})
+    \psi_C(\vec{z})
     = \bigg(\sum_{\vec{m}}
-    \int_C \psi_m(\vec{z}, t) \rho_{\vec{m}}(\vec{z}, t) dt_1 \wedge \cdots \wedge dt_m\bigg)
+    \int_C \psi_m(\vec{z}, t) \rho_{\vec{m}}(\vec{z}, t)\, dt_1 \wedge \cdots \wedge dt_m\bigg)
     (e^{m_1} v_1 \otimes \cdots \otimes e^{m_N} v_N).
   \]
 \end{remark}
