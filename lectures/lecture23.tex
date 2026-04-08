@@ -1,0 +1,304 @@
+\chapter{Apr.~8 --- Quantum Groups}
+
+\section{Intertwining Operators via Fock Modules, Continued}
+
+\begin{theorem}
+  We have (here $C = C_1 \times \cdots \times C_N$)
+  \[
+    \Phi^m(z)
+    = \int_C \Xi(z, t_1, \dots, t_m)\,
+    dt_1 \wedge \cdots \wedge dt_m.
+  \]
+\end{theorem}
+
+\begin{remark}
+  We also have
+  \[
+    \int_C \frac{\partial}{\partial t_i}
+    \Xi'\, d\vec{t} = 0.
+  \]
+  Furethermore, $\langle \Phi(z_1) \cdots \Phi(z_N) \rangle$
+  reproduce the solutions of the KZ
+  equations for $|z_1| > \cdots > |z_N|$.
+\end{remark}
+
+\begin{remark}
+  Let $\Phi : V_{\lambda_1, k} \to \widehat{V}_{\lambda_2, k} \otimes V_\mu(z)$.
+  A \emph{Kazhdan-Lusztig (Moore-Seiberg) intertwiner} is
+  \[
+    \widetilde{\Phi}
+    : V_{\mu, k}
+    \otimes V_{\lambda_1, k}
+    \longrightarrow \widehat{V}_{\lambda_2, k}(z).
+  \]
+  Here $V_{\mu, k}$ is a highest weight module
+  for $\widehat{\g}$ and $V_\mu(z)$ is a
+  lowest weight evaluation module.
+  Then we have
+  $J^n \Phi(z)
+    = \Phi(z) \Delta_{z, 0}(J^n)$, where
+  \[
+    \Delta_{z, 0}(J^n)
+    = \oint_z \frac{d\xi}{2\pi i} \xi^n
+    \bigg(
+      \sum_m (\xi - z)^{-m - 1} y^m
+    \bigg) \otimes 1 + 1 \otimes J^n.
+  \]
+  Note that $\oint_0 J(z) = \sum_n J_n z^{-n - 1}$.
+  In vertex operator algebras,
+  there is an expansion
+  \[
+    A(\xi) B(z)
+    = \sum \frac{A_n B(z)}{(\xi - z)^{n + 1}},
+  \]
+  and these correspond to
+  shifting certain vector spaces ``sitting at
+  $z$'' like above.
+\end{remark}
+
+\section{Hopf Algebras}
+
+\begin{remark}
+  A good reference for quantum groups is
+  \emph{A guide to quantum groups} by
+  Chari and Pressley.
+\end{remark}
+
+\begin{definition}
+  A \emph{Hopf algebra} an algebra $A$ with
+  \begin{itemize}
+    \item a product
+      $m : A \otimes A \to A$,
+    \item a coproduct
+      $\Delta : A \to A \otimes A$,
+    \item a unit $i : \C \to A$,
+    \item a counit $\varepsilon : A \to \C$,
+    \item an antipode $\gamma : A \to A$,
+  \end{itemize}
+  such that the following
+  are satisfied:
+  \begin{enumerate}
+    \item properties of the product and
+      coproduct:
+      \begin{enumerate}[(a)]
+        \item $m(x \otimes m(y \otimes z)) = m(m(x \otimes y) \otimes z)$
+          (or more simply, $m({\id} \otimes m) = m(m \otimes \id)$);
+        \item $(\Delta \otimes \id) \Delta = ({\id} \otimes \Delta) \Delta$;
+      \end{enumerate}
+    \item properties of the unit and counit:
+      \begin{enumerate}[(a)]
+        \item $m(i(1) \otimes x) = m(x \otimes i(1)) = x$;
+        \item $(\varepsilon \otimes \id) \Delta = ({\id} \otimes \varepsilon) \Delta = \id$;
+      \end{enumerate}
+    \item properties of the antipode:
+      $m(({\id} \otimes \gamma)(\Delta(x)))
+      = m((\gamma \otimes \id)(\Delta(x)))
+      = i(\varepsilon(x))$;
+    \item consistency of product and coproduct:
+      $\Delta(m(x \otimes y)) = m \otimes m(P_{2, 3}(\Delta(x) \otimes \Delta(y)))$, where
+      $\Delta(a) = \sum a^{(1)} \otimes a^{(2)}$
+      and
+      \[
+        (xy)^{(1)} \otimes (xy)^{(2)}
+        = m(x^{(1)} \otimes y^{(1)}) \otimes m(x^{(2)} \otimes y^{(2)});
+      \]
+    \item consistency of unit and counit:
+      $\varepsilon(i(1)) = 1$,
+    \item consistency of product and
+      counit (and of coproduct and unit):
+      \begin{enumerate}[(a)]
+        \item $\varepsilon(m(x \otimes y)) = \varepsilon(x) \varepsilon(y)$;
+        \item $\Delta(i(1)) = i(1) \otimes i(1))$;
+      \end{enumerate}
+    \item consistency of product
+      (and of coproduct) and antipode:
+      \begin{enumerate}[(a)]
+        \item $\gamma(m(x \otimes y)) = m^\mathrm{op}(\gamma(x) \otimes \gamma(y))$,
+          where $m^\mathrm{op}(x \otimes y) = m(y \otimes x)$;
+        \item $\Delta(\gamma(x)) = (\gamma \otimes \gamma)(\Delta^\mathrm{op}(x))$, where $\Delta^\mathrm{op}(x) = P_{1, 2}(\Delta(x))$
+          and $P_{1, 2} : x \otimes y \mapsto y \otimes x$;
+      \end{enumerate}
+    \item consistency of unit (and of counit)
+      and antipode:
+      \begin{enumerate}[(a)]
+        \item $\gamma(i(1)) = i(1)$;
+        \item $\varepsilon(\gamma(x)) = \varepsilon(x)$.
+      \end{enumerate}
+  \end{enumerate}
+\end{definition}
+
+\begin{remark}
+  We have the following:
+  \begin{enumerate}
+    \item Any Hopf algebra is an
+      associative algebra with unit, and
+      an associative coalgebra with counit.
+    \item To describe the Hopf structure for
+      an associative algebra with unit, it is
+      enough to describe the action and relations
+      on generators. Moreover,
+      The unit, counit, and antipode
+      are uniquely determined by the
+      multiplication and comultiplication.
+  \end{enumerate}
+\end{remark}
+
+\begin{corollary}
+  We have the following:
+  \begin{enumerate}
+    \item If $A$ is a finite dimensional
+      Hopf algebra, then $A^*$ is also a
+      Hopf algebra with $m' = \Delta^*$, etc.
+    \item Let $\Delta \to \Delta^{\mathrm{op}}$
+      define another Hopf algebra. If
+      $A$ is commutative, then $A^{\mathrm{op}} \cong A$
+      with isomorphism $\gamma$.
+    \item If $A, B$ are Hopf algebras,
+      then $A \otimes B$ is also a Hopf algebra.
+  \end{enumerate}
+\end{corollary}
+
+\begin{example}
+  We have the following:
+  \begin{enumerate}
+    \item Let $G$ be a group and
+      $A = \C[G]$. Then we can define
+      a Hopf algebra structure on $A$ by
+      \[
+        m(g \otimes h) = gh, \quad
+        \Delta(g) = g \otimes g, \quad
+        \gamma(g) = g^{-1}, \quad
+        \varepsilon(g) = 1, \quad
+        i(1) = e,
+      \]
+      If $G$ is finite, we can also define
+      the dual Hopf algebra $A^*$ to be
+      $\mathcal{F}(G)$ (functions on $G$) with
+      \[
+        m(f \otimes \phi)(g)
+        = f(g)\phi(g), \quad
+        \Delta(f)(g, h) = f(g, h), \quad
+        i(1) = 1, \quad
+        \varepsilon(f) = f(e),
+        \quad \gamma(f)(g) = f(g^{-1}).
+      \]
+    \item Let $G$ be a linear algebraic group.
+      Then $A = \mathcal{P}(G)$ (the space of polynomial
+      functions on $G$) is a Hopf algebra
+      with the same formulas as above
+      for $\mathcal{F}(G)$ in the finite
+      group case.
+    \item Let $\g$ be a Lie algebra. Then
+      $U(\g)$ is a Hopf algebra with
+      \[
+        \Delta(x) = x \otimes 1 + 1 \otimes x, \quad
+        \varepsilon(x) = 0, \quad
+        \gamma(x) = -x.
+      \]
+  \end{enumerate}
+  Note that the examples (2) and (3) are dual
+  to each other.
+\end{example}
+
+\begin{definition}
+  A \emph{representation} of a Hopf algebra
+  $A$ is a left module over $A$ as an
+  associative algebra.
+\end{definition}
+
+\begin{example}
+  We can take $x \lambda = \varepsilon(x) \lambda$,
+  where $\lambda$ is a $\C$-valued representation.
+\end{example}
+
+\begin{remark}
+  Let $V$ be a finite-dimensional representation
+  of $A$. Then there are two dual modules
+  $V^*$ and ${}^*V$ for $A$ given by
+  \begin{itemize}
+    \item $A$ acts on $V^*$ by
+      $a f(v) = f(\gamma(a) v)$ for
+      $v \in V$, $f \in V^*$;
+    \item $A$ acts on ${}^* V$ by
+      $a f(v) = f(\gamma^{-1}(a) v)$
+      for $v \in V$, $f \in {}^* V$.
+  \end{itemize}
+\end{remark}
+
+\begin{exercise}
+  Show that ${}^*V^*$ is canonically
+  isomorphic to $V$, but ${}^{**}V$ and
+  $V^{**}$ are different in general.
+\end{exercise}
+
+\begin{remark}
+  Note that $V^* \otimes V \to \C$ and
+  $\C \to V \otimes V^*$ are $A$-homomorphisms.
+\end{remark}
+
+\begin{remark}
+  Let $\rho_i : A \to \End(V_i)$ for
+  $i = 1, 2$. Define
+  $\rho : A \to \End(V_1 \otimes V_2)$ by
+  \[
+    \rho(x) = \rho_1 \otimes \rho_2(\Delta(x)).
+  \]
+  Then $\Delta(\Delta \otimes I) = (I \otimes \Delta) \Delta$
+  implies associativity of the tensor product.
+\end{remark}
+
+\section{Quantum Groups}
+\begin{remark}
+  Let $A$ be a generalized Cartan matrix
+  with $d_i a_{i, j} = d_j a_{j, i}$. Fix
+  $\{d_i\}$ to be positive integers
+  with greatest common divisor $1$. Then
+  we get an extended Lie algebra
+  $\g_e$ with nondegenerate form
+  $\llparenthesis \cdot, \cdot \rrparenthesis$.
+  Normalize the form $\llparenthesis \cdot, \cdot \rrparenthesis$
+  so that
+  \[
+    d_i = \frac{\llparenthesis \alpha_i, \alpha_i \rrparenthesis}{2},
+  \]
+  or equivalently, $\llparenthesis \alpha, \alpha \rrparenthesis = 2$ for short
+  roots $\alpha$. Then
+  $\mathfrak{h}_e \cong \mathfrak{h}^*_e$, and
+  we can define
+  \[
+    h_i = \frac{2 \alpha_i}{\llparenthesis \alpha_i, \alpha_i \rrparenthesis}.
+  \]
+  Write $q = e^t$ for $t \in \C$ and
+  $q^x = e^{tx}$ (assume that $q$ is not
+  a root of unity). Then $U_q(\g)$ is generated
+  by $e_i, f_i$ for $1 \le i \le r$ and
+  $q^h$ for $h \in \mathfrak{h}$, with relations
+  \begin{itemize}
+    \item $q^0 = 1$ and
+      $q^{a + b} = q^a q^b$
+      for $a, b \in \mathfrak{h}$;
+    \item $q^h e_i q^{-h} q^{\alpha_i(h)} e_i$
+      and
+      $q^h f_i q^{-h} = q^{-\alpha_i(h)} f_i$;
+    \item $\displaystyle e_i f_i - f_i e_i = \delta_{i, j} \frac{q^{d_i h_i} - q^{-d_i h_i}}{q^{d_i} - q^{-d_i}}$;
+    \item \emph{$q$-Serre relations}:
+      $\displaystyle \sum_{n = 0}^{1 - a_{i, j}} \frac{(-1)^n}{[n]_i! [1 - a_{i, j} - n]_i!} e_i^n e_j e_i^{1 - a_{i, j} - n} = 0$,
+      where
+      \[
+        [n]_i
+        = \frac{q^{nd_i} - q^{-nd_i}}{q^{d_i} - q^{-d_i}}
+        \quad \text{and} \quad
+        [n_i]! = \prod_{i = 1}^n [p]_i,
+      \]
+      and identical relations hold for the $f_i$.
+  \end{itemize}
+  Note that we can formally write the
+  $q$-Serre relations as
+  $(\ad^{(q)}_{e_i})^{1 - a_{i, j}}(e_j) = 0$,
+  where
+  \[
+    [x, y]_q
+    = \ad_x^{(q)}(y)
+    = xy - q^{\llparenthesis \alpha, \beta \rrparenthesis} yx.
+  \]
+\end{remark}
