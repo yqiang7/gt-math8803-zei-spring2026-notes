@@ -70,6 +70,11 @@
 \newcommand{\Mod}[1]{\ {\mathrm{mod}\ #1}}
 \newcommand{\Pmod}[1]{\ (\mathrm{mod}\ #1)}
 
+\DeclareFontFamily{U}{mathx}{}
+\DeclareFontShape{U}{mathx}{m}{n}{<-> mathx10}{}
+\DeclareSymbolFont{mathx}{U}{mathx}{m}{n}
+\DeclareMathAccent{\widecheck}{0}{mathx}{"71}
+
 \DeclareMathOperator{\lcm}{lcm}
 \DeclareMathOperator{\re}{Re}
 \DeclareMathOperator{\im}{Im}
@@ -157,4 +162,5 @@
   \input{lectures/lecture21.tex}
   \input{lectures/lecture22.tex}
   \input{lectures/lecture23.tex}
+  \input{lectures/lecture24.tex}
 \end{document}
