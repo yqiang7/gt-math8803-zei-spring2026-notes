@@ -16,7 +16,7 @@
 \end{remark}
 
 \begin{definition}
-  A \emph{connection} is a map
+  A \emph{connection} on $E$ is a map
   $\nabla : \Gamma(U, E) \to \Omega^1(U, E)$
   satisfying
   \[
@@ -73,8 +73,9 @@
   \[
     [\nabla_\xi, \nabla_\eta] = \nabla_{[\xi, \eta]},
   \]
-  or equivalently, $F_{i, j} = 0$
-  in local coordinates.
+  or equivalently, $F_{i, j} = 0$.
+  A \emph{local system} is a vector bundle
+  which admits a flat connection.
 \end{definition}
 
 \begin{remark}
@@ -176,16 +177,16 @@
 \begin{prop}
   If $\nabla$ is a flat connection, then
   $\nabla^2 = 0$ and
-  $\Omega^*(X, E)$ is a complex.
+  $\Omega^\bullet(X, E)$ is a complex.
 \end{prop}
 
 \begin{remark}
   If $\nabla$ is flat, then we
   can consider the de Rham cohomology
-  $H^*_{\mathrm{dR}}(X, E)$
+  $H^\bullet_{\mathrm{dR}}(X, E)$
   with coefficients in a local system
   (the cohomology of the
-  complex $\Omega^*(X, E)$).
+  complex $\Omega^\bullet(X, E)$).
 \end{remark}
 
 \begin{remark}
@@ -203,8 +204,10 @@
   of the section to the $\ell$th face and
   $\sigma_j^k$ is the $\ell$th face of
   $\sigma_j$. This gives rise to the
-  \emph{singular cohomology}
-  $H^*(X, E)$.
+  \emph{singular homology}
+  $H_\bullet(X, E)$
+  and \emph{singular cohomology}
+  $H^\bullet(X, E)$.
 \end{remark}
 
 \begin{remark}
@@ -216,8 +219,8 @@
   on $\Sigma_k$ with coefficients in the
   local system $\sigma^* E$. If
   \[
-    \omega \in \Omega^k(\Sigma^k, \sigma^* E)
-    = \Omega^*(\Sigma_k) \otimes V
+    \omega \in \Omega^k(\Sigma_k, \sigma^* E)
+    = \Omega^k(\Sigma_k) \otimes V
   \]
   and $C = \varepsilon \sigma$ (where
   $\varepsilon$ is the coefficient section
@@ -234,13 +237,13 @@
     \int_C d\omega = \int_{\partial C} \omega,
   \]
   and integration defines a pairing
-  $B : H(X, E^*) \otimes H_{\mathrm{dR}}(X, E) \to \C$.
+  $B : H^\bullet(X, E^*) \otimes H^\bullet_{\mathrm{dR}}(X, E) \to \C$.
 \end{theorem}
 
 \begin{theorem}[De Rham theorem]
   If $X$ is a smooth real manifold and
   $B$ is nondegenerate, then
-  $H^*(X, E) \cong H^*_{\mathrm{dR}}(X, E)$.
+  $H^\bullet(X, E^*) \cong H^\bullet_{\mathrm{dR}}(X, E)$.
 \end{theorem}
 
 
@@ -256,10 +259,10 @@
 
 \begin{theorem}[Complex de Rham theorem]
   Let $X$ be an affine complex manifold
-  and $H_{\mathrm{dR}}(X, E)$ be the
+  and $H^{\bullet}_{\mathrm{dR}}(X, E)$ be the
   cohomology of the global holomorphic
   forms. Then $B$ is nondegenerate and
-  $H^*(X, E) \cong H^*_{\mathrm{dR}}(X, E)$.
+  $H^\bullet(X, E^*) \cong H^\bullet_{\mathrm{dR}}(X, E)$.
 \end{theorem}
 
 \begin{corollary}
