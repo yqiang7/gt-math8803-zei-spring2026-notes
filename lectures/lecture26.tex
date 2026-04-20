@@ -1,0 +1,423 @@
+\chapter{Apr.~20 --- Geometric Aspects}
+
+\section{Local Systems}
+
+\begin{remark}
+  Let $X$ be a real manifold, and
+  let $\Omega^i(X)$ denote the space of
+  differential $i$-forms on $X$.
+  Let
+  \[
+    \Omega^i(X, E)
+    = E \otimes \Omega^i(X)
+  \]
+  denote the space of differential
+  forms with values in a vector bundle $E$.
+\end{remark}
+
+\begin{definition}
+  A \emph{connection} is a map
+  $\nabla : \Gamma(U, E) \to \Omega^1(U, E)$
+  satisfying
+  \[
+    \nabla(fs) = f \nabla s + s \otimes df
+  \]
+  for a function $f$ and a section $s$.
+\end{definition}
+
+\begin{remark}
+  We can define
+  $\nabla_\xi : E \to E$
+  by $s \mapsto \langle \nabla s, \xi \rangle$
+  with
+  \[
+    \nabla_\xi(fs)
+    = f \nabla_\xi s + (\partial_\xi f) s.
+  \]
+  In local coordinates, we can write
+  \[
+    \nabla_i
+    = \nabla_{\partial / \partial x_i}
+    = \partial_{x_i} + A_i(x).
+  \]
+  If $U_{\alpha, \beta}$ are the transition
+  functions for $E$, then
+  \[
+    U_{\alpha, \beta}
+    (d + A_\alpha) U_{\alpha, \beta}^{-1}
+    = \nabla_\beta = d + A_\beta.
+  \]
+  This implies
+  $A_\beta = U_{\alpha, \beta} A_\alpha U_{\alpha, \beta}^{-1} + U_{\alpha, \beta} d U_{\alpha, \beta}^{-1}$,
+  and such a map is
+  called a \emph{gauge transformation}.
+  Note that we get a \emph{curvature 2-form}
+  by defining $F = dA + A \wedge A$,
+  and we have
+  \[
+    F(\xi, \eta)
+    = [\nabla_{\xi}, \nabla_\eta] - \nabla_{[\xi, \eta]}.
+  \]
+  The components of the 2-form $F$
+  are given by
+  \[
+    [\partial_i + A_i, \partial_j + A_j]
+    = \partial_i A_j - \partial_j A_i + [A_i, A_j]
+    = F_{i, j}.
+  \]
+\end{remark}
+
+\begin{definition}
+  A \emph{flat} connection is a connection
+  with $0$ curvature, i.e.
+  \[
+    [\nabla_\xi, \nabla_\eta] = \nabla_{[\xi, \eta]},
+  \]
+  or equivalently, $F_{i, j} = 0$
+  in local coordinates.
+\end{definition}
+
+\begin{remark}
+  A connection $\nabla$ gives rise to
+  \emph{parallel transport}. Given a
+  curve $\gamma : [0, 1] \to X$ and
+  $v \in E_{\gamma(0)}$ (the fiber of
+  $E$ at $\gamma(0)$), there is a unique
+  section $s$ of $E$ along $\gamma$ such that
+  $\nabla_{\dot{\gamma}} s = 0$ and
+  $s(\gamma(0)) = v$.
+  There is a \emph{holonomy operator}
+  $M_{\gamma} : E_{\gamma(0)} \to E_{\gamma(1)}$
+  given by $s(\gamma(0)) \mapsto s(\gamma(1))$.
+\end{remark}
+
+\begin{theorem}
+  If $\nabla$ is a flat connection, then
+  $M_\gamma$ depends only on the homotopy
+  class of $\gamma$.
+\end{theorem}
+
+\begin{corollary}\label{cor:local_system}
+  The map
+  $\gamma \mapsto M_\gamma$
+  (with fixed basepoint) gives a
+  representation of the fundamental group
+  in $E_{x_0}$.
+\end{corollary}
+
+\begin{remark}
+  Building on Corollary \ref{cor:local_system}, there is in fact
+  a bijection
+  between local systems and finite-dimensional
+  representations of $\pi_1(X, x_0)$.
+\end{remark}
+
+\begin{definition}
+  Let $U \subseteq X$ and $s$ a section
+  of $E$ over $U$. We say that $s$ is
+  \emph{flat} if
+  $\nabla_\xi s = 0$ for all
+  $\xi \in U$. We denote the space of
+  flat sections over $U$ by
+  $\Gamma_f(U, E)$.
+\end{definition}
+
+\begin{lemma}
+  Let $U \subseteq X$ be open and
+  simply connected. Then for any $p \in U$,
+  there is an isomorphism
+  \begin{align*}
+    \Gamma_f(U, E)
+    &\longrightarrow E_p \\
+    s &\longmapsto s(p).
+  \end{align*}
+  In other words, the sheaf of flat sections is
+  locally constant.
+\end{lemma}
+
+\begin{remark}
+  Let $E, E'$ be two vector bundles
+  over $X$ with connections
+  $\nabla, \nabla'$. Then
+  \[
+    \Delta(s \otimes s')
+    = (\nabla s \otimes s')
+    + (s \otimes \nabla' s')
+  \]
+  defines a connection on $E \otimes E'$.
+  Similarly, if $E^*$ is dual to $E$
+  with pairing $\langle s, s^* \rangle$, then
+  \[
+    \langle \nabla_\xi s, s^* \rangle
+    + \langle s, \nabla_\xi s^* \rangle
+    = \partial_\xi \langle s, s^* \rangle
+  \]
+  defines a connection on $E^*$.
+  One can also define a pullback bundle
+  $f^* E$ and
+  corresponding connection, given a map
+  $f : Y \to X$ and vector bundle $E$ on $X$.
+\end{remark}
+
+\section{De Rham Cohomology}
+
+\begin{remark}
+  We have a sequence
+  \[
+    \begin{tikzcd}
+      0 \ar[r] & E \ar[r, "\nabla"] & \Omega^1(X, E) \ar[r, "\nabla"] & \Omega^2(X, E) \ar[r, "\nabla"] & \cdots \ar[r, "\nabla"]
+               & \Omega^n(X, E) \ar[r] & 0
+    \end{tikzcd}
+  \]
+  where $\nabla(s \otimes \omega) = \nabla(s) \wedge \omega + s \otimes d\omega$.
+  However, this is not a complex in general.
+\end{remark}
+
+\begin{prop}
+  If $\nabla$ is a flat connection, then
+  $\nabla^2 = 0$ and
+  $\Omega^*(X, E)$ is a complex.
+\end{prop}
+
+\begin{remark}
+  If $\nabla$ is flat, then we
+  can consider the de Rham cohomology
+  $H^*_{\mathrm{dR}}(X, E)$
+  with coefficients in a local system
+  (the cohomology of the
+  complex $\Omega^*(X, E)$).
+\end{remark}
+
+\begin{remark}
+  Let $\sigma : \Sigma_k \to X$ be a
+  singular $k$-simplex. Consider
+  $\sum_j \varepsilon_j \sigma_j$, where
+  $\varepsilon_j$ is a flat section 
+  of $\sigma^* E$ over $\Sigma_k$. Then
+  we can define a boundary map $\partial$ by
+  \[
+    \partial (\varepsilon_j \sigma_j)
+    = \sum_j \sum_\ell \varepsilon_j^\ell \sigma_j^\ell (-1)^\ell,
+  \]
+  where $\varepsilon_j^\ell$ is the restriction
+  of the section to the $\ell$th face and
+  $\sigma_j^k$ is the $\ell$th face of
+  $\sigma_j$. This gives rise to the
+  \emph{singular cohomology}
+  $H^*(X, E)$.
+\end{remark}
+
+\begin{remark}
+  Let $E$ be a local system with
+  fiber $V$. Let $\omega \in \Omega^k(X, E)$
+  and
+  $\sigma : \Sigma_k \to X$, so
+  $\sigma^* \omega$ is a differential form
+  on $\Sigma_k$ with coefficients in the
+  local system $\sigma^* E$. If
+  \[
+    \omega \in \Omega^k(\Sigma^k, \sigma^* E)
+    = \Omega^*(\Sigma_k) \otimes V
+  \]
+  and $C = \varepsilon \sigma$ (where
+  $\varepsilon$ is the coefficient section
+  of the dual bundle), then we can define
+  \[
+    \int_C \omega
+    = \langle \varepsilon, \int_{\Sigma_k} \sigma^* \omega \rangle.
+  \]
+\end{remark}
+
+\begin{theorem}[Stokes theorem]
+  We have
+  \[
+    \int_C d\omega = \int_{\partial C} \omega,
+  \]
+  and integration defines a pairing
+  $B : H(X, E^*) \otimes H_{\mathrm{dR}}(X, E) \to \C$.
+\end{theorem}
+
+\begin{theorem}[De Rham theorem]
+  If $X$ is a smooth real manifold and
+  $B$ is nondegenerate, then
+  $H^*(X, E) \cong H^*_{\mathrm{dR}}(X, E)$.
+\end{theorem}
+
+
+\begin{remark}
+  Consider an \emph{affine complex manifold},
+  i.e. a complex manifold $X$ which is
+  isomorphic to a closed subvariety
+  in $\C^N$. We can
+  write $X = \C^N \setminus D$ for
+  some subvariety $D \subseteq \C^N$ of
+  codimension $1$.
+\end{remark}
+
+\begin{theorem}[Complex de Rham theorem]
+  Let $X$ be an affine complex manifold
+  and $H_{\mathrm{dR}}(X, E)$ be the
+  cohomology of the global holomorphic
+  forms. Then $B$ is nondegenerate and
+  $H^*(X, E) \cong H^*_{\mathrm{dR}}(X, E)$.
+\end{theorem}
+
+\begin{corollary}
+  For a complex affine manifold of
+  complex dimension $n$, we have that
+  $H_i(X, E)$ and $H^i(X, E)$
+  are nonzero only for $i \le n$.
+\end{corollary}
+
+\section{Hyperplane Arrangements}
+
+\begin{remark}
+  Consider a finite set $S$ of codimension
+  $1$ affine hyperplanes
+  in $\C^n$ (a \emph{hyperplane arrangement}), and let $X$ be the complement
+  of its union. Let $H \in S$ and
+  $\ell_H$ the corresponding linear
+  functional (i.e. $H$ is the set of
+  solutions to $\ell_H(\vec{z}) = 0$).
+  Let $\vec{\lambda} = \{\lambda_H\}_{H \in S}$
+  for some constants $\lambda_H \in \C$
+  and define
+  \[
+    \psi(\vec{z})
+    = \prod_{H \in S} \ell_H(\vec{z})^{\lambda_H}.
+  \]
+\end{remark}
+
+\begin{definition}
+  For any $S$ and $\vec{\lambda}$,
+  denote by $\mathcal{L}_{\vec{\lambda}}$ the
+  $1$-dimensional local system
+  over $X$ with local sections
+  $\psi(\vec{z}) f(\vec{z})$
+  (where $f$ is a holomorphic function on
+  $X$) and connection
+  $\nabla_i = \partial_i$. Equivalently,
+  we can define $\mathcal{L}_{\vec{\lambda}}$
+  to be the trivial line bundle with
+  connection
+  \[
+    \nabla_i f
+    = \partial_i f + f \partial_i(\log \psi)
+    = \partial_i f + f \psi^{-1} \partial_i \psi.
+  \]
+\end{definition}
+
+\begin{definition}
+  Define the \emph{Orlik-Solomon algebra}
+  $\mathrm{OS}^\bullet(X)$ to be the
+  graded exterior algebra generated
+  by $d(\log \ell_H(\vec{z}))$,
+  which can be described by generators
+  and relations.
+\end{definition}
+
+\begin{remark}
+  For $f \in \mathrm{OS}^\bullet(X)$, we call
+  $\psi f$ a \emph{hypergeometric form},
+  and denote the space of hypergeometric
+  forms by
+  $\Omega^\bullet_{\mathrm{hg}}(X, \mathcal{L}_{\vec{\lambda}}) \subseteq \Omega^\bullet(X, \mathcal{L}_{\vec{\lambda}})$.
+\end{remark}
+
+\begin{theorem}\label{thm:hypergeometric}
+  For almost all $\vec{\lambda}$
+  (including $\vec{\lambda} = 0$), the map
+  \[
+    \Omega^\bullet_{\mathrm{hg}}(X, \mathcal{L}_{\vec{\lambda}})
+    \longrightarrow \Omega^\bullet(X, \mathcal{L}_{\vec{\lambda}})
+  \]
+  is a quasi-isomorphism.
+\end{theorem}
+
+\begin{example}\label{ex:hypergeometric}
+  Let $X = \C \setminus \{0\}$ and
+  $\psi(z) = z^\lambda$. Then
+  \[
+    z^\lambda d(\log z)
+    = z^\lambda \frac{dz}{z}
+  \]
+  is a hypergeometric 1-form, and
+  $z^\lambda$ is a $0$-form.
+  Note that
+  \[
+    d(z^\lambda)
+    = \lambda z^{\lambda} \frac{dz}{z}.
+  \]
+  We have $H^1 = \C$ for
+  $\lambda = 0$ and $H^1 = 0$ for
+  almost all $\lambda \ne 0$.
+\end{example}
+
+\begin{exercise}
+  Show that in
+  Example \ref{ex:hypergeometric}, we have
+  $H^1 = \C$ if $\lambda \in \Z$
+  and $H^1 = 0$ if $\lambda \notin \Z$.
+  So we see that Theorem
+  \ref{thm:hypergeometric}
+  holds for
+  $\lambda \notin \Z \setminus \{0\}$.
+\end{exercise}
+
+\begin{remark}
+  One can consider
+  discriminantal arrangements on configuration spaces.
+  Let $\vec{z} = (z_1, \dots, z_N) \in \C^N$
+  such that $z_i \ne z_j$. For
+  $m \ge 0$, we have a map
+  $X_{m + N} \to X_N$ given by forgetting
+  all but the first $N$ components.
+  This map is a fiber bundle.
+  Denote the fiber over $\vec{z} \in X_N$
+  by $Y_{\vec{z}, m}$, i.e.
+  \[
+    Y_{\vec{z}, m}
+    = \{\vec{t} = (t_1, \dots, t_m) \in \C^m :
+    t_i \ne t_j,\, t_i \ne z_p\}.
+  \]
+  Moreover, there is a natural action of
+  $S_N$ on $X_N$ and of $S_m$ on
+  $Y_{\vec{z}, m}$ by permuting
+  coordinates. Let
+  \[
+    Q = \{
+      q_{p, n}, r_{p, j} : 1 \le p < n \le m,\, 1 \le j \le N
+    \}.
+  \]
+  Then we can define
+  \[
+    \psi_{\vec{z}}(\vec{t})
+    = \prod_{p < n} (t_p - t_n)^{q_{p, n}}
+    \prod_{p, j} (t_p - z_j)^{r_{p, j}}.
+  \]
+  If $q_{p, n}, r_{p, j}$ are symmetric
+  with respect to $S_m$, then
+  this defines a local system
+  $\overline{\mathcal{L}}_Q$
+  on
+  $\overline{Y}_{\vec{z}, m}
+    = Y_{\vec{z}, m} / S_m$.
+  Moreover, we have
+  $H^\bullet(\overline{Y}_{\vec{z}, m}, \overline{\mathcal{L}}_Q) = (H^\bullet(Y_{\vec{z}, m}, \mathcal{L}_Q))^{S_m}$.
+\end{remark}
+
+\begin{remark}
+  Consider the KZ equations for
+  $\mathfrak{sl}_2$. Let
+  $\vec{z} = (z_1, \dots, z_N)$,
+  $\vec{t} = (t_1, \dots, t_m)$,
+  and $\kappa \in \C^\times$.
+  Let $\mathcal{L} = \mathcal{L}(\vec{\mu}, \kappa)$.
+  Then recall that we have
+  \[
+    \psi_{\vec{m}}(\vec{z}, \vec{t})
+    = \prod_{i < j} (z_i - z_j)^{\mu_i \mu_j / 2\kappa}
+    \prod_{p, j} (t_p - z_j)^{-\mu_j / \kappa}
+    \prod_{p < n} (t_p - t_n)^{2 / \kappa}.
+  \]
+\end{remark}
