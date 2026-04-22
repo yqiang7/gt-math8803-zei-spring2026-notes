@@ -1,0 +1,396 @@
+\chapter{Apr.~22 --- Geometric Aspects, Part 2}
+
+\section{Relation to KZ Equations}
+
+\begin{remark}
+  Recall that for
+  $V = M_{\mu_1} \otimes \cdots \otimes M_{\mu_N}$
+  and $z_1, \dots, z_N$, we have
+  \[
+    \psi_C
+    = \sum_{\vec{m}}
+    \bigg(\int_C \psi_m(\vec{z}, \vec{t})
+    \rho_m(\vec{z}, \vec{t})\, d\vec{t}\bigg)
+    v_{\vec{m}},
+  \]
+  where $\vec{m} = (m_1, \dots, m_N)$
+  with $\sum m_i = m$ and
+  $v_{\vec{m}} = e^{m_1} v_1 \otimes \cdots \otimes e^{m_N} v_N$.
+  Note that $\dim Y_{\vec{z}, m} = m$.
+  Also, the above integral depends only
+  on the class of
+  $C \in C_m(Y_{\vec{z}, m}, \mathcal{L}^*)$.
+\end{remark}
+
+\begin{theorem}[Aomoto]
+  Let $m = 1$. Then for almost
+  all $\mu, \kappa$,
+  \begin{enumerate}
+    \item $H_0(Y_{\vec{z}, 1}, \mathcal{L}^*) = 0$;
+    \item $\dim H_1(Y_{\vec{z}, 1}, \mathcal{L}^*) = \dim H^1(Y_{\vec{z}, 1}, \mathcal{L}) = N - 1$;
+    \item the forms
+    $\psi(\vec{z}, t) dt / (t - z_j)$
+    for $j = 1, \dots, N$
+    for a basis in
+    $H^1(Y_{\vec{z}, 1}, \mathcal{L})$;
+  \item the Pochhammer
+    loops $C_i$
+    around $z_i, z_N$ form a basis
+    in $H_1(Y_{\vec{z}, 1}, \mathcal{L}^*)$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{corollary}\label{cor:level-1}
+  For every $\vec{z}$ and almost all
+  $\mu_i, \kappa$, the
+  map $C \mapsto \psi_C$ is an isomorphism
+  between $H_1(Y_{\vec{z}, 1}, \mathcal{L}^*)$
+  and the space of $W$-valued solutions
+  of the KZ equations, where
+  $W$ is the space of singular
+  vectors of weight $-\sum \mu_i + 2$.
+\end{corollary}
+
+\begin{theorem}[Arbitrary level]\label{thm:arbitrary-level}
+  For all $\vec{z}$ and
+  almost all $\vec{\mu}, \kappa$,
+  \begin{enumerate}
+    \item $H_i(Y_{\vec{z}, m}, \mathcal{L}^*) = 0$ for $i < m$;
+    \item $\dim H_m(Y_{\vec{z}, m}, \mathcal{L}^*) = \dim H^m(Y_{\vec{z}, m}, \mathcal{L}) = m! p_{N - 1}(m)$,
+      where $p_k(m)$ is the number of partitions
+      of $m$ into ordered sums of
+      $k$ nonnegative integers.
+  \end{enumerate}
+\end{theorem}
+
+\begin{remark}
+  Taking the smaller space
+  $H_m(Y_{\vec{z}, m}, \mathcal{L}^*)^{S_m}$,
+  gets rid of the $m!$
+  in Theorem \ref{thm:arbitrary-level}(2).
+  This gives a natural generalization of
+  Corollary \ref{cor:level-1} for arbitrary
+  $m$: We have
+  \[
+    H_m(Y_{\vec{z}, m}, \mathcal{L}^*)^{S_m}
+    \cong W,
+  \]
+  where $W$ is the space of singular
+  vectors of weight
+  $-\sum m_i + 2m$.
+\end{remark}
+
+\section{Gauss-Manin Connection}
+
+\begin{remark}
+  Consider the fiber bundle 
+  $\pi : X_{m + N} \to X_N$
+  with fiber $Y_{\vec{z}, m}$.
+  Recall that there is an action of $S_N$
+  on $X_N$. We have can choose a cycle in
+  every fiber, but we want to match them in
+  a compatible way.
+
+  Note that
+  $\psi_m(\vec{z}, \vec{t})$
+  defines a local system
+  on $X_{m + N}$, which gives local
+  systems on $Y_{\vec{z}, m}$
+  by restriction.
+  Thus we get a vector bundle
+  $H_m(X_{m + N} / X_N, \mathcal{L})$
+  with a fiber at $\vec{z}$
+  given by $H_m(Y_{\vec{z}, m}, \mathcal{L})$.
+  Note that by analytic continuation we may
+  move $\vec{z} \to \vec{z}'$, so for any
+  $\vec{z} \in X_N$,
+  a choice of
+  $C \in H_i(Y_{\vec{z}, m}, \mathcal{L})$
+  defines a cycle in each
+  $Y_{\vec{z}', m}$ defines a cycle in
+  each $Y_{\vec{z}', m}$ for $z'$
+  close enough to $z$.
+  This defines a connection
+  in
+  \[
+    C(X_{m + N} / X_N, \mathcal{L})
+  \]
+  via the condition that all local sections
+  produced in this way are flat
+  (the \emph{Gauss-Manin connection}).
+\end{remark}
+
+\begin{theorem}\label{thm:gauss-manin-kz}
+  For all $\mu_i$ and almost all $\kappa$,
+  the map $C \mapsto \psi_C$ gives an
+  isomorphism of local systems
+  \[
+    H_m(X_{m + N} / X_N, \mathcal{L}(\mu, \kappa))^{S_m}
+    \cong W_{\mathrm{KZ}},
+  \]
+  where the left-hand side is endowed by
+  the Gauss-Manin connection
+  and the right-hand side is the
+  trivial vector bundle over
+  $X_N$ with fiber
+  $W = (V^{\mathfrak{n}^-})^\lambda$
+  ($\lambda = -\sum \mu_i + 2m$),
+  endowed with the KZ connection.
+\end{theorem}
+
+\begin{remark}
+  Theorem \ref{thm:gauss-manin-kz}
+  fails for $k \in \Z_+$
+  (recall that $\kappa = k + h^\vee$).
+\end{remark}
+
+\section{Relative Homology}
+
+\begin{example}\label{ex:pochhammer}
+  Let $X = \C \setminus \{0, 1\}$ and
+  $E$ the $1$-dimensional local system
+  on $X$ defined by
+  \[
+    \psi(z) = z^\alpha(1 - z)^\beta
+  \]
+  for $\alpha, \beta \in \C$. Then for
+  generic $\alpha, \beta$, we have
+  $H_1(X, E^*) \cong \C$, generated
+  by the Pochhammer loop.
+  For $\re \alpha \gg 0$
+  and $\re \beta \gg 0$, we can write
+  \[
+    \int_C f(z) \psi(z)\, dz
+    = (1 - e^{2\pi i \alpha})(1 - e^{2\pi i \beta})
+    \int_0^1 f(z)\, \psi(z)\, dz.
+  \]
+  We call this integral on the right-hand side
+  the \emph{regularization} of $[0, 1]$,
+  and denote it
+  by $[0, 1]_{\mathrm{reg}}$.
+\end{example}
+
+\begin{definition}
+  Let $X = \overline{X} \setminus D$,
+  where $\overline{X}$ is a real manifold
+  and $D \subseteq \overline{X}$ is a
+  closed subset.
+  The space
+  $C_k(\overline{X}, D, E)$ of
+  \emph{relative chains}
+  is the space of finite linear combinations
+  \[
+    \sum \varepsilon_i \sigma_i,
+  \]
+  where $\varepsilon_i$ is a
+  flat section of $E$ over
+  $\sigma_i(\Sigma^k) \cap X$ and
+  $\sigma_i$ is a singular $k$-simplex
+  in $\overline{X}$.
+\end{definition}
+
+\begin{remark}
+  Note that
+  $C_k(X, E) \subseteq C_k(\overline{X}, D, E)$,
+  which gives a map
+  \[
+    H_k(X, E)
+    \longrightarrow H_k(\overline{X}, D, E),
+    \tag{$*$}
+  \]
+  though this map is
+  generally not injective or surjective.
+\end{remark}
+
+\begin{example}
+  Note that
+  $[C] = (1 - e^{2\pi i \alpha})(1 - e^{2\pi i \beta}) [0, 1]$
+  in Example \ref{ex:pochhammer}, and
+  in fact the map on homology is surjective
+  for all $\alpha, \beta \in \Z$.
+  This is not true for standard homology,
+  e.g. consider $\alpha = \beta = 0$.
+\end{example}
+
+\begin{theorem}
+  For a general hyperplane arrangement
+  and general $\lambda_H$, the
+  map $(*)$
+  is an isomorphism.
+\end{theorem}
+
+\begin{definition}
+  Call any subset $L$ of the set of
+  all hyperplanes $S$ such that
+  $\bigcap_{H \in L} H \ne \varnothing$
+  an \emph{edge}, and denote
+  $\lambda_L = \sum_{H \in L} \lambda_H$.
+\end{definition}
+
+\begin{theorem}
+  If for every edge $L$,
+  we have $\lambda_L \notin \Z$,
+  then the map $(*)$ is an isomorphism.
+\end{theorem}
+
+\begin{theorem}
+  Let $D_{\vec{z}, m}$ be the
+  union of the hyperplanes
+  $\{t_i = t_j, t_i = z_k\}$, so that
+  $Y_{\vec{z}, m} = \C^m \setminus D_{\vec{z}, m}$.
+  Then for all $\mu_i, \kappa$ generic,
+  we have:
+  \begin{enumerate}
+    \item $H_i(\C^m, D_{\vec{z}, m}, \mathcal{L}(\vec{\mu}, \kappa)) = 0$
+      for $i < m$.
+    \item For $\vec{z} \in \R^N$,
+      define
+      \[
+        Y_{\vec{z}, m}^\R
+        = \{\vec{t} \in \R^m : t_i \ne t_j, t_i \ne z_k\}
+      \]
+      Let $\{D_i\}$ be the set of bounded
+      connected components of
+      $Y_{\vec{z}, m}^\R$ (so each $D_i$ is
+      the interior
+      of some convex polytope), and fix
+      an arbitrary section of
+      $\mathcal{L}(\vec{\mu}, \kappa)$
+      over each $D_i$. Then
+      \[
+        H_m(\C^m, D_{\vec{z}, m}, \mathcal{L}(\vec{\mu}, \kappa))
+        = \bigoplus \C [D_i],
+      \]
+      and thus
+      $H_i(Y_{\vec{z}, m}, \mathcal{L}(\vec{\mu}, \kappa)) = 0$
+      for $i < m$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{remark}
+  We can pick another basis for
+  the homology
+  from
+  $\vec{m} = (m_1, \dots, m_{N - 1})$
+  (with $m_i \ge 0$) and a bijection $\phi$ which assigns to a
+  pair $1 \le a, b \le N - 1$ an
+  index $i = \phi(a, b) \in \{1, \dots, m\}$
+  ($m = \sum m_i$).
+\end{remark}
+
+\begin{theorem}
+  Let $z_1, \dots, z_N$ such that
+  $[z_i, z_N]$ do not intersect
+  except for at $z_N$, and define
+  \[
+    D_{\vec{m}, \phi}
+    =
+    \left\{
+      t_1, \dots, t_m
+      : \substack{\displaystyle t_i = z_N + u^a_b(z_a - z_N)\text{ if } i = \phi(a, b),\\
+      \displaystyle 0 < u_1^1 < u_2^1 < \cdots < u^1_{m_1} < 1, \\ \displaystyle \vdots \\ \displaystyle 0 < u_1^{N - 1} < \cdots < u^{N - 1}_{m_{N - 1}} < 1}
+    \right\}
+    \subseteq Y_{\vec{z}, m}.
+  \]
+  Then for almost all $\mu_i, \kappa$,
+  the $D_{\vec{m}, \phi}$ form a basis
+  for the relative homology.
+\end{theorem}
+
+\section{Monodromy of KZ Equations}
+
+\begin{remark}
+  Recall the KZ equations:
+  \[
+    \kappa \frac{\partial}{\partial z_i}
+    \psi
+    = \bigg(
+      \sum_{j = 1, j \ne i}^N \frac{\Omega_{i, j}}{z_i - z_j}
+    \bigg) \psi, \quad \kappa \notin \Q.
+  \]
+  We can interpret this system as a flat
+  connection in a trivial bundle
+  with fiber
+  $V_1 \otimes \cdots \otimes V_N$ over
+  \[
+    X_N = \{
+      (z_1, \dots, z_N) \in \C^N : z_i \ne z_j
+    \}.
+  \]
+  The solutions are then given by
+  the flat sections, which
+  we denote by $\Gamma_f(U, V_{\mathrm{KZ}})$.
+\end{remark}
+
+\begin{prop}
+  For every $\gamma$, the map
+  $M_\gamma : V \to V$ is a $\g$-homomorphism
+  and $M_\gamma$ preserves singular
+  vectors. If
+  $\vec{z}_0 = (z_1, \dots, z_N)$ and
+  $\gamma(0) = \gamma(1) = \vec{z}_0$, then
+  $\gamma \to M_\gamma$ is a
+  representation of
+  $\pi_1(X_N, \vec{z}_0)$.
+\end{prop}
+
+\begin{theorem}[Artin]\label{thm:artin}
+  We have the following:
+  \begin{enumerate}
+    \item $\pi_1(X_N) = PB_N$, the
+      \emph{pure braid group}
+      defined by
+      $PB_N = \ker \sigma$ where
+      $\sigma : B_N \to S_N$;
+    \item $S_N$ acts on $X_N$ by
+      permuting coordinates, and
+      $\pi_1(X_N / S_N) = B_N$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{remark}
+  The map
+  $B_N \to \pi_{1}(X_N / S_N)$ in
+  Theorem \ref{thm:artin}(2) is defined as
+  follows: Fix
+  $\vec{z}_0 = (z_1, \dots, z_N) \in \R^N$
+  such that $z_N < z_{N - 1} < \cdots < z_2 < z_1$,
+  and for each $\sigma \in S_N$ let
+  \[
+    V^\sigma
+    = V_{\sigma^{-1}(1)} \otimes \cdots \otimes V_{\sigma^{-1}(N)}.
+  \]
+  \pagebreak
+  Let $\sigma : V \to V^\sigma$
+  be defined by
+  $v_1 \otimes \cdots \otimes v_N \mapsto
+  v_{\sigma^{-1}(1)} \otimes \cdots \otimes v_{\sigma^{-1}(N)}$.
+  Fix a basepoint and lift a loop
+  $\gamma$ in $X_N / S_N$ to a path
+  in $X_N$. We have an operator
+  \[
+    \widetilde{M}_\gamma
+    = \sigma M_\gamma
+    : V \longrightarrow V^\sigma,
+  \]
+  and we can define
+  $\widecheck{M}^{\pm}_i(z) = (\widetilde{M}_{\gamma_i})^{\pm 1}$
+  for some path $\gamma_i$.
+\end{remark}
+
+\begin{theorem}
+  We have the following:
+  \begin{enumerate}
+    \item $\widecheck{M}^{\pm}_i \widecheck{M}^{\mp}_i = \id$;
+    \item $\widecheck{M}^{\pm}_i \widecheck{M}^{\pm}_{i + 1} \widecheck{M}^{\pm}_i = \widecheck{M}^{\pm}_{i + 1} \widecheck{M}^{\pm}_i \widecheck{M}^{\pm}_{i + 1}$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{corollary}
+  If all representations
+  $V_i \cong W$ are isomorphic
+  and $z_1 > \cdots > z_N$, then
+  $b_i \mapsto \widecheck{M}^{\pm}_i(\vec{z})$
+  is a representation of the braid
+  group $B_N$ on $V = W^{\otimes N}$.
+\end{corollary}
