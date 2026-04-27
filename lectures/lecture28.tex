@@ -1,0 +1,263 @@
+\chapter{Apr.~27 --- Geometric Aspects, Part 3}
+
+\section{Asymptotics of Solutions to KZ Equations}
+
+\begin{remark}
+  Let $z_1 \gg z_2 \gg \cdots \gg z_N$, and let
+  \[
+    D = \{
+      (z_1, \dots, z_N) \in \R^N
+      : z_1 > \cdots > z_N
+    \} \subseteq X_N
+  \]
+  Make a change of variables (note that
+  $u_i > 0$)
+  \[
+    u_1 = z_1 - z_2, \quad
+    u_2 = \frac{z_2 - z_3}{z_1 - z_2}, \quad
+    \dots, \quad
+    u_{N-1} = \frac{z_{N-1} - z_N}{z_{N-2} - z_{N-1}}, \quad
+    u_N = z_1 + \cdots + z_N.
+  \]
+  Let
+  $\vec{z}(t) \to 0$ as $t \to 0$ be a path,
+  then
+  $z_i(t) / z_{i + 1}(t) \to \infty$
+  for $i = 1, \dots, N - 1$,
+  and $u_i(t) \to 0$.
+\end{remark}
+
+\begin{definition}
+  Let $f$ be a smooth vector-valued function
+  on $D$. We say that
+  \[
+    \lim_{z_1 \gg \cdots \gg z_N} f(z) = v
+  \]
+  if $\lim_{u_i \to 0} f(u) = v$. We write
+  $f \sim \phi(z) v$ at
+  $z_1 \gg \cdots \gg z_N$ if
+  \[
+    f(z) = \phi(z) (v + o(z)),
+  \]
+  where $o(z)$ vanishes in the limit
+  $u_i \to 0$.
+\end{definition}
+
+\begin{lemma}
+  We have the following
+  \[
+    \kappa \frac{\partial}{\partial u_i}
+    = \frac{\Omega_i + \cdots + \Omega_{N - 1}}{u_i} + \mathrm{Reg}
+    \quad \text{and} \quad
+    \frac{\partial}{\partial u_N} \psi = 0,
+  \]
+  where $\mathrm{Reg}$ is regular in
+  $u_i$ around $0$. Here
+  $\Omega_i = \sum_{j > i} \Omega_{i, j}$, and
+  the $\Omega_i$ commute with each other.
+\end{lemma}
+
+\begin{prop}
+  Let $\kappa \notin \Q$.
+  \begin{enumerate}
+    \item For every vector $v \in V$
+      (the space where solutions take values) which is
+      a common eigenvector for $\Omega_i$
+      with eigenvalues $\omega_i$, there
+      exists a unique solution
+      $\psi_v$ such that
+      \[
+        \psi_v \sim \prod_i u_i^{(\omega_i + \cdots + \omega_{N - 1}) / \kappa} v.
+      \]
+    \item If $\{v_a\}$ forms a basis
+      in $V$ consisting of eigenvectors of
+      $\Omega_i$, then $\psi_a$ forms a
+      basis in the space of solutions.
+      In particular, we have an isomorphism
+      \begin{align*}
+        \phi_{z_1 \gg \cdots \gg z_N}
+        : \Gamma_f(D, V_{\mathrm{KZ}})
+        &\overset{\cong}{\longrightarrow} V \\
+        \psi_a &\longmapsto v_a.
+      \end{align*}
+      We call $(D, \phi : \Gamma_f(D, V_{\mathrm{KZ}}) \to V)$
+      an \emph{asymptotic zone}.
+  \end{enumerate}
+\end{prop}
+
+\begin{remark}
+  Let $f_i : L_{i - 1} \to V_i \otimes L_i$.
+  Then,
+  \[
+    F = f_{N - 1} \cdots f_1
+    : L_0 \longrightarrow V_1 \otimes \cdots \otimes V_N,
+  \]
+  and the $F(v)$ (ranging over all choices of
+  $v \in L_0$ and $f_i$)
+  form a basis
+  in $V_1 \otimes \cdots \otimes V_N$.
+\end{remark}
+
+\begin{theorem}
+  Let $v \in L_0$ and $f_i$ as above. Let
+  $f_i^* : L_i^* \to
+    L_{i - 1}^* \otimes V_i$
+  be the adjoint operator, and define
+  \[
+    \Phi_i = \widehat{\Phi}^{f_i^*}
+    : V_{\lambda_i^*, k} \longrightarrow
+    V_{\lambda_{i - 1}^*, k} \otimes V_i(z_i).
+  \]
+  Then $\psi(z_1, \dots, z_{N - 1}) = \langle v, \Phi_{1} \cdots \Phi_{N - 1} \cdot \rangle \in V_1 \otimes \cdots \otimes V_N$
+  is an asymptotic solution with vector
+  $F(v)$.
+\end{theorem}
+
+\section{Monodromy of KZ Equations, Continued}
+
+\begin{remark}
+  We have an isomorphism
+  $\phi_\sigma : \Gamma(\sigma(D), V_{\mathrm{KZ}}) \to V$ for any $\sigma \in S_N$.
+  Define the \emph{monodromy operator} as
+  the following composition:
+  \[
+    M^{\pm}_\sigma(\infty)
+    : V
+    \overset{\cong}{\longrightarrow} \Gamma_f(D, V_{\mathrm{KZ}})
+    \overset{\cong}{\longrightarrow} \Gamma(\sigma(D), V_{\mathrm{KZ}})
+    \overset{\cong}{\longrightarrow} V.
+  \]
+  Let $\widecheck{M}^{\pm}_i(\infty) = \sigma_i M^{\pm}_i : V \to V^{\sigma_i}$.
+\end{remark}
+
+\begin{lemma}
+  Let $A(\vec{z}) = \prod_{i = 1}^{N - 1} (z_i - z_N)^{-\Omega_i / \kappa}$. Then
+  \[
+    \widecheck{M}_i(\infty)
+    = \lim_{z_1 \gg \cdots \gg z_N}
+    A(\sigma_i(\vec{z})) \widecheck{M}_i(\vec{z})
+    A^{-1}(\vec{z}).
+  \]
+\end{lemma}
+
+\begin{remark}
+  Let $V$ be a finite-dimensional
+  $\g$-module and
+  $\lambda, \mu \in P^+$. Let
+  \[
+    \widetilde{H}^{\lambda}_{\mu, V}
+    = \Hom_\g(L_\lambda, L_\mu \otimes V).
+  \]
+  For every
+  $g \in \widetilde{H}^\lambda_{\mu, V}$,
+  we get an intertwiner
+  $\widehat{\Phi}^g : V_{\lambda, k} \to V_{\mu, k} \otimes V(z)$.
+  Define
+  \[
+    \widehat{\Phi}^{g_1 \otimes g_2}
+    = (\widehat{\Phi}^{g_1} \otimes {\id})
+    \circ \Phi^{g_2}
+    : V_{\lambda, k}
+    \longrightarrow
+    V_{\nu, k} \otimes V(z_1) \otimes W(z_2)
+  \]
+  for $g_1 \in \widetilde{H}^\mu_{\nu, V}$ and
+  $g_2 \in \widetilde{H}^\lambda_{\mu, W}$.
+  Let $g = g_1 \otimes g_2$, then we can
+  define $A^{\pm} \widehat{\Phi}^g(z_1, z_2)$
+  by analytic continuation.
+\end{remark}
+
+\begin{theorem}
+  We have the following:
+  \begin{enumerate}
+    \item The operators
+      $A^{\pm} \widehat{\Phi}^g(z_1, z_2)$
+      are well-defined for
+      $z_1 > z_2 > 0$ and are
+      $\widehat{g}$-intertwiners.
+    \item For $z_2 > z_1 > 0$,
+      we have $A^{\pm} \widehat{\Phi}^g(z_1, z_2) = P_{V, W} \widehat{\Phi}^{\widecheck{B}^{\pm} g}(z_2, z_1)$, where
+      \[
+        \widecheck{B}^{\pm}_{V, W}(\nu^*, \lambda^*)
+        : \Hom(L_\nu^*, V \otimes W \otimes L_\lambda^*)
+        \longrightarrow
+        \Hom(L_\nu^*, W \otimes V \otimes L_\lambda^*).
+      \]
+  \end{enumerate}
+\end{theorem}
+
+\section{Equivalence of Categories}
+
+\begin{remark}
+  In 3 variables $z_1, z_2, z_3$, we have
+  the equation
+  \[
+    \kappa \frac{\partial \psi}{\partial x}
+    = \bigg(\frac{\Omega_{1, 2}}{x} + \frac{\Omega_{2, 3}}{x - 1}\bigg) \psi,
+  \]
+  where $x = (z_1 - z_2) / (z_1 - z_3)$.
+  We have the following asymptotic zones:
+  \begin{itemize}
+    \item $z_1 \gg z_2 \gg z_3$, corresponding
+      to $x \to 1$;
+    \item $z_2 \gg z_1 \gg z_3$, corresponding
+      to $x \to -\infty$;
+    \item $z_1 - z_3 \gg z_1 - z_2 \gg 0$,
+      corresponding to $x = 0$.
+  \end{itemize}
+  We can define the
+  \emph{Drinfeld associator}
+  $\Phi_{V_1, V_2, V_3} : (V_1 \otimes V_2) \otimes V_3 \to V_1 \otimes (V_2 \otimes V_3)$
+  by the composition
+  \[
+    \begin{tikzcd}
+      V \ar[rr, "\phi^{-1}_{z_1 - z_3 \gg z_1 - z_2 > 0}"] & & \Gamma_f(D, V_{\mathrm{KZ}})
+      \ar[rr, "\phi_{z_1 \gg z_2 \gg z_3}"] & & V
+    \end{tikzcd}
+  \]
+  This is a nontrivial isomorphism.
+\end{remark}
+
+\begin{theorem}
+  Let $\kappa \notin \Q$. Then the category
+  $C(\g)$ of finite-dimensional representations
+  of $\g$ is a braided tensor category with
+  $\alpha_{V_1, V_2, V_3} = \Phi_{V_1, V_2, V_3}$ and
+  $\sigma_{V_1, V_2}
+    = P e^{\pi i \Omega / \kappa}$.
+\end{theorem}
+
+\section{Quantum Affine Algebras}
+
+\begin{remark}
+  Recalled that in the classical
+  case, the KZ equations had solutions
+  taking values in
+  $V_1(z_1) \otimes \cdots \otimes V_N(z_N)$,
+  which are representations of
+  $\g[z, z^{-1}]$. One can similarly
+  construct
+  \[
+    V_1^q(z_1) \otimes \cdots \otimes V_N^q(z_N),
+  \]
+  which are representations of the
+  \emph{quantum affine algebra}
+  $U_q(\widehat{\g})$, defined similarly
+  as before. We then have the
+  \emph{Frenkel-Reshetikhin equations}
+  (or \emph{$q$KZ equations})
+  \[
+    \psi(pz_1, pz_2, \dots, pz_i, z_{i + 1}, \dots, z_N)
+    = \zeta R_{V_1(z_1) \otimes \cdots \otimes V_i(z_i), V_{i + 1}(z_{i + 1}) \otimes \cdots \otimes V_N(z_N)}^2 \psi,
+  \]
+  where $R_{V_1(z_1), V_2(z_2)}$ is the
+  $R$-matrix for affine algebras. There is a
+  dual equation
+  $\psi(p\zeta) = |R^2| \psi$, and the
+  interaction of the two equations leads
+  to
+  \emph{3D mirror symmetry} (or \emph{symplectic duality}, see the review paper by Kamnitzer), which
+  then leads to the \emph{$q$-Langlands correspondence}
+  (see the paper by Aganagic-Frenkel-Okounkov).
+\end{remark}
