@@ -82,7 +82,7 @@
   where $d$ acts by $-\Delta + n$.
 \end{remark}
 
-\section{The Virasoro Algebra}
+\section{The Virasoro Algebra}\label{sec:virasoro}
 
 \begin{remark}
   The \emph{Witt algebra} is generated
@@ -173,3 +173,79 @@
 \end{remark}
 
 \section{Currents}
+
+\begin{definition}
+  Let $x[n] = x \otimes t^n$ for $x \in \g$.
+  The \emph{current} associated to $x$ is
+  \[
+    J_x(z) = \sum_{n \in \Z} x[n] z^{-n - 1}
+    = J_x^+(z) - J_x^-(z),
+  \]
+  where $J_x^+(z) = \sum_{n < 0} x[n] z^{-n - 1}$
+  and $J_x^-(z) = -\sum_{n \ge 0} x[n] z^{-n - 1}$.
+\end{definition}
+
+\begin{remark}
+  Note that $J_x^-(z)$ is a well-defined operator
+  on a highest weight module $V$. Similarly, the
+  products $J_x^+(z) J_y^+(\zeta)$,
+  $J_x^-(z) J_y^-(\zeta)$, and
+  $J_x^+(z) J_y^-(\zeta)$ are well-defined as
+  operators on $\widehat{V}$. On the other hand,
+  $J_x^-(z) J_y^+(\zeta)$ is not always well-defined:
+  The components of $J_x^-(z) J_y^+(\zeta) u$ are of
+  the form
+  \[
+    -\sum_{j \ge j_0} z^{-j - 1} w^{-n + j - 1}
+    x[j] y[n - j] u. \tag{$**$}
+  \]
+  Nevertheless, $x[j] u = 0$ for $j$ sufficiently
+  large, and so
+  \[
+    x[j] y[n - j] u
+    = [x[j], y[n - j]] u
+    = ([x, y])[n] u + j \langle x, y \rangle \delta_{n, 0} k u.
+  \]
+  Thus, analytically, the convergence of the series
+  $(**)$ amounts to the convergence of
+  \[
+    \sum_{j \ge j_0} z^{-j - 1} \zeta^{-n + j - 1}
+    \quad \text{and} \quad
+    \sum_{j \ge j_0} j z^{-j - 1} \zeta^{-n + j - 1}.
+  \]
+  These converge for $|z| > |\zeta|$, so the
+  operator $J_x^-(z) J_y^+(\zeta)$ is well-defined
+  on $\widehat{V}$ in this region.
+\end{remark}
+
+\begin{theorem}
+  We have the following:
+  \begin{gather*}
+    [J^{\pm}_x(z), J_y^{\pm}(w)]
+    = \frac{1}{z - w} (J^{\pm}_{[x, y]}(z) - J^{\pm}_{[x, y]}(w)), \quad z \ne w; \\
+    [J_x^-(z), J_y^+(w)]
+    = \frac{1}{z - w} (J^-_{[x, y]}(z) - J^+_{[x, y]}(w))
+    - \frac{k \langle x, y \rangle}{(z - w)^2},
+    \quad |z| > |w|.
+  \end{gather*}
+\end{theorem}
+
+\begin{corollary}
+  We have the following:
+  \[
+    [J_x^{\pm}(z), J^{\pm}_y(z)]
+    = \frac{d}{dz} J^{\pm}_{[x, y]}(z).
+  \]
+\end{corollary}
+
+\begin{remark}
+  Let $L(z) = \sum_{n \in \Z} L_n z^{-n - 2}$.
+  Then the formulas $(*)$ from Section
+  \ref{sec:virasoro} can be rewritten as
+  \[
+    L(z) = \frac{1}{2(k + h^\vee)} \sum_{a \in B}
+    {:} J_a(z)^2 {:},
+  \]
+  where the normal ordered product is extended
+  $\C[z, z^{-1}]$-linearly.
+\end{remark}
